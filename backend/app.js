@@ -18,6 +18,7 @@ const Service_N_PackageRoutes = require("./routes/Service_N_PackageRoutes");
 const SocialLink_N_LogoRoutes = require("./routes/SocialLink_N_LogoRoutes");
 const AirAmbulanceRoutes = require("./routes/AirAmbulanceRoutes");
 const GalleryRoutes = require("./routes/GalleryRoutes");
+const path = require("path");
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "backend/config/config.env" });
 }
