@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  /* margin-top: 10px; */
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+.sidebar {
+  flex: 1;
+  height: calc(100vh - 50px);
+  background-color: rgb(251, 251, 255);
+  position: sticky;
+  top: 50px;
+  border-right: 1px solid lightgray;
+  margin-right: 20px;
+  overflow: scroll;
+}
+
+.sidebarWrapper {
+  padding: 20px;
+  color: #555;
+  overflow: scroll;
+}
+
+.sidebarMenu {
+  margin-bottom: 10px;
+}
+
+.sidebarTitle {
+  font-size: 13px;
+  color: rgb(187, 186, 186);
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 5px;
+}
+
+.sidebarListItem {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.sidebarListItem.active,
+.sidebarListItem:hover {
+  background-color: rgb(240, 240, 255);
+}
+
+.sidebarIcon {
+  margin-right: 5px;
+  font-size: 20px !important;
+}
+
+
+.sbutton{
+  cursor: pointer;
+  padding-left: 10px;
+}
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  margin-top: -16px;
+  font-size: 1rem;
+  line-height: 1.4375em;
+  letter-spacing: 0.00938em;
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  border-radius: 4px;
+}
+
+.sliderbutton{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}

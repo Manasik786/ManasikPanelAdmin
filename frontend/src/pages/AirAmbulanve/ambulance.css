@@ -1,0 +1,23 @@
+.textarea{
+    min-height: 300px;
+}
+.ql-container.ql-snow {
+    height: 210px;
+}
+.contentbox{
+    width: 80%;
+    margin-top: 20px;
+
+}
+.contentbox input{
+    width: 80%;
+}
+input[type="text"] {
+    width: 99%;
+    height: 40px;
+}
+.airambulancediv{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
