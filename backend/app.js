@@ -46,6 +46,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 });
 
-app.use(errorMiddleware);
 
+
+app.use(errorMiddleware);
+//middleware for messages and shifts of env
 module.exports = app;
