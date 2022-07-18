@@ -23,6 +23,7 @@ export default function UserList() {
     const { data } = await axios.get('/api/v1/CardItems');
     console.log(data.data[0]._id)
     for (let i = 0; i < data.data.length; i++) {
+      console.log(data.data[i])
       if (id == data.data[i]._id) {
         console.log(data.data[i])
         localStorage.setItem("D", JSON.stringify(data.data[i]))
@@ -35,15 +36,24 @@ export default function UserList() {
   const [data, setData] = useState([]);
   const getdata = async () => {
     const { data } = await axios.get('/api/v1/CardItems');
-    setData(data.data);
-    console.log(data.data.length);
+    let abcd = [];
+    for (let i = 0; i < data.data.length; i++) {
+
+      if ((data.data[i].CardType) == 'service') {
+        abcd.unshift(data.data[i])
+
+      }
+    }
+
+    setData(abcd);
+
   };
   useEffect(() => {
 
     getdata();
   }, []);
   const handleDelete = async _id => {
-    // const config = { headers: { "Content-Type": "multipart/form-data"} };
+
 
     const { data } = await axios.delete(`/api/v1/CardItems/${_id}`, {
       params: { id: _id },
@@ -102,8 +112,8 @@ export default function UserList() {
               className="productListEdit"
               onClick={() => EditService(params.row._id)}
             >
-              
-            < Link to="/editservice" style={Stylings}>edit</Link>
+
+              < Link to="/editservice" style={Stylings}>edit</Link>
             </button >
 
             <DeleteOutline
@@ -139,7 +149,7 @@ export default function UserList() {
         disableSelectionOnClick
         columns={columns}
         getRowId={row => row._id}
-        pageSize={8}
+        pageSize={15}
         checkboxSelection
       />
     </div>

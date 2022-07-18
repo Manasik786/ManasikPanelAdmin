@@ -30,7 +30,7 @@ export default function ServicesAddition() {
 
         console.log(myForm)
         await setData({
-            CardType: "S",
+            CardType: "service",
             CardTitle: CardTitle,
             CardDescriptions: CardDescriptions,
             images: images
