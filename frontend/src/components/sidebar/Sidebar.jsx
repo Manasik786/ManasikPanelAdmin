@@ -1,11 +1,6 @@
 import './sidebar.css';
 import { LineStyle } from '@material-ui/icons';
-import bikeImg from '../../assets/bike.svg';
-import updateImg from '../../assets/update.svg';
-import helmetImg from '../../assets/helmet.svg';
-import verifyImg from '../../assets/verify.svg';
 import historyIcon from '../../assets/history.svg';
-import moneyIcon from '../../assets/money.svg';
 import { Link } from 'react-router-dom';
 import { positions } from '@mui/system';
 
