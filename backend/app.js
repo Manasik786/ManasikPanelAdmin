@@ -41,7 +41,7 @@ app.use("/api/v1", Service_N_PackageRoutes);
 app.use("/api/v1", SocialLink_N_LogoRoutes);
 app.use("/api/v1", AirAmbulanceRoutes);
 app.use("/api/v1", GalleryRoutes);
-app.use("api/v1", BookingRoutes)
+app.use("/api/v1", BookingRoutes)
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 app.get("*", (req, res) => {

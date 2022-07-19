@@ -1,7 +1,6 @@
 const mongoose = require("mongoose")
 const validator = require("validator")
 const BookingFormSchema = new mongoose.Schema({
-
     stayperiod: {
         type: String,
 
@@ -55,6 +54,7 @@ const BookingFormSchema = new mongoose.Schema({
     },
     Visitedbefore: {
         type: Boolean,
+        default: 1,
 
 
     },
