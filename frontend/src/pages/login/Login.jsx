@@ -91,7 +91,7 @@ export default function Login() {
         >
           <ToastContainer hideProgressBar />
           <div style={{ textAlign: "center" }}>
-            <h2>Manasik Aviation</h2>
+            <h2>Manasik Aviationssssssss</h2>
           </div>
           <Typography component="h1" variant="h5">
             Log In
