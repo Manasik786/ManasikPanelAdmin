@@ -18,6 +18,7 @@ const Service_N_PackageRoutes = require("./routes/Service_N_PackageRoutes");
 const SocialLink_N_LogoRoutes = require("./routes/SocialLink_N_LogoRoutes");
 const AirAmbulanceRoutes = require("./routes/AirAmbulanceRoutes");
 const GalleryRoutes = require("./routes/GalleryRoutes");
+const BookingRoutes = require("./routes/BookingFormroutes")
 const path = require("path");
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "backend/config/config.env" });
@@ -40,6 +41,7 @@ app.use("/api/v1", Service_N_PackageRoutes);
 app.use("/api/v1", SocialLink_N_LogoRoutes);
 app.use("/api/v1", AirAmbulanceRoutes);
 app.use("/api/v1", GalleryRoutes);
+app.use("api/v1", BookingRoutes)
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 app.get("*", (req, res) => {

@@ -24,5 +24,9 @@ const CareerInquirySchema = new mongoose.Schema({
         default: 1,
 
     },
+    Type: {
+        type: String,
+        required: [true, "Please Enter Type"]
+    }
 })
 module.exports = mongoose.model("CareerInquiry", CareerInquirySchema)
