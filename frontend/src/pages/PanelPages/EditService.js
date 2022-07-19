@@ -8,6 +8,10 @@ import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 export default function EditService() {
+    const Stylings = {
+        color: "white",
+        textDecoration: "none"
+    }
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
     const [CardDescriptions, setCardDescriptions] = useState("")
@@ -19,9 +23,9 @@ export default function EditService() {
         CardTitle: "",
         CardDescriptions: "",
         images: [{
-            _id: "62d52e7e23b2fa38448f747d",
-            public_id: "AviationsFolder/pw42cvnnasyk7nm85tul",
-            url: "https://res.cloudinary.com/dag7tgw83/image/upload/v1658138238/AviationsFolder/pw42cvnnasyk7nm85tul.png"
+            _id: "",
+            public_id: "",
+            url: ""
         }]
 
     })
@@ -101,7 +105,7 @@ export default function EditService() {
         } catch (err) {
             console.log(err.data)
         }
-       await Submission(myForm)
+        await Submission(myForm)
     };
     const Submission = async (data) => {
         try {
@@ -116,6 +120,7 @@ export default function EditService() {
         } catch (err) {
             console.log(err.data)
         }
+        localStorage.clear()
 
     }
     const createServiceImagesChange = (e) => {
@@ -173,7 +178,7 @@ export default function EditService() {
                         onClick={createProductSubmitHandler}
                         variant="contained"
 
-                    > Submit
+                    > < Link to="/services" style={Stylings}>Submit</Link>
                     </Button>
                 </Grid>
 

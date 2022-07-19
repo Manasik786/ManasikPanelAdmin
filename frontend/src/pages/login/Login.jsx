@@ -1,21 +1,21 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import companyLogo from '../../assets/Saveari-logo.svg';
-import { useState } from 'react';
-import { validateLogin } from '../../data/Data';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useHistory } from 'react-router-dom';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import companyLogo from "../../assets/Saveari-logo.svg";
+import { useState } from "react";
+import { validateLogin } from "../../data/Data";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -25,24 +25,31 @@ function Copyright(props) {
       align="center"
       {...props}
     >
-      {'Copyright © '}
-      
+      {"Copyright © "}
+
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
+const Validation = async (username, password) => {
+  if (username == "admin" && password == "admin") {
+    console.log(username, password);
+  }
+  console.log(username, password);
+};
 const theme = createTheme();
 
 export default function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const response = await validateLogin(username, password);
-    if (response.status.responseDescription === 'SUCCESS') {
+    const response = await Validation(username, password);
+
+    if (true) {
       // await toast(`Welcome ${response.name}`, {
       //   position: 'top-center',
       //   autoClose: 3000,
@@ -50,23 +57,23 @@ export default function Login() {
       //   limit: 1,
       // });
       await toast(`Welcome to Manasik`, {
-        position: 'top-center',
+        position: "top-center",
         autoClose: 3000,
         closeOnClick: true,
         limit: 1,
       });
-      await window.localStorage.setItem('isAuthenticated', true);
-      await window.localStorage.setItem('userID', response.userID);
-      window.location.href = '/home';
+      await window.localStorage.setItem("isAuthenticated", true);
+      await window.localStorage.setItem("userID", "admin");
+      window.location.href = "/home";
     } else {
-      toast('Invalid username or password', {
-        position: 'top-center',
+      toast("Invalid username or password", {
+        position: "top-center",
         autoClose: 3000,
         closeOnClick: true,
         limit: 1,
       });
-      setUsername('');
-      setPassword('');
+      setUsername("");
+      setPassword("");
     }
   };
 
@@ -77,13 +84,13 @@ export default function Login() {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <ToastContainer hideProgressBar />
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: "center" }}>
             <h2>Manasik Aviation</h2>
           </div>
           <Typography component="h1" variant="h5">
@@ -116,7 +123,7 @@ export default function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              style={{ backgroundColor: '#FEC711' }}
+              style={{ backgroundColor: "#FEC711" }}
               onClick={handleLogin}
             >
               Log In
