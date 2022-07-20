@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import ReactQuill from 'react-quill';
 import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom"
 export default function ServicesAddition() {
+    const ref = useRef(null);
+    let history = useHistory()
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
     const [CardDescriptions, setCardDescriptions] = useState("")
@@ -15,38 +15,58 @@ export default function ServicesAddition() {
     const [CardTitle, setCardTitle] = useState("")
 
     const [data, setData] = useState({
-        CardType: "",
-        CardTitle: "",
-        CardDescriptions: "",
+        CardType: "service",
+        CardTitle: CardTitle,
+        CardDescriptions: CardDescriptions,
         images: []
 
     })
+
+         useEffect(() => {
+        console.log(data)
+      }, [data]);
     const createProductSubmitHandler = async (e) => {
         e.preventDefault();
         setCardType("Services")
+        setCardDescriptions(CardDescriptions)
+        setCardTitle(CardTitle)
         const myForm = new FormData();
         myForm.set("CardDescriptions", CardDescriptions)
         myForm.set("CardType", "services")
 
         console.log(myForm)
-        await setData({
-            CardType: "service",
-            CardTitle: CardTitle,
-            CardDescriptions: CardDescriptions,
-            images: images
-        })
-        console.log(data)
-        try {
-            const config = {
-                headers: { "Content-Type": "application/json" },
-            };
-            const response = await axios.post(
-                `/api/v1/CreateCardList`, data, config
-            );
-            console.log(response)
 
-        } catch (err) {
-            console.log(err.data)
+
+        if (CardTitle == "" || CardDescriptions == "" || images == "") {
+            alert("please fill the form properly ")
+            setCardTitle("")
+            setCardDescriptions("")
+            setImages("")
+
+
+
+        } else {
+
+            await setData({
+                CardType: "service",
+                CardTitle: CardTitle,
+                CardDescriptions: CardDescriptions,
+                images: images
+            })
+            console.log(data, "dsad")
+            try {
+                const config = {
+                    headers: { "Content-Type": "application/json" },
+                };
+                const response = await axios.post(
+                    `/api/v1/CreateCardList`, (CardTitle, CardDescriptions, images), config
+                );
+                console.log(response)
+                history.replace("/services")
+
+            } catch (err) {
+                console.log(err.data)
+            }
         }
 
     };
@@ -73,7 +93,6 @@ export default function ServicesAddition() {
         <div className="productList">
 
 
-
             <Typography
                 variant="h5"
                 className="productListTitle"
@@ -84,9 +103,9 @@ export default function ServicesAddition() {
 
             <div className="contentbox">
                 <h5>Service Title</h5>
-                <input type="text" placeholder='CardTitle' onChange={(e) => setCardTitle(e.target.value)} />
+                <input type="text" placeholder='CardTitle' value={CardTitle} onChange={(e) => setCardTitle(e.target.value)} />
                 <h5>Service images</h5>
-                <input type='text' placeholder="image" name="images" onChange={(e) => setImages(e.target.value)} />
+                <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} />
 
 
                 <h5>Service Description</h5>
@@ -98,6 +117,7 @@ export default function ServicesAddition() {
             <div className='sliderbutton'>
                 <Grid item xs={6} sm={6}>
                     <Button
+                        ref={ref}
                         style={{
                             backgroundColor: "#ffba02",
                             color: "black",

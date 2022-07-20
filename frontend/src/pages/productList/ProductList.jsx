@@ -177,7 +177,8 @@ export default function ProductList() {
         style={{ height: '440px' }}
         rows={data}
         columns={columns}
-        pageSize={8}
+        pageSize={8} 
+        rowsPerPageOptions={[8]}
         loading={showLoading}
         components={{
           NoRowsOverlay: noRowsOverlay,

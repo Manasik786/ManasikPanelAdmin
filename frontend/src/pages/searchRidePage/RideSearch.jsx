@@ -150,6 +150,7 @@ console.log("Data is",searchRide)
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
+         rowsPerPageOptions={[15]}
         loading={showLoading}
         components={{
           Toolbar: GridToolbar,

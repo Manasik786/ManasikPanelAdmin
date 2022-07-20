@@ -1,19 +1,11 @@
 // import "./userList.css";
-import { DataGrid, GridToolbar } from "@material-ui/data-grid";
+import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-
-import {
-  fetchAllRiders,
-  fetchAllVehicles,
-  fetchRiderStatus,
-  Slider
-} from "../../data/Data";
-import { Link } from 'react-router-dom';
-import { Redirect, Route } from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom';
 export default function UserList() {
+  let history = useHistory();
   const Stylings = {
     color: "white",
     textDecoration: "none"
@@ -26,10 +18,13 @@ export default function UserList() {
       console.log(data.data[i])
       if (id == data.data[i]._id) {
         console.log(data.data[i])
-        localStorage.setItem("D", JSON.stringify(data.data[i]))
+        await localStorage.setItem("D", JSON.stringify(data.data[i]))
 
 
       }
+
+      history.push("/editservice")
+
 
     }
   }
@@ -113,7 +108,7 @@ export default function UserList() {
               onClick={() => EditService(params.row._id)}
             >
 
-              < Link to="/editservice" style={Stylings}>edit</Link>
+              edit
             </button >
 
             <DeleteOutline
@@ -147,6 +142,7 @@ export default function UserList() {
       <DataGrid
         rows={data}
         disableSelectionOnClick
+        rowsPerPageOptions={[15]}
         columns={columns}
         getRowId={row => row._id}
         pageSize={15}

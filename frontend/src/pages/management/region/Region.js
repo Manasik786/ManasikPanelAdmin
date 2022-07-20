@@ -106,7 +106,8 @@ export default function Region() {
         rows={regions}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={8} 
+        rowsPerPageOptions={[8]}
         loading={showLoading}
         components={{
           Toolbar: GridToolbar,

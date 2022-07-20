@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import ReactQuill from 'react-quill';
 import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import 'react-quill/dist/quill.snow.css';
@@ -163,7 +161,7 @@ export default function EditService() {
 
 
                 <h5>Service Description</h5>
-                <textarea rows="10" cols="218" name="CardDescriptions" placeholder={preditdata.CardDescriptions} style={{ "resize": "none" }} value={CardDescriptions} onChange={(e) => setCardDescriptions(e.target.value)} />
+                <textarea rows="10" cols="218" name="CardDescriptions" placeholder={preditdata.CardDescriptions} style={{ "resize": "none" }} onChange={(e) => setCardDescriptions(e.target.value)} />
             </div>
 
             <div className='sliderbutton'>

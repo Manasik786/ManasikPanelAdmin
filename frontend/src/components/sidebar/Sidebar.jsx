@@ -1,12 +1,17 @@
-import './sidebar.css';
-import { LineStyle } from '@material-ui/icons';
-import historyIcon from '../../assets/history.svg';
-import { Link } from 'react-router-dom';
-import { positions } from '@mui/system';
+import "./sidebar.css";
+import { LineStyle } from "@material-ui/icons";
+import delievery from "../../assets/delivery-package-svgrepo-com.svg";
+// import airplane from "../../assets/airplane-svgrepo-com.svg"
+import category from "../../assets/category.svg";
+import services from "../../assets/service-svgrepo-com.svg";
+import applicants from "../../assets/users-svgrepo-com.svg";
+import social from "../../assets/social-media-svgrepo-com.svg";
+import pages from "../../assets/pages-svgrepo-com.svg";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
-    <div style={{ maxWidth: '220px', minWidth: '220px' }} className="sidebar">
+    <div style={{ maxWidth: "220px", minWidth: "220px" }} className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
@@ -26,7 +31,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={historyIcon}
+                  src={pages}
                   width="20"
                   height="20"
                   alt=""
@@ -34,30 +39,6 @@ export default function Sidebar() {
                 Pages
               </li>
             </Link>
-            {/* <Link to="/ridersVerification" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={verifyImg}
-                  width="20"
-                  height="20"
-                  alt=""
-                />
-                Pending Verification
-              </li>
-            </Link>
-            <Link to="/ridersStatus" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={updateImg}
-                  width="20"
-                  height="20"
-                  alt=""
-                />
-                Update Status
-              </li>
-            </Link> */}
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -67,7 +48,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={historyIcon}
+                  src={applicants}
                   width="20"
                   height="20"
                   alt=""
@@ -100,35 +81,35 @@ export default function Sidebar() {
               </li>
             </Link> */}
           </ul>
-          </div>
-          <div className="sidebarMenu">
-            <h3 className="sidebarTitle">Packages</h3>
-            <ul className="sidebarList">
-              <Link to="/managecategories" className="link">
-                <li className="sidebarListItem">
-                  <img
-                    className="sidebarIcon"
-                    src={historyIcon}
-                    width="20"
-                    height="20"
-                    alt=""
-                  />
-                  Manage Categories
-                </li>
-              </Link>
-              <Link to="/managepackage" className="link">
-                <li className="sidebarListItem">
-                  <img
-                    className="sidebarIcon"
-                    src={historyIcon}
-                    width="18"
-                    height="18"
-                    alt=""
-                  />
-                  Manage Packages
-                </li>
-              </Link>
-              {/* <Link to="/fare/history" className="link">
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Packages</h3>
+          <ul className="sidebarList">
+            <Link to="/managecategories" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={category}
+                  width="20"
+                  height="20"
+                  alt=""
+                />
+                Manage Categories
+              </li>
+            </Link>
+            <Link to="/managepackage" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={delievery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Manage Packages
+              </li>
+            </Link>
+            {/* <Link to="/fare/history" className="link">
                 <li className="sidebarListItem">
                   <img
                     className="sidebarIcon"
@@ -140,25 +121,25 @@ export default function Sidebar() {
                   Fare Percentage
                 </li>
               </Link> */}
-            </ul>
-          </div>
-          <div className="sidebarMenu">
+          </ul>
+        </div>
+        <div className="sidebarMenu">
           <h3 className="sidebarTitle">Services</h3>
 
-            <ul className="sidebarList">
+          <ul className="sidebarList">
             <Link to="/services" className="link">
-                <li className="sidebarListItem">
-                  <img
-                    className="sidebarIcon"
-                    src={historyIcon}
-                    width="18"
-                    height="18"
-                    alt=""
-                  />
-                  Services
-                </li>
-              </Link>
-              {/* <Link to="/viewRides" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={services}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Services
+              </li>
+            </Link>
+            {/* <Link to="/viewRides" className="link">
                 <li className="sidebarListItem">
                   <img
                     className="sidebarIcon"
@@ -182,11 +163,11 @@ export default function Sidebar() {
                   Ride Details
                 </li>
               </Link> */}
-            </ul>
-          </div>
+          </ul>
+        </div>
 
-          {/* New Management  */}
-          {/* <div className="sidebarMenu">
+        {/* New Management  */}
+        {/* <div className="sidebarMenu">
             <h3 className="sidebarTitle">About</h3>
             <ul className="sidebarList">
               <Link to="/company" className="link">
@@ -264,7 +245,7 @@ export default function Sidebar() {
             </ul>
           </div> */}
 
-{/* 
+        {/* 
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Aviation</h3>
             <ul className="sidebarList">
@@ -307,7 +288,7 @@ export default function Sidebar() {
              
             </ul>
           </div> */}
-          {/* <div className="sidebarMenu">
+        {/* <div className="sidebarMenu">
           <h3 className="sidebarTitle">Hotel</h3>
           <ul className="sidebarList">
             <Link to="/hotel" className="link">
@@ -343,7 +324,7 @@ export default function Sidebar() {
             
           </ul>
         </div> */}
-        
+
         <div className="sidebarMenu">
           <h3 className="sidebarTitle"> Links</h3>
           <ul className="sidebarList">
@@ -351,7 +332,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={historyIcon}
+                  src={social}
                   width="20"
                   height="20"
                   alt=""
@@ -359,7 +340,6 @@ export default function Sidebar() {
                 Social Links
               </li>
             </Link>
-            
           </ul>
         </div>
       </div>

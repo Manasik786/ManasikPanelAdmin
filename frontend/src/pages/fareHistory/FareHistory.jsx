@@ -1,11 +1,11 @@
-import './fareHistory.css';
-import { DataGrid, GridToolbar } from '@material-ui/data-grid';
-import { useHistory } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { fetchFareHistory } from '../../data/Data';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import Swal from 'sweetalert2';
+import "./fareHistory.css";
+import { DataGrid, GridToolbar } from "@material-ui/data-grid";
+import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { fetchFareHistory } from "../../data/Data";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import Swal from "sweetalert2";
 
 export default function FareHistory() {
   const history = useHistory();
@@ -28,12 +28,12 @@ export default function FareHistory() {
               effectiveFrom: new Date(item.effectiveFrom).toLocaleDateString(),
               effectiveEnd: new Date(item.effectiveEnd).toLocaleDateString(),
             };
-          }),
+          })
         );
         setShowLoading(false);
       } catch (e) {
         console.log(e);
-        Swal.fire('Error!', 'There was some issue fetching the data', 'error');
+        Swal.fire("Error!", "There was some issue fetching the data", "error");
       }
     })();
   }, []);
@@ -44,23 +44,23 @@ export default function FareHistory() {
 
   const columns = [
     {
-      field: 'isActive',
-      headerName: 'Active',
+      field: "isActive",
+      headerName: "Active",
       width: 150,
       // renderCell: (params) => {
       //   console.log(params);
       //   return <div>{params.row.name}</div>;
       // },
     },
-    { field: 'perKMs', headerName: 'PerKMs', width: 150 },
+    { field: "perKMs", headerName: "PerKMs", width: 150 },
     {
-      field: 'perMin',
-      headerName: 'PerMin',
+      field: "perMin",
+      headerName: "PerMin",
       width: 120,
     },
-    { field: 'baseFare', headerName: 'Base Fare', width: 200 },
-    { field: 'effectiveFrom', headerName: 'Effective From', width: 200 },
-    { field: 'effectiveEnd', headerName: 'Effective End', width: 200 },
+    { field: "baseFare", headerName: "Base Fare", width: 200 },
+    { field: "effectiveFrom", headerName: "Effective From", width: 200 },
+    { field: "effectiveEnd", headerName: "Effective End", width: 200 },
   ];
 
   return (
@@ -68,17 +68,18 @@ export default function FareHistory() {
       <Typography
         variant="h5"
         className="productListTitle"
-        style={{ color: '#ffba02', marginTop: '15px' }}
+        style={{ color: "#ffba02", marginTop: "15px" }}
       >
         Manage Packages
       </Typography>
-      <Divider style={{ marginBottom: '15px' }} />
+      <Divider style={{ marginBottom: "15px" }} />
       <DataGrid
-        style={{ height: '500px' }}
+        style={{ height: "500px" }}
         rows={data}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
+        rowsPerPageOptions={[15]}
         loading={showLoading}
         components={{
           Toolbar: GridToolbar,

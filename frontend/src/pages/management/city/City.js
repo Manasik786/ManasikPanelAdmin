@@ -23,10 +23,10 @@ export default function Region() {
           data.cities.map((item) => ({
             ...item,
             id: item.id,
-            City:item.city_EN,
-            Urdu_City:item.city_UR,
-            isActive:item.isActive,
-            country:item.country
+            City: item.city_EN,
+            Urdu_City: item.city_UR,
+            isActive: item.isActive,
+            country: item.country
           })),
         );
 
@@ -44,10 +44,10 @@ export default function Region() {
 
   const columns = [
     {
-      field: 'id',   
+      field: 'id',
       width: 100,
     },
-  
+
     {
       field: 'City',
       headerName: 'Cities(EN)',
@@ -69,7 +69,7 @@ export default function Region() {
       width: 220,
     },
 
-   
+
     // {
     //   field: 'action',
     //   headerName: 'Action',
@@ -116,7 +116,8 @@ export default function Region() {
         rows={regions}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={8} 
+        rowsPerPageOptions={[8]}
         loading={showLoading}
         components={{
           Toolbar: GridToolbar,

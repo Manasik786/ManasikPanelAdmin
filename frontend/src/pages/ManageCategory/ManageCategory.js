@@ -1,20 +1,7 @@
 import "./managecategory.css";
-import { DataGrid, GridToolbar } from "@material-ui/data-grid";
-import { Grid } from "@mui/material";
-import { useHistory } from "react-router-dom";
-import { Dropdown } from "../../components/Dropdown/Dropdown";
+import { DataGrid } from "@material-ui/data-grid";
 import { useEffect, useState } from "react";
 import { DeleteOutline } from "@material-ui/icons";
-import {
-  fetchAllRiders,
-  fetchAllVehicles,
-  fetchRiderStatus,
-} from "../../data/Data";
-import { Link } from 'react-router-dom'
-import { Button } from "@material-ui/core";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import Swal from "sweetalert2";
 import axios from "axios"
 
 export default function UserList() {
@@ -123,6 +110,7 @@ export default function UserList() {
     <div className="productList">
       <DataGrid
         rows={data}
+        rowsPerPageOptions={[8]}
         disableSelectionOnClick
         columns={columns}
         getRowId={row => row._id}

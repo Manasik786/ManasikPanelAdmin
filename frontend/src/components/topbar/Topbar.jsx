@@ -1,9 +1,6 @@
 import React from 'react';
 import './topbar.css';
-import companyLogo from '../../assets/Saveari-logo.svg';
-import { useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { NotificationsNone, Language, Settings } from '@material-ui/icons';
+
 
 export default function Topbar() {
   return (

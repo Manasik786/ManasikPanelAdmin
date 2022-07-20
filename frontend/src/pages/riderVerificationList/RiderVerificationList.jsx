@@ -120,6 +120,7 @@ export default function RiderVerificationList() {
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
+         rowsPerPageOptions={[15]}
         loading={showLoading}
         components={{
           Toolbar: GridToolbar,

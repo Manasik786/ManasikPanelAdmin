@@ -1,6 +1,5 @@
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -110,7 +109,8 @@ export default function ProductList() {
         disableSelectionOnClick
         columns={columns}
         getRowId={(row) => row._id}
-        pageSize={8}
+        pageSize={8} 
+        rowsPerPageOptions={[8]}
         checkboxSelection
       />
     </div>

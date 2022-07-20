@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import ReactQuill from 'react-quill';
 import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import 'react-quill/dist/quill.snow.css';
