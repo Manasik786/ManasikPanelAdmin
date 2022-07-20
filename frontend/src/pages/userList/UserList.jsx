@@ -1,23 +1,42 @@
-import './userList.css';
-import { DataGrid } from '@material-ui/data-grid';
-import { DeleteOutline } from '@material-ui/icons';
-import { productRows } from '../../dummyData';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import "./userList.css";
+import { DataGrid } from "@material-ui/data-grid";
+import { DeleteOutline } from "@material-ui/icons";
+import { productRows } from "../../dummyData";
+import { Link, useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ProductList() {
+  let history = useHistory();
+  const Stylings = {
+    color: "white",
+    textDecoration: "none",
+  };
   const [data, setData] = useState([]);
   const getdata = async () => {
-    const { data } = await axios.get('/api/v1/applicants');
+    const { data } = await axios.get("/api/v1/applicants");
 
     setData(data.data);
-    console.log(data.data, 'aB');
+    console.log(data.data, "aB");
+  };
+  const Editapplicants = async (id) => {
+    const { data } = await axios.get("/api/v1/applicants");
+    console.log(data.data[0]._id);
+    for (let i = 0; i < data.data.length; i++) {
+      console.log(data.data[i]);
+      if (id == data.data[i]._id) {
+        console.log(data.data[i]);
+      await  window.localStorage.setItem("applicants", JSON.stringify(data.data[i]));
+      history.replace("/statusupdate");
+    }
+
+     
+    }
   };
   useEffect(() => {
     getdata();
   }, []);
-  const handleDelete = async _id => {
+  const handleDelete = async (_id) => {
     // const config = { headers: { "Content-Type": "multipart/form-data"} };
 
     const { data } = await axios.delete(`/api/v1/applicants/${_id}`, {
@@ -29,27 +48,27 @@ export default function ProductList() {
 
   const columns = [
     {
-      field: 'id',
-      headerName: 'id',
+      field: "status",
+      headerName: "status",
       width: 120,
-      renderCell: params => {
-        return <div className="productListItem">{params.row._id}</div>;
+      renderCell: (params) => {
+        return <div className="productListItem">{params.row.Status}</div>;
       },
     },
 
     {
-      field: 'Position',
-      headerName: 'Position',
+      field: "Position",
+      headerName: "Position",
       width: 180,
-      renderCell: params => {
+      renderCell: (params) => {
         return <div className="productListItem">{params.row.Position}</div>;
       },
     },
     {
-      field: 'Photo',
-      headerName: 'Photo',
+      field: "Photo",
+      headerName: "Photo",
       width: 150,
-      renderCell: params => {
+      renderCell: (params) => {
         return (
           <div className="productListItem">
             <img
@@ -62,50 +81,50 @@ export default function ProductList() {
       },
     },
     {
-      field: 'Name',
-      headerName: 'Name',
+      field: "Name",
+      headerName: "Name",
       width: 200,
-      renderCell: params => {
+      renderCell: (params) => {
         return <div className="productListItem">{params.row.Name}</div>;
       },
     },
     {
-      field: 'Phone',
-      headerName: 'Phone',
+      field: "Phone",
+      headerName: "Phone",
       width: 200,
-      renderCell: params => {
+      renderCell: (params) => {
         return <div className="productListItem">{params.row.Phone}</div>;
       },
     },
     {
-      field: 'Email',
-      headerName: 'Email',
+      field: "Email",
+      headerName: "Email",
       width: 150,
-      renderCell: params => {
+      renderCell: (params) => {
         return <div className="productListItem">{params.row.Email}</div>;
       },
     },
     {
-      field: 'Gender',
-      headerName: 'Gender',
+      field: "Gender",
+      headerName: "Gender",
       width: 150,
-      renderCell: params => {
+      renderCell: (params) => {
         return <div className="productListItem">{params.row.Gender}</div>;
       },
     },
     {
-      field: 'Nationality',
-      headerName: 'Nationality',
+      field: "Nationality",
+      headerName: "Nationality",
       width: 160,
-      renderCell: params => {
+      renderCell: (params) => {
         return <div className="productListItem">{params.row.Nationality}</div>;
       },
     },
     {
-      field: 'Cv',
-      headerName: 'CV',
+      field: "Cv",
+      headerName: "CV",
       width: 100,
-      renderCell: params => {
+      renderCell: (params) => {
         return (
           <div className="productListItem">{params.row.Cv[0].public_id}</div>
         );
@@ -113,21 +132,18 @@ export default function ProductList() {
     },
 
     {
-      field: 'Action',
-      headerName: 'Action',
-      width: 190,
-      renderCell: params => {
+      field: "Action",
+      headerName: "Action",
+      width: 115,
+      renderCell: (params) => {
         return (
           <>
             <button
-              disabled={false}
               className="productListEdit"
-              onClick={() => {
-                window.localStorage.setItem('id', '/riders');
-              }}
+              onClick={()=>Editapplicants(params.row._id)}
             >
-              View
-            </button>
+                Update
+              </button>
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}
@@ -144,8 +160,8 @@ export default function ProductList() {
         rows={data}
         disableSelectionOnClick
         columns={columns}
-        getRowId={row => row._id}
-        pageSize={8} 
+        getRowId={(row) => row._id}
+        pageSize={8}
         rowsPerPageOptions={[8]}
         checkboxSelection
       />

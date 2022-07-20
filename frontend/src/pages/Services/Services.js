@@ -18,7 +18,7 @@ export default function UserList() {
       console.log(data.data[i])
       if (id == data.data[i]._id) {
         console.log(data.data[i])
-        await localStorage.setItem("D", JSON.stringify(data.data[i]))
+        await window.localStorage.setItem("D", JSON.stringify(data.data[i]))
 
 
       }

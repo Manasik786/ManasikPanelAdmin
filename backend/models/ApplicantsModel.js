@@ -63,6 +63,10 @@ const Applicants = new mongoose.Schema({
     type: Boolean,
     default: 1,
 
+  },
+  Status: {
+    type: String,
+    default: "Pending"
   }
 
 })

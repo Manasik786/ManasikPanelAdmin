@@ -50,7 +50,7 @@ export default function Sidebar() {
                   className="sidebarIcon"
                   src={applicants}
                   width="20"
-                  height="20"
+                  height="20" 
                   alt=""
                 />
                 Manage Applicants

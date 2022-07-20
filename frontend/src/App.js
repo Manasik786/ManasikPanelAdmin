@@ -31,6 +31,7 @@ import AllSlider from './pages/Slide/AllSlider'
 import Packages from './pages/PackageInquery/PackageInquery'
 import ServiceAdd from "./pages/PanelPages/ServicesAdd"
 import EditService from './pages/PanelPages/EditService';
+import Editapplicantstatus from './pages/PanelPages/EditStatus';
 function App() {
   useEffect(() => {
     document.title = 'Manasik Admin Portal';
@@ -217,6 +218,17 @@ function App() {
           />
           <Route
             exact
+            path="/statusupdate"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <Editapplicantstatus />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            exact
             path="/privacy"
             render={() =>
               window.localStorage.getItem('isAuthenticated') ? (
@@ -264,7 +276,7 @@ function App() {
             path="/editservice"
             render={() =>
               window.localStorage.getItem('isAuthenticated') ? (
-             <EditService/>
+                <EditService />
               ) : (
                 (window.location.href = '/')
               )
