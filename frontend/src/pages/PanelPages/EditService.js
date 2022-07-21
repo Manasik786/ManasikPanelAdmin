@@ -34,6 +34,7 @@ export default function EditService() {
             ...data,
             [event.target.name]: event.target.value
         });
+        console.log(data)
 
     }
     const handleSubmit = async (event) => {
@@ -53,7 +54,7 @@ export default function EditService() {
                 headers: { "Content-Type": "application/json" },
             };
             const response = await axios.put(
-                `/api/v1/CardItems/${preditdata._id}`, data, config
+                `/api/v1/CardItems/${preditdata._id}`, loginFormData, config
             );
             console.log(response)
             history.push("/services")

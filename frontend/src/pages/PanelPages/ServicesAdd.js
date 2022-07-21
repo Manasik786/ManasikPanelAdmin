@@ -10,6 +10,7 @@ export default function ServicesAddition() {
     let history = useHistory()
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
+    const [oldImages, setOldImages] = useState([]);
     const [CardDescriptions, setCardDescriptions] = useState("")
     const [CardType, setCardType] = useState("")
     const [CardTitle, setCardTitle] = useState("")
@@ -21,53 +22,51 @@ export default function ServicesAddition() {
         images: []
 
     })
-
-         useEffect(() => {
+    const handleChange = (event) => {
+        setData({
+            ...data,
+            [event.target.name]: event.target.value
+        });
         console.log(data)
-      }, [data]);
+
+    }
+    useEffect(() => {
+
+    }, []);
     const createProductSubmitHandler = async (e) => {
         e.preventDefault();
         setCardType("Services")
         setCardDescriptions(CardDescriptions)
         setCardTitle(CardTitle)
         const myForm = new FormData();
-        myForm.set("CardDescriptions", CardDescriptions)
-        myForm.set("CardType", "services")
+        myForm.append("CardDescriptions", data.CardDescriptions)
+        myForm.append("CardTitle", data.CardTitle)
+        myForm.append("CardType", "service")
+        myForm.append("images", data.images);
 
-        console.log(myForm)
-
-
-        if (CardTitle == "" || CardDescriptions == "" || images == "") {
-            alert("please fill the form properly ")
-            setCardTitle("")
-            setCardDescriptions("")
-            setImages("")
+        // images.forEach((image) => {
+        //     myForm.append("images", data.image);
+        // });
 
 
 
-        } else {
 
-            await setData({
-                CardType: "service",
-                CardTitle: CardTitle,
-                CardDescriptions: CardDescriptions,
-                images: images
-            })
-            console.log(data, "dsad")
-            try {
-                const config = {
-                    headers: { "Content-Type": "application/json" },
-                };
-                const response = await axios.post(
-                    `/api/v1/CreateCardList`, data, config
-                );
-                console.log(response)
-                history.replace("/services")
+        
+        console.log(data, "dsad")
+        try {
+            // const config = {
+            //     headers: { "Content-Type": "application/json" },
+            // };
+            const response = await axios.post(
+                `/api/v1/CreateCardList`, myForm
+            );
+            console.log(response)
+            history.replace("/services")
 
-            } catch (err) {
-                console.log(err.data)
-            }
+        } catch (err) {
+            console.log(err.data)
         }
+
 
     };
     const createServiceImagesChange = (e) => {
@@ -75,6 +74,7 @@ export default function ServicesAddition() {
 
         setImages([]);
         setImagesPreview([]);
+        setOldImages([]);
 
         files.forEach((file) => {
             const reader = new FileReader();
@@ -85,7 +85,7 @@ export default function ServicesAddition() {
                     setImages((old) => [...old, reader.result]);
                 }
             };
-
+            console.log(file)
             reader.readAsDataURL(file);
         });
     };
@@ -103,13 +103,20 @@ export default function ServicesAddition() {
 
             <div className="contentbox">
                 <h5>Service Title</h5>
-                <input type="text" placeholder='CardTitle' value={CardTitle} onChange={(e) => setCardTitle(e.target.value)} />
+                <input type="text" name="CardTitle" value={data.CardTitle} onChange={handleChange} />
                 <h5>Service images</h5>
-                <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} />
+                {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
+                <input
+                    type="file"
+                    name="images"
+                    accept="image/*"
+                    onChange={createServiceImagesChange}
+                    multiple
+                />
 
 
                 <h5>Service Description</h5>
-                <textarea rows="10" cols="218" name="CardDescriptions" placeholder='write service description here' style={{ "resize": "none" }} value={CardDescriptions} onChange={(e) => setCardDescriptions(e.target.value)} />
+                <textarea rows="10" cols="218" name="CardDescriptions" value={data.CardDescriptions} placeholder='write service description here' style={{ "resize": "none" }} onChange={handleChange} />
 
 
             </div>
