@@ -20,10 +20,10 @@ export default function UserList() {
         console.log(data.data[i])
         await window.localStorage.setItem("D", JSON.stringify(data.data[i]))
 
+        history.push("/editservice")
 
       }
 
-      history.push("/editservice")
 
 
     }

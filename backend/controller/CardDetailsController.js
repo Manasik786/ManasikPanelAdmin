@@ -3,6 +3,8 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const cloudinary = require("cloudinary");
 const CardDetails = require("../models/CardDetails")
 const sendEmail = require("../utils/sendEmail")
+// const { Translate } = require('@google-cloud/translate');
+// const translate = require('google-translate-api');
 exports.CreateCardList = catchAsyncErrors(async (req, res, next) => {
     let images = [];
     const { CardDescriptions, CardType, flag } = req.body
@@ -12,7 +14,7 @@ exports.CreateCardList = catchAsyncErrors(async (req, res, next) => {
     } else {
         images = req.body.images;
     }
-    console.log(req.body,"as")
+    console.log(req.body, "as")
     // console.log(req.body.images, "ab")
 
     const imagesLinks = [];
@@ -97,6 +99,7 @@ exports.UpdateCardItems = catchAsyncErrors(async (req, res, next) => {
         runValidators: true,
         useFindAndModify: false,
     })
+    console.log(data)
     res.status(200).json({
         success: true,
         data,
@@ -126,3 +129,71 @@ exports.SendComplaintLead = catchAsyncErrors(async (req, res, next) => {
     }
 
 })
+exports.Arabicgetdata = catchAsyncErrors(async (req, res, next) => {
+    const data = await CardDetails.find();
+    // translate('Ik spreek Engels', { to: 'en' }).then(res => {
+    //     console.log(res.text);
+    //     //=> I speak English
+    //     console.log(res.from.language.iso);
+    //     //=> nl
+    // }).catch(err => {
+    //     console.error(err);
+    // });
+    await someFunction(data)
+    res.status(200).json({
+        success: true,
+        data,
+    })
+})
+async function someFunction(Requesteddata) {
+    // // Imports the Google Cloud client library
+    // const {Translate} = require('@google-cloud/translate');
+
+    // // Instantiates a client
+    // const translate = new Translate({projectId});
+
+    // // The text to translate
+    // const text = 'Hello, world!';
+
+    // // The target language
+    // const target = 'fr';
+
+    // // Translates some text into French
+    // const [translation] = await translate.translate(text, target);
+    // console.log(`Text: ${text}`);
+    // console.log(`Translation: ${translation}`);
+    // const axios = require("axios");
+
+    // const encodedParams = new URLSearchParams();
+    // encodedParams.append("q", Requesteddata);
+    // encodedParams.append("target", "ar");
+    // encodedParams.append("source", "en");
+
+    // const options = {
+    //     method: 'POST',
+    //     url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
+    //     headers: {
+    //         'content-type': 'application/x-www-form-urlencoded',
+    //         'Accept-Encoding': 'application/gzip',
+    //         'X-RapidAPI-Key': 'f313a34ec0msh6029aebdd8e7206p17ec91jsn0ed6d1a996a9',
+    //         'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+    //     },
+    //     data: encodedParams
+    // };
+
+    // axios.request(options).then(function (response) {
+    //     console.log(response.data);
+    //     console.log(response.data.data)
+    // }).catch(function (error) {
+    //     console.error(error);
+    // });
+    var translate = require('yandex-translate')(key);
+
+    translate.translate('You can burn my house, steal my car, drink my liquor from an old fruitjar.', { to: 'ru' }, function (err, res) {
+        console.log(res.text);
+    });
+
+    translate.detect('Граждане Российской Федерации имеют право собираться мирно без оружия, проводить собрания, митинги и демонстрации, шествия и пикетирование', function (err, res) {
+        // res.lang -> 'ru'
+    });
+}

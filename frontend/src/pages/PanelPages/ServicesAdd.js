@@ -59,7 +59,7 @@ export default function ServicesAddition() {
                     headers: { "Content-Type": "application/json" },
                 };
                 const response = await axios.post(
-                    `/api/v1/CreateCardList`, (CardTitle, CardDescriptions, images), config
+                    `/api/v1/CreateCardList`, data, config
                 );
                 console.log(response)
                 history.replace("/services")

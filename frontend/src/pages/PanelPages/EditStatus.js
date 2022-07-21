@@ -49,12 +49,11 @@ export default function Editapplicantstatus() {
         console.log(preditdata, "Abc")
     };
     useEffect(() => {
+        placeholderdata()
+        
 
-        placeholderdata()
-        placeholderdata()
-        placeholderdata()
 
-    }, );
+    });
     const handleChange = async (event) => {
         console.log(event.target.value)
 
