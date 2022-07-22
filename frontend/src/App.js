@@ -1,6 +1,9 @@
 import Sidebar from './components/sidebar/Sidebar';
 import Topbar from './components/topbar/Topbar';
 import './App.css';
+import Ambulance from "./pages/PanelPages/AirAmbulance"
+import EditAmbulance from './pages/PanelPages/EditAirAmbulance';
+import AmbulanceAddition from './pages/PanelPages/AddAirambulance';
 import Home from './pages/home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UserList from './pages/userList/UserList';
@@ -52,6 +55,35 @@ function App() {
           <Route exact path="/">
             <Login />
           </Route>
+          <Route
+            path="/addairambulanceservices"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <AmbulanceAddition />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          /><Route
+            path="/editairambulanceservices"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <EditAmbulance />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/airambulanceservices"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <Ambulance />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
           <Route
             path="/home"
             render={() =>

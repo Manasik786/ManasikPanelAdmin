@@ -5,7 +5,7 @@ const Applicants = require("../models/ApplicantsModel")
 const sendEmail = require("../utils/sendEmail")
 exports.CreateApplicantsList = catchAsyncErrors(async (req, res, next) => {
   let images = [];
-  const { Position, Name, Phone, Email, Gender, Nationality, Applied } = req.body
+  
 
   if (typeof req.body.images === "string") {
     images.push(req.body.images);

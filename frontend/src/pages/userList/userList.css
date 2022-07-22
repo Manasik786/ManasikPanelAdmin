@@ -32,3 +32,13 @@
   color: red;
   cursor: pointer;
 }
+.anchor{
+  color: white;
+  text-decoration: none;
+  background-color: #3bb077 !important;
+  padding: 0px 20px !important;
+  border-radius: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}

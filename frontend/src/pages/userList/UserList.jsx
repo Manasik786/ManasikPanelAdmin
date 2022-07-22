@@ -11,6 +11,9 @@ export default function ProductList() {
   const Stylings = {
     color: "white",
     textDecoration: "none",
+    backgroundColor:"green",
+    padding:"10px 20px",
+    borderRadius:"10px",
   };
   const [data, setData] = useState([]);
   const getdata = async () => {
@@ -26,11 +29,12 @@ export default function ProductList() {
       console.log(data.data[i]);
       if (id == data.data[i]._id) {
         console.log(data.data[i]);
-      await  window.localStorage.setItem("applicants", JSON.stringify(data.data[i]));
-      history.replace("/statusupdate");
-    }
-
-     
+        await window.localStorage.setItem(
+          "applicants",
+          JSON.stringify(data.data[i])
+        );
+        history.replace("/statusupdate");
+      }
     }
   };
   useEffect(() => {
@@ -127,8 +131,16 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <a href={params.row.Cv[0].url} download target="_blank">View Cv</a>
-            </div>
+            <a
+              href={params.row.Cv[0].url}
+              download
+              target="_blank"
+              style={Stylings}
+              className="anchor"
+            >
+              View CV
+            </a>
+          </div>
         );
       },
     },
@@ -142,10 +154,10 @@ export default function ProductList() {
           <>
             <button
               className="productListEdit"
-              onClick={()=>Editapplicants(params.row._id)}
+              onClick={() => Editapplicants(params.row._id)}
             >
-                Update
-              </button>
+              Update
+            </button>
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}

@@ -7,6 +7,8 @@ import services from "../../assets/service-svgrepo-com.svg";
 import applicants from "../../assets/users-svgrepo-com.svg";
 import social from "../../assets/social-media-svgrepo-com.svg";
 import pages from "../../assets/pages-svgrepo-com.svg";
+import airambulance from "../../assets/flying-ambulance-svgrepo-com.svg";
+import gallery from "../../assets/gallery-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -50,7 +52,7 @@ export default function Sidebar() {
                   className="sidebarIcon"
                   src={applicants}
                   width="20"
-                  height="20" 
+                  height="20"
                   alt=""
                 />
                 Manage Applicants
@@ -84,19 +86,7 @@ export default function Sidebar() {
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Packages</h3>
-          <ul className="sidebarList">
-            <Link to="/managecategories" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={category}
-                  width="20"
-                  height="20"
-                  alt=""
-                />
-                Manage Categories
-              </li>
-            </Link>
+          <ul className="sidebarList"> 
             <Link to="/managepackage" className="link">
               <li className="sidebarListItem">
                 <img
@@ -137,6 +127,30 @@ export default function Sidebar() {
                   alt=""
                 />
                 Services
+              </li>
+            </Link>
+            <Link to="/airambulanceservices" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={airambulance}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Air Ambulance
+              </li>
+            </Link>{" "}
+            <Link to="/galleryservices" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Gallery
               </li>
             </Link>
             {/* <Link to="/viewRides" className="link">
