@@ -14,7 +14,6 @@ exports.CreateApplicantsList = catchAsyncErrors(async (req, res, next) => {
   }
   console.log(req.body.images, "ab")
 
-  
   const imagesLinks = [];
   for (let i = 0; i < images.length; i++) {
     const result = await cloudinary.v2.uploader.upload(images[i], {
@@ -28,27 +27,27 @@ exports.CreateApplicantsList = catchAsyncErrors(async (req, res, next) => {
   }
 
   req.body.images = imagesLinks
-  let Cv = [];
+  let Cv = " ";
 
 
-  if (typeof req.body.Cv === "string") {
-    Cv.push(req.body.Cv);
-  } else {
+ 
+   
+
     Cv = req.body.Cv;
-  }
+  
   console.log(req.body.Cv, "ab")
 
   const CvLinks = [];
-  for (let i = 0; i < Cv.length; i++) {
-    const result = await cloudinary.v2.uploader.upload(Cv[i], {
+  
+    const cvs = await cloudinary.v2.uploader.upload(Cv, {
       folder: "AviationsFolder",
     });
-    console.log(result);
+    console.log(cvs);
     CvLinks.push({
-      public_id: result.public_id,
-      url: result.secure_url,
+      public_id: cvs.public_id,
+      url: cvs.secure_url,
     });
-  }
+  
 
   req.body.Cv = CvLinks
   Cv = req.body.Cv

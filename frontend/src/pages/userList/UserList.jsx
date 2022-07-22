@@ -126,7 +126,9 @@ export default function ProductList() {
       width: 100,
       renderCell: (params) => {
         return (
-          <div className="productListItem">{params.row.Cv[0].public_id}</div>
+          <div className="productListItem">
+            <a href={params.row.Cv[0].url} download target="_blank">View Cv</a>
+            </div>
         );
       },
     },
