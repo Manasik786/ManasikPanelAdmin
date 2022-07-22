@@ -54,7 +54,7 @@ const AircraftServiceModel = new mongoose.Schema({
 
 
     },
-     TransportationService: {
+    TransportationService: {
         type: Boolean,
         default: 1,
 
@@ -69,7 +69,12 @@ const AircraftServiceModel = new mongoose.Schema({
     Notes: {
         type: String,
         trim: true
+    },
+    Date: {
+        type: Date,
+        required: true
     }
+
 
 })
 module.exports = mongoose.model("AircraftServiceModel", AircraftServiceModel)

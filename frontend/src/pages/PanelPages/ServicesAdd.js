@@ -19,7 +19,7 @@ export default function ServicesAddition() {
         CardType: "service",
         CardTitle: CardTitle,
         CardDescriptions: CardDescriptions,
-        images: []
+        images: " "
 
     })
     const handleChange = (event) => {
@@ -42,16 +42,16 @@ export default function ServicesAddition() {
         myForm.append("CardDescriptions", data.CardDescriptions)
         myForm.append("CardTitle", data.CardTitle)
         myForm.append("CardType", "service")
-        myForm.append("images", data.images);
+        // myForm.append("images", data.images);
 
-        // images.forEach((image) => {
-        //     myForm.append("images", data.image);
-        // });
-
-
+        images.forEach((image) => {
+            myForm.append("images", image);
+          });
 
 
-        
+
+
+
         console.log(data, "dsad")
         try {
             // const config = {
@@ -109,7 +109,7 @@ export default function ServicesAddition() {
                 <input
                     type="file"
                     name="images"
-                    accept="image/*"
+                                      accept="image/*"
                     onChange={createServiceImagesChange}
                     multiple
                 />

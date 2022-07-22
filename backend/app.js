@@ -19,6 +19,7 @@ const AirAmbulanceRoutes = require("./routes/AirAmbulanceRoutes");
 const GalleryRoutes = require("./routes/GalleryRoutes");
 const BookingRoutes = require("./routes/BookingFormroutes")
 const AirCraftServiceRoutes = require("./routes/AircraftServiceRoutes")
+const LocationRoutes = require("./routes/LocationRoutes")
 const path = require("path");
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "backend/config/config.env" });
@@ -26,8 +27,8 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(fileUpload());
 app.use("/api/v1", sliderroutes);
 app.use("/api/v1", Applicantsroutes);
@@ -44,6 +45,7 @@ app.use("/api/v1", AirAmbulanceRoutes);
 app.use("/api/v1", GalleryRoutes);
 app.use("/api/v1", BookingRoutes)
 app.use("/api/v1", AirCraftServiceRoutes)
+app.use("/api/v1", LocationRoutes)
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 app.get("*", (req, res) => {
