@@ -21,7 +21,7 @@ export default function Editapplicantstatus() {
         images: [],
         Position: "",
         Name: "",
-        Phone: "=",
+        Phone: " ",
         Email: "",
         Gender: "",
         Nationality: "",
@@ -35,7 +35,7 @@ export default function Editapplicantstatus() {
         images: [],
         Position: "",
         Name: "",
-        Phone: "=",
+        Phone: " ",
         Email: "",
         Gender: "",
         Nationality: "",
@@ -50,44 +50,37 @@ export default function Editapplicantstatus() {
     };
     useEffect(() => {
         placeholderdata()
-        
 
 
-    });
-    const handleChange = async (event) => {
-        console.log(event.target.value)
-
-        try {
-            await setData({
-                images: preditdata.images,
-                Position: preditdata.Position,
-                Name: preditdata.Name,
-                Phone: preditdata.Phone,
-                Email: preditdata.Email,
-                Gender: preditdata.Gender,
-                Nationality: preditdata.Nationality,
-                Cv: preditdata.Cv,
-                Status: event.target.value
-            })
-            await setData({
-                images: preditdata.images,
-                Position: preditdata.Position,
-                Name: preditdata.Name,
-                Phone: preditdata.Phone,
-                Email: preditdata.Email,
-                Gender: preditdata.Gender,
-                Nationality: preditdata.Nationality,
-                Cv: preditdata.Cv,
-                Status: event.target.value
-            })
-        }
-        catch (err) {
-            console.log(err)
-        }
+    }, []);
+    const handleChange = (event) => {
+        setData({
+            ...data,
+            [event.target.name]: event.target.value
+        });
         console.log(data)
+
     }
     const createProductSubmitHandler = async (e) => {
         e.preventDefault();
+        setCardType("Services")
+        setCardDescriptions(CardDescriptions)
+        setCardTitle(CardTitle)
+        const myForm = new FormData();
+        myForm.append("preditdata.Name", preditdata.Name)
+        myForm.append("Nationality", preditdata.Nationality)
+        myForm.append("Position", preditdata.Position)
+        myForm.append("Gender", preditdata.Gender)
+        myForm.append("Email", preditdata.Email)
+        myForm.append("Status", data.Status)
+
+        images.forEach((image) => {
+            myForm.append("images", image);
+        });
+
+
+
+
 
 
 
@@ -108,23 +101,22 @@ export default function Editapplicantstatus() {
         console.log(data._id)
         console.log(data.Status)
 
-        await Submission()
+        await Submission(myForm)
     };
 
-    const Submission = async () => {
+    const Submission = async (StatusData) => {
         try {
             const config = {
                 headers: { "Content-Type": "application/json" },
             };
-            const response = await axios.put(`/api/v1/applicants/${preditdata._id}`, data.Status);
+            const response = await axios.put(`/api/v1/applicants/${preditdata._id}`, StatusData);
             console.log(response)
             history.push("/manageapplicant")
-            localStorage.clear()
+        
 
         } catch (err) {
             console.log(err.data)
         }
-
 
     }
     const createServiceImagesChange = (e) => {
@@ -158,7 +150,7 @@ export default function Editapplicantstatus() {
             >
                 Applicants Panel Edit
             </Typography>
-            <label>Name:    {preditdata.Name}</label>
+            <label >Name:    {preditdata.Name}</label>
             <br />
             <label>Nationality:    {preditdata.Nationality}</label>
             <br />
