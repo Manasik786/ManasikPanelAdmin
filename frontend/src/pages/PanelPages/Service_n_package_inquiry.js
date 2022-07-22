@@ -4,7 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
-export default function Ambulance() {
+export default function Inquiry() {
     let history = useHistory();
     const Stylings = {
         color: "white",
@@ -12,7 +12,7 @@ export default function Ambulance() {
     }
     const EditService = async id => {
 
-        const { data } = await axios.get('/api/v1/AirAmbulance');
+        const { data } = await axios.get('/api/v1/service_N_PackageItems');
         console.log(data.data[0]._id)
         for (let i = 0; i < data.data.length; i++) {
             console.log(data.data[i])
@@ -30,7 +30,7 @@ export default function Ambulance() {
     }
     const [data, setData] = useState([]);
     const getdata = async () => {
-        const { data } = await axios.get('/api/v1/AirAmbulance');
+        const { data } = await axios.get('/api/v1/service_N_PackageItems');
         setData(data.data);
         console.log(data)
 
@@ -42,7 +42,7 @@ export default function Ambulance() {
     const handleDelete = async _id => {
 
 
-        const { data } = await axios.delete(`/api/v1/AirAmbulance/${_id}`, {
+        const { data } = await axios.delete(`/api/v1/service_N_PackageItems/${_id}`, {
             params: { id: _id },
         });
         getdata();
@@ -51,42 +51,58 @@ export default function Ambulance() {
 
     const columns = [
         {
-            field: 'id',
-            headerName: 'id',
-            width: 120,
-            renderCell: params => {
-                return <div className="productListItem">{params.row._id}</div>;
-            },
-        },
-
-        {
-            field: 'title',
-            headerName: 'title',
+            field: 'Inquiryid',
+            headerName: 'Inquiryid',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem">{params.row.CardDetail}</div>;
-            },
-        },
-
-
-        {
-            field: 'Description',
-            headerName: 'Description',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.CardDescriptions}</div>;
+                return <div className="productListItem">{params.row.Inquiryid}</div>;
             },
         },
         {
-            field: 'images',
-            headerName: 'image',
+            field: 'InquiryType',
+            headerName: 'InquiryType',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem ">
-                    <img src={params.row.images[0].url} className="admin-img"  ></img>
-                </div>;
+                return <div className="productListItem">{params.row.InquiryType}</div>;
+            },
+        }, {
+            field: 'Email',
+            headerName: 'Email',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Email}</div>;
+            },
+        }, {
+            field: 'Name',
+            headerName: 'Name',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Name}</div>;
+            },
+        }, {
+            field: 'Message',
+            headerName: 'Message',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Message}</div>;
+            },
+        }, {
+            field: 'DateOfInquiry',
+            headerName: 'DateOfInquiry',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.DateOfInquiry}</div>;
+            },
+        }, {
+            field: 'flag',
+            headerName: 'flag',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.flag ? "yes" : "no"}</div>;
             },
         },
+
+
 
         {
             field: 'Action',

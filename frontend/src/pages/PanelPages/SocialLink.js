@@ -4,7 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
-export default function Ambulance() {
+export default function SocailLink() {
     let history = useHistory();
     const Stylings = {
         color: "white",
@@ -12,7 +12,7 @@ export default function Ambulance() {
     }
     const EditService = async id => {
 
-        const { data } = await axios.get('/api/v1/AirAmbulance');
+        const { data } = await axios.get('/api/v1/SocialLink_N_Logo');
         console.log(data.data[0]._id)
         for (let i = 0; i < data.data.length; i++) {
             console.log(data.data[i])
@@ -30,7 +30,7 @@ export default function Ambulance() {
     }
     const [data, setData] = useState([]);
     const getdata = async () => {
-        const { data } = await axios.get('/api/v1/AirAmbulance');
+        const { data } = await axios.get('/api/v1/SocialLink_N_Logo');
         setData(data.data);
         console.log(data)
 
@@ -42,7 +42,7 @@ export default function Ambulance() {
     const handleDelete = async _id => {
 
 
-        const { data } = await axios.delete(`/api/v1/AirAmbulance/${_id}`, {
+        const { data } = await axios.delete(`/api/v1/SocialLink_N_Logo/${_id}`, {
             params: { id: _id },
         });
         getdata();
@@ -51,42 +51,30 @@ export default function Ambulance() {
 
     const columns = [
         {
-            field: 'id',
-            headerName: 'id',
-            width: 120,
-            renderCell: params => {
-                return <div className="productListItem">{params.row._id}</div>;
-            },
-        },
-
-        {
-            field: 'title',
-            headerName: 'title',
+            field: 'Link',
+            headerName: 'Link',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem">{params.row.CardDetail}</div>;
-            },
-        },
-
-
-        {
-            field: 'Description',
-            headerName: 'Description',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.CardDescriptions}</div>;
+                return <div className="productListItem">{params.row.Link[0].Url}</div>;
             },
         },
         {
-            field: 'images',
-            headerName: 'image',
+            field: 'logo',
+            headerName: 'logo',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem ">
-                    <img src={params.row.images[0].url} className="admin-img"  ></img>
-                </div>;
+                return <div className="productListItem">{params.row.logo[0].url}</div>;
             },
         },
+        {
+            field: 'Flag',
+            headerName: 'Flag',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.flag ? "yes" : "NO"}</div>;
+            },
+        },
+
 
         {
             field: 'Action',

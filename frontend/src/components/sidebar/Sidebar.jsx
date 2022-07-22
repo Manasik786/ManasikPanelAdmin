@@ -86,7 +86,7 @@ export default function Sidebar() {
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Packages</h3>
-          <ul className="sidebarList"> 
+          <ul className="sidebarList">
             <Link to="/managepackage" className="link">
               <li className="sidebarListItem">
                 <img
@@ -151,6 +151,102 @@ export default function Sidebar() {
                   alt=""
                 />
                 Gallery
+              </li>
+            </Link>
+            <Link to="/AirCraftService" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Air Craft
+              </li>
+            </Link>
+            <Link to="/BookingFormService" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Booking Form
+              </li>
+            </Link>
+            <Link to="/CarrerInquiry" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                CarrerInquiry
+              </li>
+            </Link>
+            <Link to="/careerview" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                CareerView
+              </li>
+            </Link>
+            <Link to="/contact" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                contact
+              </li>
+            </Link>
+            <Link to="/contactlead" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                contactlead
+              </li>
+            </Link>
+            <Link to="/serivcenpackage" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                inquiry{" "}
+              </li>
+            </Link>
+            <Link to="/SocailLink" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={gallery}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Socail Link
               </li>
             </Link>
             {/* <Link to="/viewRides" className="link">

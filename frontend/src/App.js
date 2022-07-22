@@ -1,7 +1,17 @@
 import Sidebar from './components/sidebar/Sidebar';
 import Topbar from './components/topbar/Topbar';
 import './App.css';
+import CareerView from './pages/PanelPages/CareerView';
+import Contact from './pages/PanelPages/contact';
+import Contactlead from './pages/PanelPages/ContactLead';
+import Inquiry from './pages/PanelPages/Service_n_package_inquiry';
+import CarrerInquiry from './pages/PanelPages/CareerInquiry';
+import SocailLink from './pages/PanelPages/SocialLink';
 import Gallery from './pages/PanelPages/Gallery';
+import AddAirCraft from './pages/PanelPages/AddAirCraftService';
+import BookingForm from './pages/PanelPages/BookingForm';
+import EditAirCraft from './pages/PanelPages/EditAirCraftService';
+import AirCraft from './pages/PanelPages/AirCraftService';
 import GalleryAddition from './pages/PanelPages/AddGallery';
 import EditGallery from './pages/PanelPages/EditGallery';
 import Ambulance from "./pages/PanelPages/AirAmbulance"
@@ -55,6 +65,104 @@ function App() {
           <Sidebar />
         ) : null}
         <Switch>
+          <Route
+            path="/CarrerInquiry"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <CarrerInquiry />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/contact"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <Contact />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/careerview"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <CareerView />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/contactlead"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <Contactlead />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/serivcenpackage"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <Inquiry />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/SocailLink"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <SocailLink />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/AirCraftService"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <AirCraft />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/BookingFormService"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <BookingForm />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />   <Route
+            path="/addAirCraftService"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <AddAirCraft />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />   <Route
+            path="/editAirCraftService"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <EditAirCraft />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
           <Route
             path="/galleryservices"
             render={() =>

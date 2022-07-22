@@ -4,7 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
-export default function Ambulance() {
+export default function AirCraft() {
     let history = useHistory();
     const Stylings = {
         color: "white",
@@ -12,15 +12,15 @@ export default function Ambulance() {
     }
     const EditService = async id => {
 
-        const { data } = await axios.get('/api/v1/AirAmbulance');
+        const { data } = await axios.get('/api/v1/AirCraftServicee');
         console.log(data.data[0]._id)
         for (let i = 0; i < data.data.length; i++) {
             console.log(data.data[i])
             if (id == data.data[i]._id) {
                 console.log(data.data[i])
-                await window.localStorage.setItem("Ambulance", JSON.stringify(data.data[i]))
+                await window.localStorage.setItem("AirCraft", JSON.stringify(data.data[i]))
 
-                history.push("/editairambulanceservices")
+                history.push("/editAirCraftService")
 
             }
 
@@ -30,7 +30,7 @@ export default function Ambulance() {
     }
     const [data, setData] = useState([]);
     const getdata = async () => {
-        const { data } = await axios.get('/api/v1/AirAmbulance');
+        const { data } = await axios.get('/api/v1/AirCraftService');
         setData(data.data);
         console.log(data)
 
@@ -42,7 +42,7 @@ export default function Ambulance() {
     const handleDelete = async _id => {
 
 
-        const { data } = await axios.delete(`/api/v1/AirAmbulance/${_id}`, {
+        const { data } = await axios.delete(`/api/v1//AirCraftService/${_id}`, {
             params: { id: _id },
         });
         getdata();
@@ -51,42 +51,90 @@ export default function Ambulance() {
 
     const columns = [
         {
-            field: 'id',
-            headerName: 'id',
+            field: 'Name',
+            headerName: 'Name',
             width: 120,
             renderCell: params => {
-                return <div className="productListItem">{params.row._id}</div>;
+                return <div className="productListItem">{params.row.Name}</div>;
             },
         },
 
         {
-            field: 'title',
-            headerName: 'title',
+            field: 'familyName',
+            headerName: 'familyName',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem">{params.row.CardDetail}</div>;
+                return <div className="productListItem">{params.row.familyName ? params.row.familyName : "no given the family name"}</div>;
             },
         },
 
 
         {
-            field: 'Description',
-            headerName: 'Description',
+            field: 'DestinationTo',
+            headerName: 'DestinationTo',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem">{params.row.CardDescriptions}</div>;
+                return <div className="productListItem">{params.row.DestinationTo}</div>;
             },
         },
         {
-            field: 'images',
-            headerName: 'image',
+            field: 'DestinationFrom',
+            headerName: 'DestinationFrom',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem ">
-                    <img src={params.row.images[0].url} className="admin-img"  ></img>
-                </div>;
+                return <div className="productListItem">{params.row.DestinationFrom}</div>;
+            },
+        }, {
+            field: 'NumberOfPasseneger',
+            headerName: 'NumberOfPasseneger',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.NumberOfPasseneger}</div>;
+            },
+        }, {
+            field: 'HotelService',
+            headerName: 'HotelService',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.HotelService ? "yes" : "no"}</div>;
+            },
+        }, {
+            field: 'VisaService',
+            headerName: 'VisaService',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.VisaService ? "yes" : "no"}</div>;
+            },
+        }, {
+            field: 'TransportationService',
+            headerName: 'TransportationService',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.TransportationService ? "yes" : "no"}</div>;
+            },
+        }, {
+            field: 'CateringService',
+            headerName: 'CateringService',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.CateringService ? "yes" : "no"}</div>;
+            },
+        }, {
+            field: 'Notes',
+            headerName: 'Notes',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Notes}</div>;
+            },
+        }, {
+            field: 'Date',
+            headerName: 'Date',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Date}</div>;
             },
         },
+
 
         {
             field: 'Action',
