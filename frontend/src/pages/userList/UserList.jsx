@@ -84,46 +84,46 @@ export default function ProductList() {
         );
       },
     },
-    {
-      field: "Name",
-      headerName: "Name",
-      width: 200,
-      renderCell: (params) => {
-        return <div className="productListItem">{params.row.Name}</div>;
-      },
-    },
-    {
-      field: "Phone",
-      headerName: "Phone",
-      width: 200,
-      renderCell: (params) => {
-        return <div className="productListItem">{params.row.Phone}</div>;
-      },
-    },
-    {
-      field: "Email",
-      headerName: "Email",
-      width: 150,
-      renderCell: (params) => {
-        return <div className="productListItem">{params.row.Email}</div>;
-      },
-    },
-    {
-      field: "Gender",
-      headerName: "Gender",
-      width: 150,
-      renderCell: (params) => {
-        return <div className="productListItem">{params.row.Gender}</div>;
-      },
-    },
-    {
-      field: "Nationality",
-      headerName: "Nationality",
-      width: 160,
-      renderCell: (params) => {
-        return <div className="productListItem">{params.row.Nationality}</div>;
-      },
-    },
+    // {
+    //   field: "Name",
+    //   headerName: "Name",
+    //   width: 200,
+    //   renderCell: (params) => {
+    //     return <div className="productListItem">{params.row.Name}</div>;
+    //   },
+    // },
+    // {
+    //   field: "Phone",
+    //   headerName: "Phone",
+    //   width: 200,
+    //   renderCell: (params) => {
+    //     return <div className="productListItem">{params.row.Phone}</div>;
+    //   },
+    // },
+    // {
+    //   field: "Email",
+    //   headerName: "Email",
+    //   width: 150,
+    //   renderCell: (params) => {
+    //     return <div className="productListItem">{params.row.Email}</div>;
+    //   },
+    // },
+    // {
+    //   field: "Gender",
+    //   headerName: "Gender",
+    //   width: 150,
+    //   renderCell: (params) => {
+    //     return <div className="productListItem">{params.row.Gender}</div>;
+    //   },
+    // },
+    // {
+    //   field: "Nationality",
+    //   headerName: "Nationality",
+    //   width: 160,
+    //   renderCell: (params) => {
+    //     return <div className="productListItem">{params.row.Nationality}</div>;
+    //   },
+    // },
     {
       field: "Cv",
       headerName: "CV",

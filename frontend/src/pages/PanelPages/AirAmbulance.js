@@ -42,7 +42,7 @@ export default function Ambulance() {
     const handleDelete = async _id => {
 
 
-        const { data } = await axios.delete(`/api/v1/applicants/${_id}`, {
+        const { data } = await axios.delete(`/api/v1/ AirAmbulance/${_id}`, {
             params: { id: _id },
         });
         getdata();

@@ -1,6 +1,9 @@
 import Sidebar from './components/sidebar/Sidebar';
 import Topbar from './components/topbar/Topbar';
 import './App.css';
+import Gallery from './pages/PanelPages/Gallery';
+import GalleryAddition from './pages/PanelPages/AddGallery';
+import EditGallery from './pages/PanelPages/EditGallery';
 import Ambulance from "./pages/PanelPages/AirAmbulance"
 import EditAmbulance from './pages/PanelPages/EditAirAmbulance';
 import AmbulanceAddition from './pages/PanelPages/AddAirambulance';
@@ -52,6 +55,34 @@ function App() {
           <Sidebar />
         ) : null}
         <Switch>
+          <Route
+            path="/galleryservices"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <Gallery />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />   <Route
+            path="/addgalleryservices"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <GalleryAddition />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />   <Route
+            path="/editgalleryservices"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <EditGallery />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
           <Route exact path="/">
             <Login />
           </Route>
