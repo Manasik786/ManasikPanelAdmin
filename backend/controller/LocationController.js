@@ -37,6 +37,7 @@ exports.CreateLocationList = catchAsyncErrors(async (req, res, next) => {
 })
 exports.GetLocationItems = catchAsyncErrors(async (req, res, next) => {
     const data = await LocationSchema.find();
+   
     res.status(200).json({
         success: true,
         data,

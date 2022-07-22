@@ -38,6 +38,7 @@ exports.CreateCardList = catchAsyncErrors(async (req, res, next) => {
         data,
     })
 })
+//const uppercaseWords = str => str.replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
 exports.GetCardItems = catchAsyncErrors(async (req, res, next) => {
     const data = await CardDetails.find();
     res.status(200).json({
@@ -91,6 +92,7 @@ exports.UpdateCardItems = catchAsyncErrors(async (req, res, next) => {
                 url: result.secure_url,
             });
         }
+
 
         req.body.images = imagesLinks;
     }

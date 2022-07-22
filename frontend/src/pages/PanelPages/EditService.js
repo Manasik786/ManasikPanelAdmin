@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Typography from "@mui/material/Typography";
 import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
@@ -6,27 +6,32 @@ import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 export default function EditService() {
-    let history = useHistory()
     const Stylings = {
         color: "white",
         textDecoration: "none"
     }
     let isAnonymous = true;
+    let history = useHistory()
+    const ref = useRef(null);
     const [images, setImages] = useState([]);
     const [imagesPreview, setImagesPreview] = useState([]);
+    const [oldImages, setOldImages] = useState([]);
     const [CardDescriptions, setCardDescriptions] = useState("")
     const [CardType, setCardType] = useState("")
     const [CardTitle, setCardTitle] = useState("")
 
+    const [data, setData] = useState({
+        CardType: "service",
+        CardTitle: CardTitle,
+        CardDescriptions: CardDescriptions,
+        images: " "
+
+    })
     const [preditdata, setpreditData] = useState({
-        CardType: "",
-        CardTitle: "",
-        CardDescriptions: "",
-        images: [{
-            _id: "",
-            public_id: "",
-            url: ""
-        }]
+        CardType: "service",
+        CardTitle: CardTitle,
+        CardDescriptions: CardDescriptions,
+        images: " "
 
     })
     const handleChange = (event) => {
@@ -37,44 +42,43 @@ export default function EditService() {
         console.log(data)
 
     }
-    const handleSubmit = async (event) => {
-        event.currentTarget.disabled = true;
-        const loginFormData = new FormData();
-        loginFormData.append("CardDescriptions", data.CardDescriptions)
-        loginFormData.append("CardTitle", data.CardTitle)
-        loginFormData.append("CardType", "service")
-        loginFormData.append("images", data.images)
+    const uppercaseWords = str => str.replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
+    const createProductSubmitHandler = async (e) => {
+        e.preventDefault();
+        setCardType("Services")
+        setCardDescriptions(CardDescriptions)
+        setCardTitle(CardTitle)
+        const myForm = new FormData();
+        myForm.append("CardDescriptions", data.CardDescriptions)
+        myForm.append("CardTitle", uppercaseWords(data.CardTitle))
+        myForm.append("CardType", "service")
+        // myForm.append("images", data.images);
+
+        images.forEach((image) => {
+            myForm.append("images", image);
+        });
 
 
-        console.log(data)
-        console.log(loginFormData)
 
+
+
+        console.log(data, "dsad")
         try {
-            const config = {
-                headers: { "Content-Type": "application/json" },
-            };
+            // const config = {
+            //     headers: { "Content-Type": "application/json" },
+            // };
             const response = await axios.put(
-                `/api/v1/CardItems/${preditdata._id}`, loginFormData, config
+                `/api/v1/CardItems/${preditdata._id}`, myForm
             );
             console.log(response)
-            history.push("/services")
+            history.replace("/services")
 
         } catch (err) {
-            console.log(err)
+            console.log(err.data)
         }
 
-    }
-    // const Sa = async (data) => {
 
-    // }
-
-    const [data, setData] = useState({
-        CardType: "service",
-        CardTitle: "",
-        CardDescriptions: "",
-        images: []
-
-    })
+    };
     //{"flag":true,"_id":"62d52e7e23b2fa38448f747c","CardType":"service","CardTitle":"Good Service","CardDescriptions":"lorem ipsum",
     //"images":[{"_id":"62d52e7e23b2fa38448f747d","public_id":"AviationsFolder/pw42cvnnasyk7nm85tul","url":"https://res.cloudinary.com/dag7tgw83/image/upload/v1658138238/AviationsFolder/pw42cvnnasyk7nm85tul.png"}],"__v":0}
     const placeholderdata = async () => {
@@ -88,61 +92,7 @@ export default function EditService() {
 
 
     }, []);
-    const createProductSubmitHandler = async (e) => {
-        e.preventDefault();
-        setCardType("Services")
-        const myForm = new FormData();
-        await myForm.set("CardDescriptions", CardDescriptions)
-        await myForm.set("CardType", "services")
-        await myForm.set("CardTitle", CardTitle)
-        if (CardTitle == "") {
-            await setCardTitle(preditdata.CardTitle)
-        }
-        if (CardDescriptions == "") {
-            await setCardDescriptions(preditdata.CardDescriptions)
-        }
-        if (images == "") {
-            await setImages(preditdata.images)
-        }
 
-        console.log(myForm)
-
-
-        await setData({
-            CardType: "service",
-            CardTitle: CardTitle,
-            CardDescriptions: CardDescriptions,
-            images: images
-        })
-
-        if (data.CardDescriptions = "" && data.CardTitle == "") {
-            await setData({
-                CardType: "service",
-                CardTitle: CardTitle,
-                CardDescriptions: CardDescriptions,
-                images: images
-            })
-
-        }
-        else {
-            console.log("chal gaya")
-        }
-
-        console.log(data)
-        try {
-            const config = {
-                headers: { "Content-Type": "application/json" },
-            };
-            const response = await axios.put(
-                `/api/v1/CardItems/${preditdata._id}`, data, config
-            );
-            console.log(response)
-
-        } catch (err) {
-            console.log(err.data)
-        }
-        await Submission(myForm)
-    };
     const Submission = async (id, productData) => {
         try {
 
@@ -170,6 +120,7 @@ export default function EditService() {
 
         setImages([]);
         setImagesPreview([]);
+        setOldImages([]);
 
         files.forEach((file) => {
             const reader = new FileReader();
@@ -180,13 +131,13 @@ export default function EditService() {
                     setImages((old) => [...old, reader.result]);
                 }
             };
-
+            console.log(file)
             reader.readAsDataURL(file);
         });
     };
+
     return (
         <div className="productList">
-
 
 
             <Typography
@@ -194,32 +145,33 @@ export default function EditService() {
                 className="productListTitle"
                 style={{ color: "#ffba02" }}
             >
-                Service Panel edit
+                Service Panel
             </Typography>
 
             <div className="contentbox">
-
                 <h5>Service Title</h5>
                 <input type="text" name="CardTitle" value={data.CardTitle} placeholder={preditdata.CardTitle} onChange={handleChange} />
                 <h5>Service images</h5>
-                <input type='text' placeholder="LINK" value={data.images} name="images" onChange={handleChange} />
+                {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
+                <input
+                    type="file"
+                    name="images"
+                    accept="image/*"
+                    onChange={createServiceImagesChange}
+                    multiple
+                />
 
 
                 <h5>Service Description</h5>
                 <textarea rows="10" cols="218" name="CardDescriptions" value={data.CardDescriptions} placeholder={preditdata.CardDescriptions} style={{ "resize": "none" }} onChange={handleChange} />
-                <button
-                    type="submit"
 
-                    onClick={handleSubmit}
-                >
-                    Login
-                </button>
 
             </div>
 
             <div className='sliderbutton'>
-                {/* <Grid item xs={6} sm={6}>
+                <Grid item xs={6} sm={6}>
                     <Button
+                        ref={ref}
                         style={{
                             backgroundColor: "#ffba02",
                             color: "black",
@@ -228,10 +180,10 @@ export default function EditService() {
                         }}
                         onClick={createProductSubmitHandler}
                         variant="contained"
-
-                    > < Link to="/services" style={Stylings}>Submit</Link>
+                    >
+                        Submit
                     </Button>
-                </Grid> */}
+                </Grid>
 
 
 

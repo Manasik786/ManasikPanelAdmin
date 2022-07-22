@@ -33,6 +33,7 @@ export default function ServicesAddition() {
     useEffect(() => {
 
     }, []);
+    const uppercaseWords = str => str.replace(/^(.)|\s+(.)/g, c => c.toUpperCase());
     const createProductSubmitHandler = async (e) => {
         e.preventDefault();
         setCardType("Services")
@@ -40,13 +41,13 @@ export default function ServicesAddition() {
         setCardTitle(CardTitle)
         const myForm = new FormData();
         myForm.append("CardDescriptions", data.CardDescriptions)
-        myForm.append("CardTitle", data.CardTitle)
+        myForm.append("CardTitle", uppercaseWords(data.CardTitle))
         myForm.append("CardType", "service")
         // myForm.append("images", data.images);
 
         images.forEach((image) => {
             myForm.append("images", image);
-          });
+        });
 
 
 
@@ -109,7 +110,7 @@ export default function ServicesAddition() {
                 <input
                     type="file"
                     name="images"
-                                      accept="image/*"
+                    accept="image/*"
                     onChange={createServiceImagesChange}
                     multiple
                 />
