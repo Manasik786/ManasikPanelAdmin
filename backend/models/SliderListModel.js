@@ -4,12 +4,22 @@ const SliderSchema = new mongoose.Schema({
     //     type:mongoose.Schema.ObjectId,
     //     required: true
     // },
-    titleEnglish: {
+    title: {
         type: String,
         required: [true, "Please Enter Slider Name"],
         trim: true
     },
-    titleArabic: {
+    titlear: {
+        type: String,
+        required: [true, "Please Enter Slider Name"],
+        trim: true
+    },
+    Description: {
+        type: String,
+        required: [true, "Please Enter Slider Name"],
+        trim: true
+    },
+    Descriptionar: {
         type: String,
         required: [true, "Please Enter Slider Name"],
         trim: true

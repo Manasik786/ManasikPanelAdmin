@@ -58,31 +58,46 @@ export default function UserList() {
   };
 
   const columns = [
-    {
-      field: 'id',
-      headerName: 'id',
-      width: 120,
-      renderCell: params => {
-        return <div className="productListItem">{params.row._id}</div>;
-      },
-    },
+    // {
+    //   field: 'id',
+    //   headerName: 'id',
+    //   width: 120,
+    //   renderCell: params => {
+    //     return <div className="productListItem">{params.row._id}</div>;
+    //   },
+    // },
 
     {
-      field: 'title',
+      field: 'title ar',
       headerName: 'title',
       width: 200,
       renderCell: params => {
         return <div className="productListItem">{params.row.CardTitle}</div>;
       },
     },
-
+    {
+      field: 'title',
+      headerName: 'title arabic',
+      width: 200,
+      renderCell: params => {
+        return <div className="productListItem">{params.row.CardTitlear}</div>;
+      },
+    },
 
     {
-      field: 'Description',
+      field: 'Description' ,
       headerName: 'Description',
       width: 200,
       renderCell: params => {
         return <div className="productListItem">{params.row.CardDescriptions}</div>;
+      },
+    },
+    {
+      field: 'Description ar',
+      headerName: 'Description arabic',
+      width: 200,
+      renderCell: params => {
+        return <div className="productListItem">{params.row.CardDescriptionsar}</div>;
       },
     },
     {

@@ -12,14 +12,18 @@ export default function AmbulanceAddition() {
     const [imagesPreview, setImagesPreview] = useState([]);
     const [oldImages, setOldImages] = useState([]);
     const [CardDescriptions, setCardDescriptions] = useState("")
+    const [CardDescriptionsar, setCardDescriptionsar] = useState("")
     const [CardType, setCardType] = useState("")
+    const [CardDetailar, setCardDetailar] = useState("")
     const [CardDetail, setCardDetail] = useState("")
 
     const [data, setData] = useState({
         CardType: "Air Ambulance",
         CardDetail: CardDetail,
+        CardDetailar: CardDetailar,
         CardDescriptions: CardDescriptions,
-        images: images
+        CardDescriptionsar: CardDescriptionsar,
+        images: " ",
 
     })
     const handleChange = (event) => {
@@ -38,10 +42,14 @@ export default function AmbulanceAddition() {
         e.preventDefault();
         setCardType("Air Ambulance")
         setCardDescriptions(CardDescriptions)
+        setCardDescriptionsar(CardDescriptionsar)
+        setCardDetailar(CardDetailar)
         setCardDetail(CardDetail)
         const myForm = new FormData();
         myForm.append("CardDescriptions", data.CardDescriptions)
+        myForm.append("CardDescriptionsar", data.CardDescriptionsar)
         myForm.append("CardDetail", uppercaseWords(data.CardDetail))
+        myForm.append("CardDetailar", uppercaseWords(data.CardDetailar))
         myForm.append("CardType", "Air Ambulance")
         // myForm.append("images", data.images);
 
@@ -105,6 +113,8 @@ export default function AmbulanceAddition() {
             <div className="contentbox">
                 <h5>Air Ambulance Title</h5>
                 <input type="text" name="CardDetail" value={data.CardDetail} onChange={handleChange} />
+                <h5>Air Ambulance Title Arabic</h5>
+                <input type="text" name="CardDetailar" value={data.CardDetailar} onChange={handleChange} />
                 <h5>Air Ambulance images</h5>
                 {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
                 <input
@@ -116,6 +126,8 @@ export default function AmbulanceAddition() {
                 />
 
 
+                <h5>Service Description Arabic</h5>
+                <textarea rows="10" cols="218" name="CardDescriptionsar" value={data.CardDescriptionsar} placeholder='write service description here' style={{ "resize": "none" }} onChange={handleChange} />
                 <h5>Service Description</h5>
                 <textarea rows="10" cols="218" name="CardDescriptions" value={data.CardDescriptions} placeholder='write service description here' style={{ "resize": "none" }} onChange={handleChange} />
 
