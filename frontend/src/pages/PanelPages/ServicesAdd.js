@@ -121,7 +121,7 @@ export default function ServicesAddition() {
           multiple
         />
 
-        <h5>Service Description</h5>
+        <h5>Service Description Arabic</h5>
         <textarea
           rows="10"
           cols="218"
@@ -131,7 +131,7 @@ export default function ServicesAddition() {
           style={{ resize: "none" }}
           onChange={handleChange}
         />
-        <h5>Service Description Arabic</h5>
+        <h5>Service Description </h5>
         <textarea
           rows="10"
           cols="218"

@@ -9,13 +9,20 @@ import social from "../../assets/social-media-svgrepo-com.svg";
 import pages from "../../assets/pages-svgrepo-com.svg";
 import airambulance from "../../assets/flying-ambulance-svgrepo-com.svg";
 import gallery from "../../assets/gallery-svgrepo-com.svg";
+import inquiry from "../../assets/ask-svgrepo-com.svg";
+import career from "../../assets/career-svgrepo-com.svg";
+import contact from "../../assets/contact-svgrepo-com.svg";
+import booking from "../../assets/form-svgrepo-com.svg";
+import history from "../../assets/history-svgrepo-com.svg";
+import aircraftsvg from "../../assets/airplane.svg"
+
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
     <div style={{ maxWidth: "220px", minWidth: "220px" }} className="sidebar">
       <div className="sidebarWrapper">
-        <div className="sidebarMenu">
+        {/* <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/home" className="link">
@@ -25,8 +32,8 @@ export default function Sidebar() {
               </li>
             </Link>
           </ul>
-        </div>
-        <div className="sidebarMenu">
+        </div> */}
+        {/* <div className="sidebarMenu">
           <h3 className="sidebarTitle">Pages</h3>
           <ul className="sidebarList">
             <Link to="/pages" className="link">
@@ -42,7 +49,7 @@ export default function Sidebar() {
               </li>
             </Link>
           </ul>
-        </div>
+        </div> */}
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Careers</h3>
           <ul className="sidebarList">
@@ -157,7 +164,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={aircraftsvg}
                   width="18"
                   height="18"
                   alt=""
@@ -169,7 +176,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={booking}
                   width="18"
                   height="18"
                   alt=""
@@ -181,7 +188,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={inquiry}
                   width="18"
                   height="18"
                   alt=""
@@ -193,7 +200,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={career}
                   width="18"
                   height="18"
                   alt=""
@@ -205,7 +212,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={contact}
                   width="18"
                   height="18"
                   alt=""
@@ -217,7 +224,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={history}
                   width="18"
                   height="18"
                   alt=""
@@ -229,7 +236,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={inquiry}
                   width="18"
                   height="18"
                   alt=""
@@ -241,7 +248,7 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={gallery}
+                  src={social}
                   width="18"
                   height="18"
                   alt=""

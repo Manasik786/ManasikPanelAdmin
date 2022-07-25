@@ -169,7 +169,7 @@ export default function EditService() {
           multiple
         />
 
-        <h5>Service Description</h5>
+        <h5>Service Description Arabic</h5>
         <textarea
           rows="10"
           cols="218"

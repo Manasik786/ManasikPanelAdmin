@@ -60,11 +60,27 @@ export default function Gallery() {
             },
         },
         {
+            field: 'Titlear',
+            headerName: 'Title(Araabic)',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.CardTypear}</div>;
+            },
+        },
+        {
             field: 'Description',
             headerName: 'Description',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.CardDescriptions}</div>;
+            },
+        },
+        {
+            field: 'Descriptionar',
+            headerName: 'Description(Arabic)',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.CardDescriptionsar}</div>;
             },
         },
         {

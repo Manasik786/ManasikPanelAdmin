@@ -233,7 +233,7 @@ function App() {
               )
             }
           />
-          <Route
+          {/* <Route
             path="/pages"
             render={() =>
               window.localStorage.getItem('isAuthenticated') ? (
@@ -242,7 +242,7 @@ function App() {
                 (window.location.href = '/')
               )
             }
-          />
+          /> */}
           <Route
             path="/packages"
             render={() =>
