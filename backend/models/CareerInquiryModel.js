@@ -3,6 +3,10 @@ const CareerInquirySchema = new mongoose.Schema({
   id: {
     type: mongoose.Schema.ObjectId,
   },
+  flag: {
+    type: Boolean,
+    default: 1,
+  },
   Designation: {
     type: String,
     required: [true, "Please Enter Designation"],
@@ -34,10 +38,6 @@ const CareerInquirySchema = new mongoose.Schema({
   Deptar: {
     type: String,
     required: [true, "Please Enter Department"],
-  },
-  Validar: {
-    type: Date,
-    default: Date.now,
   },
   Locationar: {
     type: String,

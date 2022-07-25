@@ -6,6 +6,8 @@ import Contact from './pages/PanelPages/contact';
 import Contactlead from './pages/PanelPages/ContactLead';
 import Inquiry from './pages/PanelPages/Service_n_package_inquiry';
 import CarrerInquiry from './pages/PanelPages/CareerInquiry';
+import CareerInquiryAddition from './pages/PanelPages/AddCareerInquiry';
+import CareerInquiryEdit from './pages/PanelPages/EditCareerInquiry';
 import SocailLink from './pages/PanelPages/SocialLink';
 import Gallery from './pages/PanelPages/Gallery';
 import AddAirCraft from './pages/PanelPages/AddAirCraftService';
@@ -80,6 +82,26 @@ function App() {
             render={() =>
               window.localStorage.getItem('isAuthenticated') ? (
                 <Contact />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/addCareerInquiry"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <CareerInquiryAddition />
+              ) : (
+                (window.location.href = '/')
+              )
+            }
+          />
+          <Route
+            path="/editCareerInquiry"
+            render={() =>
+              window.localStorage.getItem('isAuthenticated') ? (
+                <CareerInquiryEdit/>
               ) : (
                 (window.location.href = '/')
               )

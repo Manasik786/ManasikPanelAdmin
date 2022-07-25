@@ -127,22 +127,22 @@ export default function Inquiry() {
                 );
             },
         },
-        {
-            field: "ADD Panel",
-            headerName: <button
-                disabled={false}
-                className="productListEdit"
-                onClick={() => {
+        // {
+        //     field: "ADD Panel",
+        //     headerName: <button
+        //         disabled={false}
+        //         className="productListEdit"
+        //         onClick={() => {
 
-                    window.localStorage.setItem('id', '/riders');
-                }
-                }
-            >
-                < Link to="/addairambulanceservices" style={Stylings}>Add</Link>
-            </button  >,
-            width: 200,
-            //  < Link to="/servicesAdddition" >Add</Link>
-        }
+        //             window.localStorage.setItem('id', '/riders');
+        //         }
+        //         }
+        //     >
+        //         < Link to="/addairambulanceservices" style={Stylings}>Add</Link>
+        //     </button  >,
+        //     width: 200,
+        //     //  < Link to="/servicesAdddition" >Add</Link>
+        // }
     ];
 
     return (

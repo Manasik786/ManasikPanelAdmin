@@ -18,9 +18,9 @@ export default function CarrerInquiry() {
             console.log(data.data[i])
             if (id == data.data[i]._id) {
                 console.log(data.data[i])
-                await window.localStorage.setItem("Ambulance", JSON.stringify(data.data[i]))
+                await window.localStorage.setItem("CareerInquiry", JSON.stringify(data.data[i]))
 
-                history.push("/editairambulanceservices")
+                history.push("/editCareerInquiry")
 
             }
 
@@ -59,11 +59,27 @@ export default function CarrerInquiry() {
             },
         },
         {
+            field: 'Designation ar' ,
+            headerName: 'Designation (Arabic)',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Designationar}</div>;
+            },
+        },
+        {
             field: 'Dept',
             headerName: 'Dept',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.Dept}</div>;
+            },
+        },
+        {
+            field: 'Dept ar',
+            headerName: 'Dept (Arabic)',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Deptar}</div>;
             },
         },
         {
@@ -83,6 +99,15 @@ export default function CarrerInquiry() {
             },
         },
         {
+            field: 'Location ar',
+            headerName: 'Location (Arabic)',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Locationar}</div>;
+            },
+        },
+        
+        {
             field: 'flag',
             headerName: 'flag',
             width: 200,
@@ -98,6 +123,24 @@ export default function CarrerInquiry() {
                 return <div className="productListItem">{params.row.Type}</div>;
             },
         },
+        {
+            field: 'Type ar',
+            headerName: 'Type (Arabic)',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Typear}</div>;
+            },
+        },
+        {
+            field: 'Type',
+            headerName: 'Type',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Type}</div>;
+            },
+        },
+
+
 
 
 
@@ -135,7 +178,7 @@ export default function CarrerInquiry() {
                 }
                 }
             >
-                < Link to="/addairambulanceservices" style={Stylings}>Add</Link>
+                < Link to="/addCareerInquiry" style={Stylings}>Add</Link>
             </button  >,
             width: 200,
             //  < Link to="/servicesAdddition" >Add</Link>
