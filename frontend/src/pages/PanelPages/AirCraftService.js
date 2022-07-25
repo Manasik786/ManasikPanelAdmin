@@ -42,7 +42,7 @@ export default function AirCraft() {
     const handleDelete = async _id => {
 
 
-        const { data } = await axios.delete(`/api/v1//AirCraftService/${_id}`, {
+        const { data } = await axios.delete(`/api/v1/AirCraftService/${_id}`, {
             params: { id: _id },
         });
         getdata();

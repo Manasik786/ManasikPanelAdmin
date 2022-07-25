@@ -9,21 +9,24 @@ const PackageViewSchema = new mongoose.Schema({
     requried: [true, "Please Enter Your Name"],
     trim: true,
   },
+  PkgNamear: {
+    type: String,
+    requried: [true, "Please Enter Your Name"],
+    trim: true,
+  },
+  PkgName: {
+    type: String,
+    requried: [true, "Please Enter Your Name"],
+    trim: true,
+  },
   EmailAddress: {
     type: String,
     required: [true, "Please Enter Your Email"],
     validate: [validator.isEmail, "Please Enter a Valid Email"],
   },
-  PkgName: {
-    type: String,
-    requried: [true, "please write package name"],
-  },
   DaysOfstay: {
     type: Number,
-    required: [
-      true,
-      "please write number of days of stay alloted in the package",
-    ],
+    required: [true,"please write number of days of stay alloted in the package"],
   },
   PkgDetail: {
     type: String,
@@ -38,25 +41,15 @@ const PackageViewSchema = new mongoose.Schema({
     requried: [true, "Please Enter Your Name"],
     trim: true,
   },
-  EmailAddressar: {
-    type: String,
-    required: [true, "Please Enter Your Email"],
-    validate: [validator.isEmail, "Please Enter a Valid Email"],
-  },
   PkgNamear: {
     type: String,
     requried: [true, "please write package name"],
-  },
-  DaysOfstayar: {
-    type: Number,
-    required: [
-      true,
-      "please write number of days of stay alloted in the package",
-    ],
+    trim: true,
   },
   PkgDetailar: {
     type: String,
     required: [true, "Please enter pkg Details"],
+    trim: true,
   },
   ValidTillar: {
     type: String,

@@ -61,7 +61,7 @@ export default function GalleryAddition() {
       // const config = {
       //     headers: { "Content-Type": "application/json" },
       // };
-      const response = await axios.post(`/api/v1//CreateGalleryList`, myForm);
+      const response = await axios.post(`/api/v1/CreateGalleryList`, myForm);
       console.log(response);
       history.replace("/galleryservices");
     } catch (err) {
