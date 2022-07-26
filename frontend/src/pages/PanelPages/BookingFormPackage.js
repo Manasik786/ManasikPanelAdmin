@@ -4,37 +4,20 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
-export default function BookingForm() {
+export default function BookingFormPackage() {
     let history = useHistory();
     const Stylings = {
         color: "white",
         textDecoration: "none"
     }
-    const EditService = async id => {
 
-        const { data } = await axios.get('/api/v1/BookingForm');
-        console.log(data.data[0]._id)
-        for (let i = 0; i < data.data.length; i++) {
-            console.log(data.data[i])
-            if (id == data.data[i]._id) {
-                console.log(data.data[i])
-                await window.localStorage.setItem("BookingForm", JSON.stringify(data.data[i]))
-
-                history.push("/editBookingFormservices")
-
-            }
-
-
-
-        }
-    }
     const [data, setData] = useState([]);
     const getdata = async () => {
         const { data } = await axios.get('/api/v1/BookingForm');
         let abcd = [];
         for (let i = 0; i < data.data.length; i++) {
 
-            if ((data.data[i].CardType) == 'service') {
+            if ((data.data[i].CardType) == 'packages') {
                 abcd.unshift(data.data[i])
 
             }
@@ -180,13 +163,7 @@ export default function BookingForm() {
             renderCell: params => {
                 return (
                     <>
-                        <button
-                            className="productListEdit"
-                            onClick={() => EditService(params.row._id)}
-                        >
 
-                            edit
-                        </button >
 
                         <DeleteOutline
                             className="productListDelete"

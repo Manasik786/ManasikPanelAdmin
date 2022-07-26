@@ -93,6 +93,36 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Services</h3>
+          <ul className="sidebarList">
+            <Link to="/services" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={services}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Manage Services
+              </li>
+            </Link>{" "}
+            <Link to="/BookingFormService" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={booking}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Service Inquiry
+              </li>
+            </Link>
+          </ul>
+        </div>
+
+        <div className="sidebarMenu">
           <h3 className="sidebarTitle">Packages</h3>
           <ul className="sidebarList">
             <Link to="/managepackage" className="link">
@@ -107,36 +137,25 @@ export default function Sidebar() {
                 Manage Packages
               </li>
             </Link>
-            {/* <Link to="/fare/history" className="link">
-                <li className="sidebarListItem">
-                  <img
-                    className="sidebarIcon"
-                    src={historyIcon}
-                    width="18"
-                    height="18"
-                    alt=""
-                  />
-                  Fare Percentage
-                </li>
-              </Link> */}
+            {/* BookingFormPackage */}
+            <Link to="/BookingFormPackage" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={booking}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Package Inquiry
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Services</h3>
 
           <ul className="sidebarList">
-            <Link to="/services" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={services}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
-                Services
-              </li>
-            </Link>
             <Link to="/OtherServices" className="link">
               <li className="sidebarListItem">
                 <img
@@ -183,18 +202,6 @@ export default function Sidebar() {
                   alt=""
                 />
                 Air Craft
-              </li>
-            </Link>
-            <Link to="/BookingFormService" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={booking}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
-                Booking Form
               </li>
             </Link>
             <Link to="/CarrerInquiry" className="link">
@@ -269,30 +276,6 @@ export default function Sidebar() {
                 Socail Link
               </li>
             </Link>
-            {/* <Link to="/viewRides" className="link">
-                <li className="sidebarListItem">
-                  <img
-                    className="sidebarIcon"
-                    src={moneyIcon}
-                    width="20"
-                    height="20"
-                    alt=""
-                  />
-                  View Rides
-                </li>
-              </Link>
-              <Link to="/viewRides/1" className="link">
-                <li className="sidebarListItem">
-                  <img
-                    className="sidebarIcon"
-                    src={verifyImg}
-                    width="18"
-                    height="18"
-                    alt=""
-                  />
-                  Ride Details
-                </li>
-              </Link> */}
           </ul>
         </div>
 

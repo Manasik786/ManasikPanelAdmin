@@ -82,6 +82,10 @@ const BookingFormSchema = new mongoose.Schema({
     Religion: {
         type: String,
         trim: true
+    },
+    CardType: {
+        type: String,
+        trim: true
     }
 
 })

@@ -15,6 +15,7 @@ import SocailLink from "./pages/PanelPages/SocialLink";
 import Gallery from "./pages/PanelPages/Gallery";
 import AddAirCraft from "./pages/PanelPages/AddAirCraftService";
 import BookingForm from "./pages/PanelPages/BookingForm";
+import BookingFormPackage from "./pages/PanelPages/BookingFormPackage";
 import EditAirCraft from "./pages/PanelPages/EditAirCraftService";
 import AirCraft from "./pages/PanelPages/AirCraftService";
 import GalleryAddition from "./pages/PanelPages/AddGallery";
@@ -187,6 +188,16 @@ function App() {
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
                 <BookingForm />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />{" "}
+          <Route
+            path="/BookingFormPackage"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <BookingFormPackage />
               ) : (
                 (window.location.href = "/")
               )
