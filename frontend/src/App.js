@@ -56,6 +56,7 @@ import Packages from "./pages/PackageInquery/PackageInquery";
 import ServiceAdd from "./pages/PanelPages/ServicesAdd";
 import EditService from "./pages/PanelPages/EditService";
 import Editapplicantstatus from "./pages/PanelPages/EditStatus";
+import BookingFormAirAmbulance from "./pages/PanelPages/BookingFormAirAmbulance";
 function App() {
   useEffect(() => {
     document.title = "Manasik Admin Portal";
@@ -64,12 +65,12 @@ function App() {
     <Router>
       <IdleTimerContainer />
       {window.localStorage.getItem("isAuthenticated") &&
-      window.location.pathname !== "/" ? (
+        window.location.pathname !== "/" ? (
         <Topbar />
       ) : null}
       <div className="container">
         {window.localStorage.getItem("isAuthenticated") &&
-        window.location.pathname !== "/" ? (
+          window.location.pathname !== "/" ? (
           <Sidebar />
         ) : null}
         <Switch>
@@ -198,6 +199,16 @@ function App() {
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
                 <BookingFormPackage />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />{" "}
+          <Route
+            path="/BookingFormAirAmbulance"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <BookingFormAirAmbulance />
               ) : (
                 (window.location.href = "/")
               )
@@ -420,7 +431,7 @@ function App() {
             path="/OtherServices"
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
-                <OtherServicess/>
+                <OtherServicess />
               ) : (
                 (window.location.href = "/")
               )

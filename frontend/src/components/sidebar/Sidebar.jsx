@@ -50,48 +50,7 @@ export default function Sidebar() {
             </Link>
           </ul>
         </div> */}
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Careers</h3>
-          <ul className="sidebarList">
-            <Link to="/manageapplicant" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={applicants}
-                  width="20"
-                  height="20"
-                  color="white"
-                  alt=""
-                />
-                Manage Applicants
-              </li>
-            </Link>
-            {/* <Link to="/vehiclesVerification" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={verifyImg}
-                  width="20"
-                  height="20"
-                  alt=""
-                />
-                Pending Verification
-              </li>
-            </Link>
-            <Link to="/vehiclesStatus" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={updateImg}
-                  width="20"
-                  height="20"
-                  alt=""
-                />
-                Update Status
-              </li>
-            </Link> */}
-          </ul>
-        </div>
+
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Services</h3>
           <ul className="sidebarList">
@@ -134,7 +93,7 @@ export default function Sidebar() {
                   height="18"
                   alt=""
                 />
-                Manage  Packages
+                Manage Packages
               </li>
             </Link>
             {/* BookingFormPackage */}
@@ -148,6 +107,66 @@ export default function Sidebar() {
                   alt=""
                 />
                 Package Inquiry
+              </li>
+            </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Career</h3>
+          <ul className="sidebarList">
+            <Link to="/CarrerInquiry" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={inquiry}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Manage Jobs
+              </li>
+            </Link>
+            <Link to="/manageapplicant" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={applicants}
+                  width="20"
+                  height="20"
+                  color="white"
+                  alt=""
+                />
+                Manage Applicants
+              </li>
+            </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Air Service</h3>
+          <ul className="sidebarList">
+          <Link to="/airambulanceservices" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={airambulance}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Air Ambulance
+              </li>
+            </Link>{" "}
+            <Link to="/BookingFormAirAmbulance" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={applicants}
+                  width="20"
+                  height="20"
+                  color="white"
+                  alt=""
+                />
+              Air Service Inquiry
               </li>
             </Link>
           </ul>
@@ -168,18 +187,7 @@ export default function Sidebar() {
                 Other Services
               </li>
             </Link>
-            <Link to="/airambulanceservices" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={airambulance}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
-                Air Ambulance
-              </li>
-            </Link>{" "}
+            
             <Link to="/galleryservices" className="link">
               <li className="sidebarListItem">
                 <img
@@ -202,18 +210,6 @@ export default function Sidebar() {
                   alt=""
                 />
                 Air Craft
-              </li>
-            </Link>
-            <Link to="/CarrerInquiry" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={inquiry}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
-                CarrerInquiry
               </li>
             </Link>
             <Link to="/careerview" className="link">

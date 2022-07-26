@@ -30,6 +30,8 @@
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.15",
     "react-carousel-minimal": "^1.4.1",
+    "react-chartjs-2": "^4.3.1",
+    "recharts": "^2.1.13",
     "stripe": "^8.174.0",
     "validator": "^13.6.0"
   }
