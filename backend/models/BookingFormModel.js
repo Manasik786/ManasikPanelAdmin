@@ -79,6 +79,10 @@ const BookingFormSchema = new mongoose.Schema({
         trim: true
 
     },
+    Date: {
+        type: Date,
+        default: Date.now()
+    },
     Religion: {
         type: String,
         trim: true

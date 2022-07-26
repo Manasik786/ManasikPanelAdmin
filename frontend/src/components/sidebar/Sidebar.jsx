@@ -112,6 +112,36 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Air Service</h3>
+          <ul className="sidebarList">
+            <Link to="/airambulanceservices" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={airambulance}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Air Ambulance
+              </li>
+            </Link>{" "}
+            <Link to="/BookingFormAirAmbulance" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={applicants}
+                  width="20"
+                  height="20"
+                  color="white"
+                  alt=""
+                />
+                Air Service Inquiry
+              </li>
+            </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
           <h3 className="sidebarTitle">Career</h3>
           <ul className="sidebarList">
             <Link to="/CarrerInquiry" className="link">
@@ -141,40 +171,23 @@ export default function Sidebar() {
             </Link>
           </ul>
         </div>
+
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Air Service</h3>
+          <h3 className="sidebarTitle">Others</h3>
+
           <ul className="sidebarList">
-          <Link to="/airambulanceservices" className="link">
+            <Link to="/Slider" className="link">
               <li className="sidebarListItem">
                 <img
                   className="sidebarIcon"
-                  src={airambulance}
+                  src={services}
                   width="18"
                   height="18"
                   alt=""
                 />
-                Air Ambulance
-              </li>
-            </Link>{" "}
-            <Link to="/BookingFormAirAmbulance" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={applicants}
-                  width="20"
-                  height="20"
-                  color="white"
-                  alt=""
-                />
-              Air Service Inquiry
+                Slider
               </li>
             </Link>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Services</h3>
-
-          <ul className="sidebarList">
             <Link to="/OtherServices" className="link">
               <li className="sidebarListItem">
                 <img
@@ -184,10 +197,22 @@ export default function Sidebar() {
                   height="18"
                   alt=""
                 />
-                Other Services
+                About Page
               </li>
             </Link>
-            
+            <Link to="/OtherServices" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={services}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                About Page
+              </li>
+            </Link>
+
             <Link to="/galleryservices" className="link">
               <li className="sidebarListItem">
                 <img
@@ -198,6 +223,30 @@ export default function Sidebar() {
                   alt=""
                 />
                 Gallery
+              </li>
+            </Link>
+            <Link to="/SocailLink" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={social}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Socail Link
+              </li>
+            </Link>
+            <Link to="/sociallinks" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={social}
+                  width="20"
+                  height="20"
+                  alt=""
+                />
+                Add Social Links
               </li>
             </Link>
             <Link to="/AirCraftService" className="link">
@@ -224,6 +273,24 @@ export default function Sidebar() {
                 CareerView
               </li>
             </Link>
+
+            <Link to="/serivcenpackage" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={inquiry}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                inquiry{" "}
+              </li>
+            </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Contact</h3>
+          <ul className="sidebarList">
             <Link to="/contact" className="link">
               <li className="sidebarListItem">
                 <img
@@ -246,30 +313,6 @@ export default function Sidebar() {
                   alt=""
                 />
                 contactlead
-              </li>
-            </Link>
-            <Link to="/serivcenpackage" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={inquiry}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
-                inquiry{" "}
-              </li>
-            </Link>
-            <Link to="/SocailLink" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={social}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
-                Socail Link
               </li>
             </Link>
           </ul>
@@ -433,24 +476,6 @@ export default function Sidebar() {
             
           </ul>
         </div> */}
-
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle"> Links</h3>
-          <ul className="sidebarList">
-            <Link to="/sociallinks" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={social}
-                  width="20"
-                  height="20"
-                  alt=""
-                />
-                Social Links
-              </li>
-            </Link>
-          </ul>
-        </div>
       </div>
     </div>
   );

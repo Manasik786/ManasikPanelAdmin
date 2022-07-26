@@ -4,7 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
-export default function UserList() {
+export default function Slider() {
   let history = useHistory();
   const Stylings = {
     color: "white",
@@ -12,7 +12,7 @@ export default function UserList() {
   }
   const EditService = async id => {
 
-    const { data } = await axios.get('/api/v1/CardItems');
+    const { data } = await axios.get('/api/v1/slider');
     console.log(data.data[0]._id)
     for (let i = 0; i < data.data.length; i++) {
       console.log(data.data[i])
@@ -20,7 +20,7 @@ export default function UserList() {
         console.log(data.data[i])
         await window.localStorage.setItem("D", JSON.stringify(data.data[i]))
 
-        history.push("/editservice")
+        history.push("/editslider")
 
       }
 
@@ -30,19 +30,11 @@ export default function UserList() {
   }
   const [data, setData] = useState([]);
   const getdata = async () => {
-    const { data } = await axios.get('/api/v1/CardItems');
-    let abcd = [];
-    for (let i = 0; i < data.data.length; i++) {
+    const { data } = await axios.get('/api/v1/slider');
+    
 
-      if ((data.data[i].CardType) == 'service') {
-        abcd.unshift(data.data[i])
-
-      }
-    }
-
-    setData(abcd);
-    console.log(data)
-
+    setData(data);
+   
   };
   useEffect(() => {
 
@@ -51,7 +43,7 @@ export default function UserList() {
   const handleDelete = async _id => {
 
 
-    const { data } = await axios.delete(`/api/v1/CardItems/${_id}`, {
+    const { data } = await axios.delete(`/api/v1/slider/${_id}`, {
       params: { id: _id },
     });
     getdata();
@@ -69,19 +61,19 @@ export default function UserList() {
     // },
 
     {
-      field: 'title ar',
+      field: 'title ',
       headerName: 'title',
       width: 200,
       renderCell: params => {
-        return <div className="productListItem">{params.row.CardTitle}</div>;
+        return <div className="productListItem">{params.row.Cardtitle}</div>;
       },
     },
     {
-      field: 'title',
+      field: 'titlear',
       headerName: 'title arabic',
       width: 200,
       renderCell: params => {
-        return <div className="productListItem">{params.row.CardTitlear}</div>;
+        return <div className="productListItem">{params.row.Cardtitlear}</div>;
       },
     },
 
@@ -146,10 +138,10 @@ export default function UserList() {
         }
         }
       >
-        < Link to="/servicesAdddition" style={Stylings}>Add</Link>
+        < Link to="/sliderAdddition" style={Stylings}>Add</Link>
       </button  >,
       width: 200,
-      //  < Link to="/servicesAdddition" >Add</Link>
+   
     }
   ];
 

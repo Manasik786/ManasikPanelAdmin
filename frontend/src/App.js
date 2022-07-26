@@ -31,8 +31,9 @@ import Login from "./pages/login/Login";
 import IdleTimerContainer from "./IdleTimerContainer";
 import { useEffect } from "react";
 import PackagesManagement from "./pages/ManagePackages/ManagePackages";
-import Slider from "./pages/Slider/Slider";
-import ManageCategory from "./pages/ManageCategory/ManageCategory";
+import SliderAddition from "./pages/PanelPages/AddSlider";
+import EdiSlider from "./pages/PanelPages/EditSlider";
+import Slider from "./pages/PanelPages/Slider";
 import Services from "./pages/Services/Services";
 import Company from "./pages/Company/Company";
 import Mission from "./pages/Mission/Mission";
@@ -159,6 +160,36 @@ function App() {
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
                 <Inquiry />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />
+          <Route
+            path="/Slider"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <Slider />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />
+          <Route
+            path="/editslider"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <EdiSlider/>
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />
+          <Route
+            path="sliderAdddition"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <SliderAddition/>
               ) : (
                 (window.location.href = "/")
               )

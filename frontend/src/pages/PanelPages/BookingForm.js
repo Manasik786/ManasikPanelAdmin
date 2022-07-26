@@ -31,6 +31,7 @@ export default function BookingForm() {
     const [data, setData] = useState([]);
     const getdata = async () => {
         const { data } = await axios.get('/api/v1/BookingForm');
+        console.log(data)
         let abcd = [];
         for (let i = 0; i < data.data.length; i++) {
 

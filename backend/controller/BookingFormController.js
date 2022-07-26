@@ -27,13 +27,22 @@ exports.CreateBookingFormList = catchAsyncErrors(async (req, res, next) => {
   }
 
   req.body.upload = imagesLinks
-  
+
   console.log(req.body)
   const data = await BookingFormSchema.create(req.body);
 
   res.status(201).json({
     success: true,
     data,
+  })
+})
+exports.SendLength = catchAsyncErrors(async (req, res, next) => {
+  const data = await BookingFormSchema.countDocuments()
+  // const abcd = await BookingFormSchema.find({ Date: {} })
+  res.status(200).json({
+    success: true,
+    data,
+    // abcd
   })
 })
 exports.GetBookingFormItems = catchAsyncErrors(async (req, res, next) => {
@@ -77,7 +86,7 @@ exports.UpdateBookingFormItems = catchAsyncErrors(async (req, res, next) => {
       await cloudinary.v2.uploader.destroy(data.upload[i].public_id);
     }
 
-   
+
   }
   data = await BookingFormSchema.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
