@@ -152,3 +152,8 @@ span.spanclass {
   height: 100px !important;
   margin-bottom: 50px;
 }
+
+.abc{
+  background-color: #fff;
+  display: none;
+}
