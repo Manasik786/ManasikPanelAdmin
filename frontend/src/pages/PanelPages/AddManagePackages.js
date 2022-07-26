@@ -92,95 +92,130 @@ export default function PackagesAddition() {
       </Typography>
 
       <div className="contentbox">
-        <h5>Name</h5>
-        <input
-          type="text"
-          name="Name"
-          value={data.Name}
-          placeholder=" Name "
-          onChange={handleChange}
-        />
-        <h5>Name Arabic</h5>
+        <div className="textboxflex">
+          <span className="spanclass">
+            <h5>Name</h5>
+            <input
+              type="text"
+              name="Name"
+              value={data.Name}
+              placeholder=" Name "
+              onChange={handleChange}
+            />
+          </span>
+          <span className="spanclass">
+            <h5>Name Arabic</h5>
 
-        <input
-          type="text"
-          name="Namear"
-          value={data.Namear}
-          placeholder=" Name Arabic"
-          onChange={handleChange}
-        />
-        <h5>EmailAddress</h5>
+            <input
+              type="text"
+              name="Namear"
+              value={data.Namear}
+              placeholder=" Name Arabic"
+              onChange={handleChange}
+            />
+          </span>
+        </div>
 
-        <input
-          type="text"
-          name="EmailAddress"
-          value={data.EmailAddress}
-          placeholder=" Email Address "
-          onChange={handleChange}
-        />
-        <h5>Package Name</h5>
+        <div className="textboxflex">
+          <span className="spanclass">
+            <h5>Package Name</h5>
+            <input
+              type="text"
+              name="PkgName"
+              value={data.PkgName}
+              placeholder=" Package Name "
+              onChange={handleChange}
+            />
+          </span>
+          <span className="spanclass">
+            <h5>Package Name Arabic</h5>
 
-        <input
-          type="text"
-          name="PkgName"
-          value={data.PkgName}
-          placeholder=" Package Name "
-          onChange={handleChange}
-        />
-        <h5>Package Name Arabic</h5>
+            <input
+              type="text"
+              name="PkgNamear"
+              value={data.PkgNamear}
+              placeholder=" Package Name Arabic"
+              onChange={handleChange}
+            />
+          </span>
+        </div>
 
-        <input
-          type="text"
-          name="PkgNamear"
-          value={data.PkgNamear}
-          placeholder=" Package Name Arabic"
-          onChange={handleChange}
-        />
-        <h5>Days Of Stay</h5>
+        <div className="textboxflex">
+          <span className="spanclass largetext">
+            <h5>Package Details</h5>
 
-        <input
-          type="text"
-          name="DaysOfstay"
-          value={data.DaysOfstay}
-          placeholder="Days of Stays "
-          onChange={handleChange}
-        />
-        <h5>Package Details</h5>
+            <input
+              type="text"
+              name="PkgDetail"
+              className="largetext"
+              value={data.PkgDetail}
+              placeholder="Package Detail "
+              onChange={handleChange}
+            />
+          </span>
+          <span className="spanclass largetext">
+            <h5>Package Detail Arabic</h5>
 
-        <input
-          type="text"
-          name="PkgDetail"
-          value={data.PkgDetail}
-          placeholder="Package Detail "
-          onChange={handleChange}
-        />
-        <h5>Package Detail Arabic</h5>
+            <input
+              type="text"
+              name="PkgDetailar"
+              value={data.PkgDetailar}
+              className="largetext"
+              placeholder=" package Detail Arabic"
+              onChange={handleChange}
+            />
+          </span>
+        </div>
+        <div className="textboxflex">
+          <span className="spanclass">
+            <h5>EmailAddress</h5>
 
-        <input
-          type="text"
-          name="PkgDetailar"
-          value={data.PkgDetailar}
-          placeholder=" package Detail Arabic"
-          onChange={handleChange}
-        />
-        <h5>Valid Till</h5>
+            <input
+              type="text"
+              name="EmailAddress"
+              value={data.EmailAddress}
+              placeholder=" Email Address "
+              onChange={handleChange}
+            />
+          </span>
 
-        <input
-          type="text"
-          name="ValidTill"
-          value={data.ValidTill}
-          placeholder=" Valid Till "
-          onChange={handleChange}
-        />
-        <h5>Valid Till Arabic</h5>
+          <span className="spanclass">
+            <h5>Days Of Stay</h5>
 
-        <input
-          type="text"
-          name="ValidTillar"
-          value={data.ValidTillar}
-          placeholder=" Valid Till Arabic"
-          onChange={handleChange}
-        />
+            <input
+              type="text"
+              name="DaysOfstay"
+              value={data.DaysOfstay}
+              placeholder="Days of Stays "
+              onChange={handleChange}
+            />
+          </span>
+        </div>
+
+        <div className="textboxflex">
+          <span className="spanclass">
+            <h5>Valid Till</h5>
+
+            <input
+              type="text"
+              name="ValidTill"
+              value={data.ValidTill}
+              placeholder=" Valid Till "
+              onChange={handleChange}
+            />
+          </span>
+          <span className="spanclass">
+            <h5>Valid Till Arabic</h5>
+
+            <input
+              type="text"
+              name="ValidTillar"
+              value={data.ValidTillar}
+              placeholder=" Valid Till Arabic"
+              onChange={handleChange}
+            />
+          </span>
+        </div>
       </div>
 
       <div className="sliderbutton">

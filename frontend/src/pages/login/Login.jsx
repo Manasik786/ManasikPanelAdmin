@@ -16,6 +16,7 @@ import { validateLogin } from "../../data/Data";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
+import img from '../../assets/img/logo.jpg'
 
 function Copyright(props) {
   return (
@@ -91,12 +92,14 @@ export default function Login() {
         >
           <ToastContainer hideProgressBar />
           <div style={{ textAlign: "center" }}>
-            <h2>Manasik Aviationssssssss</h2>
+            <h2>Manasik Aviations</h2>
           </div>
+          <img src={img}/>
+
           <Typography component="h1" variant="h5">
             Log In
           </Typography>
-          <Box noValidate sx={{ mt: 1 }}>
+          <Box noValidate sx={{ mt: 2 }}>
             <TextField
               margin="normal"
               required

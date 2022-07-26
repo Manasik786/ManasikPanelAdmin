@@ -22,7 +22,7 @@ export default function Sidebar() {
   return (
     <div style={{ maxWidth: "220px", minWidth: "220px" }} className="sidebar">
       <div className="sidebarWrapper">
-        {/* <div className="sidebarMenu">
+        <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/home" className="link">
@@ -32,7 +32,7 @@ export default function Sidebar() {
               </li>
             </Link>
           </ul>
-        </div> */}
+        </div>
         {/* <div className="sidebarMenu">
           <h3 className="sidebarTitle">Pages</h3>
           <ul className="sidebarList">
@@ -60,6 +60,7 @@ export default function Sidebar() {
                   src={applicants}
                   width="20"
                   height="20"
+                  color="white"
                   alt=""
                 />
                 Manage Applicants
