@@ -14,7 +14,7 @@ import career from "../../assets/career-svgrepo-com.svg";
 import contact from "../../assets/contact-svgrepo-com.svg";
 import booking from "../../assets/form-svgrepo-com.svg";
 import history from "../../assets/history-svgrepo-com.svg";
-import aircraftsvg from "../../assets/airplane.svg"
+import aircraftsvg from "../../assets/airplane.svg";
 
 import { Link } from "react-router-dom";
 
@@ -134,6 +134,18 @@ export default function Sidebar() {
                   alt=""
                 />
                 Services
+              </li>
+            </Link>
+            <Link to="/OtherServices" className="link">
+              <li className="sidebarListItem">
+                <img
+                  className="sidebarIcon"
+                  src={services}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                Other Services
               </li>
             </Link>
             <Link to="/airambulanceservices" className="link">
