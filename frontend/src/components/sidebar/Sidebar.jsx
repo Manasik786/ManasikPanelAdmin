@@ -134,7 +134,7 @@ export default function Sidebar() {
                   height="18"
                   alt=""
                 />
-                Manage Packages
+                Manage  Packages
               </li>
             </Link>
             {/* BookingFormPackage */}
