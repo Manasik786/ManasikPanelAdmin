@@ -2,7 +2,10 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
 import CareerView from "./pages/PanelPages/CareerView";
+import OtherServicesAddition from "./pages/PanelPages/OtherServiceAdd";
 import Contact from "./pages/PanelPages/contact";
+import EditOtherService from "./pages/PanelPages/EditOtherService";
+import OtherServicess from "./pages/Services/OtherServices";
 import Contactlead from "./pages/PanelPages/ContactLead";
 import Inquiry from "./pages/PanelPages/Service_n_package_inquiry";
 import CarrerInquiry from "./pages/PanelPages/CareerInquiry";
@@ -326,6 +329,17 @@ function App() {
           />
           <Route
             exact
+            path="/otherservicesAdddition"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <OtherServicesAddition />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />
+          <Route
+            exact
             path="/update"
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
@@ -385,6 +399,17 @@ function App() {
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
                 <Services />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />
+          <Route
+            exact
+            path="/OtherServices"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <OtherServicess/>
               ) : (
                 (window.location.href = "/")
               )
@@ -495,6 +520,17 @@ function App() {
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
                 <EditService />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />
+          <Route
+            exact
+            path="/editotherservice"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <EditOtherService />
               ) : (
                 (window.location.href = "/")
               )
