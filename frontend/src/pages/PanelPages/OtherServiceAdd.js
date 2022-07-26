@@ -48,7 +48,7 @@ export default function OtherServicesAddition() {
         myForm.append("CardTitle", uppercaseWords(data.CardTitle));
         myForm.append("CardTitlear", uppercaseWords(data.CardTitlear));
         myForm.append("CardType", uppercaseWords(data.CardType));
-        // myForm.append("images", data.images);
+
 
         images.forEach((image) => {
             myForm.append("images", image);
@@ -98,12 +98,16 @@ export default function OtherServicesAddition() {
 
             <div className="contentbox">
                 <h5>Service Type</h5>
-                <input
+                {/* <input
                     type="text"
                     name="CardType"
                     value={data.CardType}
                     onChange={handleChange}
-                />
+                /> */}
+                <input type="radio" value="About" name="CardType" onChange={handleChange} /> About
+                <input type="radio" value="Vision" name="CardType" onChange={handleChange} /> Vision
+                <input type="radio" value="Mission" name="CardType" onChange={handleChange} /> Mission
+                <input type="radio" value="Ceomessage" name="CardType" onChange={handleChange} /> Ceomessage
                 <h5>Service Title</h5>
                 <input
                     type="text"
