@@ -23,10 +23,7 @@ exports.CreateSliderList = catchAsyncErrors(async (req, res, next) => {
       url: result.secure_url,
     });
   }
-  const { titleEnglish, titleArabic } = req.body
-  if (!titleEnglish && !titleArabic) {
-    next(new ErrorHandler("Writing Title is must", 404))
-  }
+ 
   req.body.images = imagesLinks
   console.log(req.body)
   const slider = await SliderSchema.create(req.body);

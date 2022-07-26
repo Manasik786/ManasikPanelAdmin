@@ -200,18 +200,7 @@ export default function Sidebar() {
                 About Page
               </li>
             </Link>
-            <Link to="/OtherServices" className="link">
-              <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={services}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
-                About Page
-              </li>
-            </Link>
+           
 
             <Link to="/galleryservices" className="link">
               <li className="sidebarListItem">

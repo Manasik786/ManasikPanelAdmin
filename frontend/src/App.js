@@ -186,7 +186,7 @@ function App() {
             }
           />
           <Route
-            path="sliderAdddition"
+            path="/sliderAdddition"
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
                 <SliderAddition/>
