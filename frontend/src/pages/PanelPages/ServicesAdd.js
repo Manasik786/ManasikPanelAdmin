@@ -5,7 +5,12 @@ import { Grid } from "@mui/material";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import "./images.css"
 export default function ServicesAddition() {
+  const [display, setdisplay] = useState("none")
+  const style = {
+    display: display,
+  }
   const ref = useRef(null);
   let history = useHistory();
   const [images, setImages] = useState([]);
@@ -31,6 +36,7 @@ export default function ServicesAddition() {
       ...data,
       [event.target.name]: event.target.value,
     });
+
     console.log(data);
   };
   useEffect(() => { }, []);
@@ -87,6 +93,7 @@ export default function ServicesAddition() {
       };
       console.log(file);
       reader.readAsDataURL(file);
+      setdisplay("inline-block")
     });
   };
   return (
@@ -101,60 +108,60 @@ export default function ServicesAddition() {
 
       <div className="contentbox">
 
-      <div className="textboxflex">
+        <div className="textboxflex">
           <span className="spanclass">
-          <h5>Service Title</h5>
-        <input
-          type="text"
-          name="CardTitle"
-          value={data.CardTitle}
-          onChange={handleChange}
-        />
+            <h5>Service Title</h5>
+            <input
+              type="text"
+              name="CardTitle"
+              value={data.CardTitle}
+              onChange={handleChange}
+            />
           </span>
           <span className="spanclass">
-          <h5>Service Title Arabic</h5>
-        <input
-          type="text"
-          name="CardTitlear"
-          value={data.CardTitlear}
-          onChange={handleChange}
-        />
+            <h5>Service Title Arabic</h5>
+            <input
+              type="text"
+              name="CardTitlear"
+              value={data.CardTitlear}
+              onChange={handleChange}
+            />
           </span>
-      </div>
-      <div className="textboxflex">
+        </div>
+        <div className="textboxflex">
           <span className="spanclass largetext">
-          <h5>Service Description </h5>
-        <textarea
-          rows="10"
-          cols="68"
-          name="CardDescriptions"
-          className="largetext"
-          value={data.CardDescriptions}
-          placeholder="write service description here"
-         
-          onChange={handleChange}
-        />
-          </span>
-          <span className="spanclass largetext">
-          <h5>Service Description Arabic</h5>
-        <textarea
-          rows="10"
-          cols="68"
-          className="largetext"
-          name="CardDescriptionsar"
-          value={data.CardDescriptionsar}
-          placeholder="write service description here"
-         
-          onChange={handleChange}
-        />
-          </span>
-      </div>
-        
-      
+            <h5>Service Description </h5>
+            <textarea
+              rows="10"
+              cols="68"
+              name="CardDescriptions"
+              className="largetext"
+              value={data.CardDescriptions}
+              placeholder="write service description here"
 
-        
-        
-          <h5>Service images</h5>
+              onChange={handleChange}
+            />
+          </span>
+          <span className="spanclass largetext">
+            <h5>Service Description Arabic</h5>
+            <textarea
+              rows="10"
+              cols="68"
+              className="largetext"
+              name="CardDescriptionsar"
+              value={data.CardDescriptionsar}
+              placeholder="write service description here"
+
+              onChange={handleChange}
+            />
+          </span>
+        </div>
+
+
+
+
+
+        <h5>Service images</h5>
         {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
         <input
           type="file"
@@ -163,6 +170,10 @@ export default function ServicesAddition() {
           onChange={createServiceImagesChange}
           multiple
         />
+      </div>
+
+      <div className="ImageDiv" style={style}>
+        <img src={images} className="imagepreview" />
       </div>
 
       <div className="sliderbutton">

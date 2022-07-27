@@ -1,0 +1,23 @@
+.ImageDiv {
+    margin-top: 15px;
+    height: auto;
+    display: inline-block;
+    border: rgb(245, 204, 0) solid 2px;
+    padding: 0.5em;
+
+
+}
+
+
+
+
+
+.imagepreview img {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+
+    padding: 10px;
+
+
+}
