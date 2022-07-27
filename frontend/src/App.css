@@ -130,6 +130,7 @@ h5 {
   width: 80%;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 img.mainlogo {
@@ -146,6 +147,11 @@ img.mainlogo {
 }
 span.spanclass {
   height: 100px;
+  flex: 1;
+  margin-left: 10px;
+}
+span.spanclass1 {
+  height: 220px !important;
   flex: 1;
   margin-left: 10px;
 }

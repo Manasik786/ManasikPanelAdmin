@@ -103,16 +103,20 @@ export default function GalleryAddition() {
       </Typography>
 
       <div className="contentbox">
-        <h5>Gallery Type</h5>
+      <div className="textboxflex">
+          <span className="spanclass">
+          <h5>Gallery Type</h5>
 
-        <input
-          type="text"
-          name="CardType"
-          value={data.CardType}
-          placeholder="Describe Card Type"
-          onChange={handleChange}
-        />
-        <h5>Gallery Type Arabic</h5>
+<input
+  type="text"
+  name="CardType"
+  value={data.CardType}
+  placeholder="Describe Card Type"
+  onChange={handleChange}
+/>
+            </span>
+            <span className="spanclass">
+            <h5>Gallery Type Arabic</h5>
         <input
           type="text"
           name="CardTypear"
@@ -120,6 +124,41 @@ export default function GalleryAddition() {
           placeholder="Describe Card Type Arabic"
           onChange={handleChange}
         />
+            </span>
+            </div>
+        
+        
+            <div className="textboxflex">
+          <span className="spanclass largetext">
+          <h5>Gallery Description</h5>
+        <textarea
+          rows="10"
+          cols="68"
+          name="CardDescriptions"
+          value={data.CardDescriptions}
+          className="largetext"
+          placeholder="Card Description"
+          style={{ resize: "none" }}
+          onChange={handleChange}
+        />
+            </span>
+            <span className="spanclass largetext">
+            <h5>Gallery Description Arabic</h5>
+        <textarea
+          rows="10"
+          cols="68"
+          className="largetext"
+          name="CardDescriptionsar"
+          value={data.CardDescriptionsar}
+          placeholder="Card Description Arabic"
+          style={{ resize: "none" }}
+          onChange={handleChange}
+        />
+            </span>
+            </div>
+
+        
+        
         <h5>Gallery images</h5>
         {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
         <input
@@ -128,27 +167,6 @@ export default function GalleryAddition() {
           accept="image/*"
           onChange={createServiceImagesChange}
           multiple
-        />
-
-        <h5>Gallery Description</h5>
-        <textarea
-          rows="10"
-          cols="218"
-          name="CardDescriptions"
-          value={data.CardDescriptions}
-          placeholder="Card Description"
-          style={{ resize: "none" }}
-          onChange={handleChange}
-        />
-        <h5>Gallery Description Arabic</h5>
-        <textarea
-          rows="10"
-          cols="218"
-          name="CardDescriptionsar"
-          value={data.CardDescriptionsar}
-          placeholder="Card Description Arabic"
-          style={{ resize: "none" }}
-          onChange={handleChange}
         />
       </div>
 

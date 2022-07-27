@@ -8,7 +8,6 @@ const BookingFormSchema = new mongoose.Schema({
     },
     Servicetype: {
         type: String,
-
         trim: true
     },
     Name: {

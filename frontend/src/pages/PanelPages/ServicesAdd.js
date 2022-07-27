@@ -100,21 +100,61 @@ export default function ServicesAddition() {
       </Typography>
 
       <div className="contentbox">
-        <h5>Service Title</h5>
+
+      <div className="textboxflex">
+          <span className="spanclass">
+          <h5>Service Title</h5>
         <input
           type="text"
           name="CardTitle"
           value={data.CardTitle}
           onChange={handleChange}
         />
-        <h5>Service Title Arabic</h5>
+          </span>
+          <span className="spanclass">
+          <h5>Service Title Arabic</h5>
         <input
           type="text"
           name="CardTitlear"
           value={data.CardTitlear}
           onChange={handleChange}
         />
-        <h5>Service images</h5>
+          </span>
+      </div>
+      <div className="textboxflex">
+          <span className="spanclass largetext">
+          <h5>Service Description </h5>
+        <textarea
+          rows="10"
+          cols="68"
+          name="CardDescriptions"
+          className="largetext"
+          value={data.CardDescriptions}
+          placeholder="write service description here"
+         
+          onChange={handleChange}
+        />
+          </span>
+          <span className="spanclass largetext">
+          <h5>Service Description Arabic</h5>
+        <textarea
+          rows="10"
+          cols="68"
+          className="largetext"
+          name="CardDescriptionsar"
+          value={data.CardDescriptionsar}
+          placeholder="write service description here"
+         
+          onChange={handleChange}
+        />
+          </span>
+      </div>
+        
+      
+
+        
+        
+          <h5>Service images</h5>
         {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
         <input
           type="file"
@@ -122,27 +162,6 @@ export default function ServicesAddition() {
           accept="image/*"
           onChange={createServiceImagesChange}
           multiple
-        />
-
-        <h5>Service Description Arabic</h5>
-        <textarea
-          rows="10"
-          cols="218"
-          name="CardDescriptionsar"
-          value={data.CardDescriptionsar}
-          placeholder="write service description here"
-          style={{ resize: "none" }}
-          onChange={handleChange}
-        />
-        <h5>Service Description </h5>
-        <textarea
-          rows="10"
-          cols="218"
-          name="CardDescriptions"
-          value={data.CardDescriptions}
-          placeholder="write service description here"
-          style={{ resize: "none" }}
-          onChange={handleChange}
         />
       </div>
 
