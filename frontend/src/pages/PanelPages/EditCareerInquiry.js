@@ -22,9 +22,13 @@ export default function CareerInquiryEdit() {
   const [Type, setType] = useState("");
   const [Typear, setTypear] = useState("");
   const [Valid, setValid] = useState("");
+  const [Description, setDescription] = useState("");
+  const [Descriptionar, setDescriptionar] = useState("");
 
   const [data, setData] = useState({
     Designation: Designation,
+    Description: Description,
+    Descriptionar: Descriptionar,
     Designationar: Designationar,
     Dept: Dept,
     Deptar: Deptar,
@@ -36,6 +40,8 @@ export default function CareerInquiryEdit() {
   });
   const [preditdata, setpreditData] = useState({
     Designation: Designation,
+    Description: Description,
+    Descriptionar: Descriptionar,
     Designationar: Designationar,
     Dept: Dept,
     Deptar: Deptar,
@@ -56,6 +62,8 @@ export default function CareerInquiryEdit() {
     str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase());
   const createProductSubmitHandler = async (e) => {
     e.preventDefault();
+    setDescription(Description);
+    setDescriptionar(Descriptionar);
     setDesignation(Designation);
     setDesignationar(Designationar);
     setTypear(Typear);
@@ -66,6 +74,8 @@ export default function CareerInquiryEdit() {
     setDeptar(Deptar);
     setValid(Valid);
     const myForm = new FormData();
+    myForm.append("Description", data.Description);
+    myForm.append("Descriptionar", data.Descriptionar);
     myForm.append("Designation", data.Designation);
     myForm.append("Designationar", data.Designationar);
     myForm.append("Typear", uppercaseWords(data.Typear));
@@ -121,6 +131,22 @@ export default function CareerInquiryEdit() {
           name="Designationar"
           value={data.Designationar}
           placeholder={preditdata.Designationar}
+          onChange={handleChange}
+        />
+        <h5> Description</h5>
+        <input
+          type="text"
+          name="Description"
+          value={data.Description}
+          placeholder={preditdata.Description}
+          onChange={handleChange}
+        />
+        <h5> descritpion Arabic</h5>
+        <input
+          type="text"
+          name="Descriptionar"
+          value={data.Descriptionar}
+          placeholder={preditdata.Descriptionar}
           onChange={handleChange}
         />
         <h5> Dept</h5>

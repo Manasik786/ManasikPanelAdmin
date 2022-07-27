@@ -27,6 +27,17 @@ const CareerInquirySchema = new mongoose.Schema({
     type: Boolean,
     default: 1,
   },
+  Description: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Descriptionar: {
+    type: String,
+    required: true,
+    trim: true
+
+  },
   Type: {
     type: String,
     required: [true, "Please Enter Type"],

@@ -59,11 +59,27 @@ export default function CarrerInquiry() {
             },
         },
         {
-            field: 'Designation ar' ,
+            field: 'Designation ar',
             headerName: 'Designation (Arabic)',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.Designationar}</div>;
+            },
+        },
+        {
+            field: 'Description',
+            headerName: 'Description',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Description}</div>;
+            },
+        },
+        {
+            field: 'Description ar',
+            headerName: 'Description (Arabic)',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Descriptionar}</div>;
             },
         },
         {
@@ -106,7 +122,7 @@ export default function CarrerInquiry() {
                 return <div className="productListItem">{params.row.Locationar}</div>;
             },
         },
-        
+
         {
             field: 'flag',
             headerName: 'flag',

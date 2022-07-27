@@ -22,9 +22,13 @@ export default function CareerInquiryAddition() {
   const [Type, setType] = useState("");
   const [Typear, setTypear] = useState("");
   const [Valid, setValid] = useState("");
+  const [Description, setDescription] = useState("");
+  const [Descriptionar, setDescriptionar] = useState("");
 
   const [data, setData] = useState({
     Designation: Designation,
+    Description: Description,
+    Descriptionar: Descriptionar,
     Designationar: Designationar,
     Dept: Dept,
     Deptar: Deptar,
@@ -46,6 +50,8 @@ export default function CareerInquiryAddition() {
     str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase());
   const createProductSubmitHandler = async (e) => {
     e.preventDefault();
+    setDescription(Description);
+    setDescriptionar(Descriptionar);
     setDesignation(Designation);
     setDesignationar(Designationar);
     setTypear(Typear);
@@ -56,6 +62,8 @@ export default function CareerInquiryAddition() {
     setDeptar(Deptar);
     setValid(Valid);
     const myForm = new FormData();
+    myForm.append("Description", data.Description);
+    myForm.append("Descriptionar", data.Descriptionar);
     myForm.append("Designation", data.Designation);
     myForm.append("Designationar", data.Designationar);
     myForm.append("Typear", uppercaseWords(data.Typear));
@@ -109,6 +117,29 @@ export default function CareerInquiryAddition() {
             />
           </span>
         </div>
+        <div className="textboxflex">
+          <span className="spanclass">
+            <h5> Description</h5>
+            <input
+              type="text"
+              name="Description"
+              value={data.Description}
+              placeholder="Describe Description"
+              onChange={handleChange}
+            />
+          </span>
+          <span className="spanclass">
+            <h5> Description Arabic</h5>
+            <input
+              type="text"
+              name="Descriptionar"
+              value={data.Descriptionar}
+              placeholder="Describe Description Arabic"
+              onChange={handleChange}
+            />
+          </span>
+        </div>
+
 
         <div className="textboxflex">
           <span className="spanclass">
