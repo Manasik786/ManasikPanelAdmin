@@ -17,6 +17,7 @@ export default function ServicesAddition() {
   const [CardTitlear, setCardTitlear] = useState("");
   const [CardTitle, setCardTitle] = useState("");
 
+
   const [data, setData] = useState({
     CardType: "service",
     CardTitle: CardTitle,
@@ -32,11 +33,13 @@ export default function ServicesAddition() {
     });
     console.log(data);
   };
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   const uppercaseWords = (str) =>
     str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase());
   const createProductSubmitHandler = async (e) => {
     e.preventDefault();
+    e.target.disabled = true
+    // setDisable(true);
     setCardType("Services");
     setCardDescriptions(CardDescriptions);
     setCardDescriptionsar(CardDescriptionsar);
@@ -153,6 +156,7 @@ export default function ServicesAddition() {
               height: "55px",
               borderRadius: "5px",
             }}
+
             onClick={createProductSubmitHandler}
             variant="contained"
           >
