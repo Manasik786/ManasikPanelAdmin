@@ -13,6 +13,9 @@ export default function PackagesAddition() {
   let isAnonymous = true;
   let history = useHistory();
   const ref = useRef(null);
+
+  const [imagesPreview, setImagesPreview] = useState([]);
+  const [oldImages, setOldImages] = useState([]);
   const [Name, SetName] = useState("");
   const [Namear, SetNamear] = useState("");
   const [EmailAddress, SetEmailAddress] = useState("");

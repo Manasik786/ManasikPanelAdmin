@@ -24,6 +24,8 @@ export default function EditPackages() {
   const [PkgDetail, SetPkgDetail] = useState("");
   const [PkgDetailar, SetPkgDetailar] = useState("");
   const [images, setImages] = useState([]);
+  const [imagesPreview, setImagesPreview] = useState([]);
+  const [oldImages, setOldImages] = useState([]);
   const [data, setData] = useState({
     Name: Name,
     EmailAddress: EmailAddress,
