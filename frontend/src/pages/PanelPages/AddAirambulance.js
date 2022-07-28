@@ -32,7 +32,7 @@ export default function AmbulanceAddition() {
     });
     console.log(data);
   };
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   const uppercaseWords = (str) =>
     str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase());
   const createProductSubmitHandler = async (e) => {
@@ -105,7 +105,7 @@ export default function AmbulanceAddition() {
             <h5>Air Ambulance Title</h5>
             <input
               type="text"
-              name="CardDetailar"
+              name="CardDetail"
               value={data.CardDetail}
               onChange={handleChange}
             />
@@ -121,17 +121,17 @@ export default function AmbulanceAddition() {
           </span>
         </div>
 
-      
-        
+
+
 
 
         <div className="textboxflex">
           <span className="spanclass largetext">
             <h5>Service Description</h5>
             <textarea
-               rows="10"
-               cols="68"
-               className="largetext"
+              rows="10"
+              cols="68"
+              className="largetext"
               name="CardDescriptions"
               value={data.CardDescriptions}
               placeholder="write service description here"
@@ -153,10 +153,10 @@ export default function AmbulanceAddition() {
             />
           </span>
         </div>
-        
-        
 
-        
+
+
+
 
         <h5>Air Ambulance images</h5>
         {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
