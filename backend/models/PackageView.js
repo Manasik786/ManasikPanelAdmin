@@ -26,7 +26,7 @@ const PackageViewSchema = new mongoose.Schema({
   },
   DaysOfstay: {
     type: Number,
-    required: [true,"please write number of days of stay alloted in the package"],
+    required: [true, "please write number of days of stay alloted in the package"],
   },
   PkgDetail: {
     type: String,
@@ -55,6 +55,18 @@ const PackageViewSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter pkg Details"],
   },
+  images: [
+    {
+      public_id: {
+        type: String,
+        required: true
+      },
+      url: {
+        type: String,
+        required: true
+      }
+    }
+  ],
   flag: {
     type: Boolean,
     default: 1,

@@ -5,6 +5,30 @@ const PackageViewSchema = require("../models/PackageView");
 const sendEmail = require("../utils/sendEmail");
 exports.CreatePackageViewSchemaList = catchAsyncErrors(
   async (req, res, next) => {
+    let images = [];
+    // const { Position, Name, Phone, Email, Gender, Nationality, CV, Applied } = req.body
+
+    if (typeof req.body.images === "string") {
+        images.push(req.body.images);
+    } else {
+        images = req.body.images;
+    }
+    console.log(req.body.images, "ab")
+
+    const imagesLinks = [];
+    for (let i = 0; i < images.length; i++) {
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+            folder: "AviationsFolder",
+        });
+        console.log(result);
+        imagesLinks.push({
+            public_id: result.public_id,
+            url: result.secure_url,
+        });
+    } 
+
+    req.body.images = imagesLinks
+    console.log(req.body)
     console.log(req.body);
     const data = await PackageViewSchema.create(req.body);
 
@@ -28,9 +52,9 @@ exports.DeletePackageViewSchemaItems = catchAsyncErrors(
     if (!data) {
       return next(new ErrorHandler("data  not found ", 404));
     }
-    // for (let i = 0; i < data.images.length; i++) {
-    //     await cloudinary.v2.uploader.destroy(data.images[i].public_id);
-    // }
+    for (let i = 0; i < data.images.length; i++) {
+        await cloudinary.v2.uploader.destroy(data.images[i].public_id);
+    }
 
     await data.remove();
     res.status(200).json({
@@ -47,33 +71,33 @@ exports.UpdatePackageViewSchemaItems = catchAsyncErrors(
     if (!data) {
       return next(new ErrorHander("Data not found", 404));
     }
-    // let images = []
-    // if (typeof req.body.images === "string") {
-    //     images.push(req.body.images);
-    // }
-    // else {
-    //     images = req.body.images;
-    // }
-    // if (images !== undefined) {
-    //     for (let i = 0; i < data.images.length; i++) {
-    //         await cloudinary.v2.uploader.destroy(data.images[i].public_id);
-    //     }
+    let images = []
+    if (typeof req.body.images === "string") {
+        images.push(req.body.images);
+    }
+    else {
+        images = req.body.images;
+    }
+    if (images !== undefined) {
+        for (let i = 0; i < data.images.length; i++) {
+            await cloudinary.v2.uploader.destroy(data.images[i].public_id);
+        }
 
-    //     const imagesLinks = [];
+        const imagesLinks = [];
 
-    //     for (let i = 0; i < images.length; i++) {
-    //         const result = await cloudinary.v2.uploader.upload(images[i], {
-    //             folder: "AviationsFolder",
-    //         });
+        for (let i = 0; i < images.length; i++) {
+            const result = await cloudinary.v2.uploader.upload(images[i], {
+                folder: "AviationsFolder",
+            });
 
-    //         imagesLinks.push({
-    //             public_id: result.public_id,
-    //             url: result.secure_url,
-    //         });
-    //     }
+            imagesLinks.push({
+                public_id: result.public_id,
+                url: result.secure_url,
+            });
+        }
 
-    //     req.body.images = imagesLinks;
-    // }
+        req.body.images = imagesLinks;
+    }
     data = await PackageViewSchema.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,

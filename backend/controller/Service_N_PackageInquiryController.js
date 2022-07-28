@@ -4,30 +4,7 @@ const cloudinary = require("cloudinary");
 const Service_N_PackageInquryModel = require("../models/Service_N_PackageInquryModel")
 const sendEmail = require("../utils/sendEmail")
 exports.CreateService_N_PackageList = catchAsyncErrors(async (req, res, next) => {
-    // let images = [];
-    // // const { Position, Name, Phone, Email, Gender, Nationality, CV, Applied } = req.body
-
-    // if (typeof req.body.images === "string") {
-    //     images.push(req.body.images);
-    // } else {
-    //     images = req.body.images;
-    // }
-    // console.log(req.body.images, "ab")
-
-    // const imagesLinks = [];
-    // for (let i = 0; i < images.length; i++) {
-    //     const result = await cloudinary.v2.uploader.upload(images[i], {
-    //         folder: "AviationsFolder",
-    //     });
-    //     console.log(result);
-    //     imagesLinks.push({
-    //         public_id: result.public_id,
-    //         url: result.secure_url,
-    //     });
-    // } 
-
-    // req.body.images = imagesLinks
-    // console.log(req.body)
+    
     const data = await Service_N_PackageInquryModel.create(req.body);
 
     res.status(201).json({
