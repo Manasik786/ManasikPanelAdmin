@@ -23,7 +23,7 @@ export default function PackagesAddition() {
   const [ValidTillar, SetValidTillar] = useState("");
   const [PkgDetail, SetPkgDetail] = useState("");
   const [PkgDetailar, SetPkgDetailar] = useState("");
-
+  const [images, setImages] = useState([]);
   const [data, setData] = useState({
     Name: Name,
     EmailAddress: EmailAddress,
@@ -35,6 +35,7 @@ export default function PackagesAddition() {
     PkgNamear: PkgNamear,
     PkgDetailar: PkgDetailar,
     ValidTillar: ValidTillar,
+    images: " ",
   });
 
   const handleChange = (event) => {
@@ -70,6 +71,10 @@ export default function PackagesAddition() {
     myForm.append("ValidTillar", data.ValidTillar);
     myForm.append("DaysOfstay", data.DaysOfstay);
 
+    images.forEach((image) => {
+      myForm.append("images", image);
+    });
+
     console.log(data);
     try {
       const response = await axios.post(`/api/v1/createPackageView`, myForm);
@@ -80,7 +85,27 @@ export default function PackagesAddition() {
     }
     console.log(myForm);
   };
+  const createServiceImagesChange = (e) => {
+    const files = Array.from(e.target.files);
 
+    setImages([]);
+    setImagesPreview([]);
+    setOldImages([]);
+
+    files.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setImagesPreview((old) => [...old, reader.result]);
+          setImages((old) => [...old, reader.result]);
+        }
+      };
+      console.log(file);
+      reader.readAsDataURL(file);
+      setdisplay("inline-block")
+    });
+  };
   return (
     <div className="productList">
       <Typography
@@ -215,7 +240,17 @@ export default function PackagesAddition() {
               onChange={handleChange}
             />
           </span>
+          <h5>Package image</h5>
+          {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
+          <input
+            type="file"
+            name="images"
+            accept="image/*"
+            onChange={createServiceImagesChange}
+            multiple
+          />
         </div>
+
       </div>
 
       <div className="sliderbutton">

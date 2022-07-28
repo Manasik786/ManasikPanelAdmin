@@ -13,17 +13,17 @@ export default function EditPackages() {
   let isAnonymous = true;
   let history = useHistory();
   const ref = useRef(null);
-  const [Name, SetName] = useState(" ");
-  const [Namear, SetNamear] = useState(" ");
-  const [EmailAddress, SetEmailAddress] = useState(" ");
-  const [EmailAddressar, SetEmailAddressar] = useState(" ");
-  const [PkgName, SetPkgName] = useState(" ");
-  const [PkgNamear, SetPkgNamear] = useState(" ");
-  const [ValidTill, SetValidTill] = useState(" ");
-  const [DaysOfstay, SetDaysOfstay] = useState(" ");
-  const [ValidTillar, SetValidTillar] = useState(" ");
-  const [PkgDetail, SetPkgDetail] = useState(" ");
-  const [PkgDetailar, SetPkgDetailar] = useState(" ");
+  const [Name, SetName] = useState("");
+  const [Namear, SetNamear] = useState("");
+  const [EmailAddress, SetEmailAddress] = useState("");
+  const [PkgName, SetPkgName] = useState("");
+  const [PkgNamear, SetPkgNamear] = useState("");
+  const [ValidTill, SetValidTill] = useState("");
+  const [DaysOfstay, SetDaysOfstay] = useState("");
+  const [ValidTillar, SetValidTillar] = useState("");
+  const [PkgDetail, SetPkgDetail] = useState("");
+  const [PkgDetailar, SetPkgDetailar] = useState("");
+  const [images, setImages] = useState([]);
   const [data, setData] = useState({
     Name: Name,
     EmailAddress: EmailAddress,
@@ -32,10 +32,10 @@ export default function EditPackages() {
     PkgDetail: PkgDetail,
     ValidTill: ValidTill,
     Namear: Namear,
-    EmailAddressar: EmailAddressar,
     PkgNamear: PkgNamear,
     PkgDetailar: PkgDetailar,
     ValidTillar: ValidTillar,
+    images: " ",
   });
   const [preditdata, setpreditData] = useState({
     Name: Name,
@@ -45,10 +45,10 @@ export default function EditPackages() {
     PkgDetail: PkgDetail,
     ValidTill: ValidTill,
     Namear: Namear,
-    EmailAddressar: EmailAddressar,
     PkgNamear: PkgNamear,
     PkgDetailar: PkgDetailar,
     ValidTillar: ValidTillar,
+    images: " ",
   });
   const handleChange = (event) => {
     setData({
@@ -64,7 +64,6 @@ export default function EditPackages() {
     SetName(Name);
     SetNamear(Namear);
     SetEmailAddress(EmailAddress);
-    SetEmailAddressar(EmailAddressar);
     SetPkgName(PkgName);
     SetPkgNamear(PkgNamear);
     SetDaysOfstay(DaysOfstay);
@@ -74,17 +73,22 @@ export default function EditPackages() {
     SetValidTillar(ValidTillar);
     const myForm = new FormData();
     myForm.append("Name", data.Name);
+    myForm.append("EmailAddress", data.EmailAddress);
     myForm.append("Namear", data.Namear);
-    myForm.append("PkgNamear", uppercaseWords(data.PkgNamear));
-    myForm.append("PkgName", uppercaseWords(data.PkgName));
+    myForm.append("PkgNamear", data.PkgNamear);
+    myForm.append("PkgName", data.PkgName);
     myForm.append("PkgDetail", data.PkgDetail);
     myForm.append("PkgDetailar", data.PkgDetailar);
     myForm.append("ValidTill", data.ValidTill);
     myForm.append("ValidTillar", data.ValidTillar);
     myForm.append("DaysOfstay", data.DaysOfstay);
+
+    images.forEach((image) => {
+      myForm.append("images", image);
+    });
     console.log(data, "dsad");
     try {
-      const response = await axios.put(`/api/v1/PackageView/${preditdata._id}`,myForm);
+      const response = await axios.put(`/api/v1/PackageView/${preditdata._id}`, myForm);
       console.log(response);
       history.replace("/managepackage");
     } catch (err) {
@@ -95,6 +99,27 @@ export default function EditPackages() {
   const placeholderdata = async () => {
     await setpreditData(JSON.parse(localStorage.getItem("Package")));
     console.log(preditdata, "Abc");
+  };
+  const createServiceImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+
+    setImages([]);
+    setImagesPreview([]);
+    setOldImages([]);
+
+    files.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setImagesPreview((old) => [...old, reader.result]);
+          setImages((old) => [...old, reader.result]);
+        }
+      };
+      console.log(file);
+      reader.readAsDataURL(file);
+      setdisplay("inline-block")
+    });
   };
 
   useEffect(() => {
@@ -201,6 +226,15 @@ export default function EditPackages() {
           value={data.ValidTillar}
           placeholder={preditdata.ValidTillar}
           onChange={handleChange}
+        />
+        <h5>Package image</h5>
+        {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
+        <input
+          type="file"
+          name="images"
+          accept="image/*"
+          onChange={createServiceImagesChange}
+          multiple
         />
       </div>
 
