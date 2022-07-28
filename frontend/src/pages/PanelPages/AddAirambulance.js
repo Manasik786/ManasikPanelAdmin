@@ -159,7 +159,7 @@ export default function AmbulanceAddition() {
 
 
         <h5>Air Ambulance images</h5>
-        {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
+
         <input
           type="file"
           name="images"
