@@ -70,6 +70,16 @@ export default function PackagesManagement() {
       },
     },
     {
+      field: 'images',
+      headerName: 'image',
+      width: 200,
+      renderCell: params => {
+        return <div className="productListItem ">
+          <img src={params.row.images[0].url} className="admin-img"  ></img>
+        </div>;
+      },
+    },
+    {
       field: "DaysOfstay",
       headerName: "DaysOfstay",
       width: 200,
