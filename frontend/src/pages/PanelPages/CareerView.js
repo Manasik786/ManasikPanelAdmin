@@ -4,8 +4,17 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import PopupCareerView from "./PopupCareerView";
 export default function CareerView() {
   let history = useHistory();
+  const [show, setShow] = useState(false);
+  const [modaldata, setmodaldata] = useState()
+  const handleClose = () => setShow(false);
+  const handleShow = async (data) => {
+    setmodaldata(data)
+    await setShow(true)
+  };
   const Stylings = {
     color: "white",
     textDecoration: "none",
@@ -104,16 +113,29 @@ export default function CareerView() {
       field: "Action",
       headerName: "Action",
       width: 190,
-      renderCell: (params) => {
+      renderCell: params => {
         return (
           <>
             <button
               className="productListEdit"
               onClick={() => EditService(params.row._id)}
             >
-              edit
-            </button>
 
+              edit
+            </button >
+
+            <button
+              variant="primary"
+              className="productListEdit"
+              onClick={() => handleShow(params.row)}
+            >
+              {/* <Button
+               
+              >
+                View
+              </Button> */}
+              View
+            </button>
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}
@@ -144,6 +166,11 @@ export default function CareerView() {
 
   return (
     <div className="productList">
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <PopupCareerView data={modaldata} />
+      </Modal>
       <DataGrid
         rows={data}
         disableSelectionOnClick

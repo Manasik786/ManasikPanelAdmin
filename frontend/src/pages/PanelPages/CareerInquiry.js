@@ -4,12 +4,22 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
+import Modal from "react-bootstrap/Modal";
+import Careerinquiry from "./CareerInquiryPopup";
+
 export default function CarrerInquiry() {
     let history = useHistory();
     const Stylings = {
         color: "white",
         textDecoration: "none"
     }
+    const [show, setShow] = useState(false);
+    const [modaldata, setmodaldata] = useState()
+    const handleClose = () => setShow(false);
+    const handleShow = async (data) => {
+        setmodaldata(data)
+        await setShow(true)
+    };
     const EditService = async id => {
 
         const { data } = await axios.get('/api/v1/CareerInquiry');
@@ -50,14 +60,14 @@ export default function CarrerInquiry() {
     };
 
     const columns = [
-        {
-            field: 'Designation',
-            headerName: 'Designation',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Designation}</div>;
-            },
-        },
+        // {
+        //     field: 'Designation',
+        //     headerName: 'Designation',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Designation}</div>;
+        //     },
+        // },
         {
             field: 'Designation ar',
             headerName: 'Designation (Arabic)',
@@ -66,14 +76,14 @@ export default function CarrerInquiry() {
                 return <div className="productListItem">{params.row.Designationar}</div>;
             },
         },
-        {
-            field: 'Description',
-            headerName: 'Description',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Description}</div>;
-            },
-        },
+        // {
+        //     field: 'Description',
+        //     headerName: 'Description',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Description}</div>;
+        //     },
+        // },
         {
             field: 'Description ar',
             headerName: 'Description (Arabic)',
@@ -82,55 +92,55 @@ export default function CarrerInquiry() {
                 return <div className="productListItem">{params.row.Descriptionar}</div>;
             },
         },
-        {
-            field: 'Dept',
-            headerName: 'Dept',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Dept}</div>;
-            },
-        },
-        {
-            field: 'Dept ar',
-            headerName: 'Dept (Arabic)',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Deptar}</div>;
-            },
-        },
-        {
-            field: 'Valid',
-            headerName: 'Valid',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Valid}</div>;
-            },
-        },
-        {
-            field: 'Location',
-            headerName: 'Location',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Location}</div>;
-            },
-        },
-        {
-            field: 'Location ar',
-            headerName: 'Location (Arabic)',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Locationar}</div>;
-            },
-        },
+        // {
+        //     field: 'Dept',
+        //     headerName: 'Dept',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Dept}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Dept ar',
+        //     headerName: 'Dept (Arabic)',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Deptar}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Valid',
+        //     headerName: 'Valid',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Valid}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Location',
+        //     headerName: 'Location',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Location}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Location ar',
+        //     headerName: 'Location (Arabic)',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Locationar}</div>;
+        //     },
+        // },
 
-        {
-            field: 'flag',
-            headerName: 'flag',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
-            },
-        },
+        // {
+        //     field: 'flag',
+        //     headerName: 'flag',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
+        //     },
+        // },
         {
             field: 'Type',
             headerName: 'Type',
@@ -168,6 +178,18 @@ export default function CarrerInquiry() {
                 return (
                     <>
                         <button
+                            variant="primary"
+                            className="productListEdit"
+                            onClick={() => handleShow(params.row)}
+                        >
+                            {/* <Button
+                       
+                      >
+                        View
+                      </Button> */}
+                            View
+                        </button>
+                        <button
                             className="productListEdit"
                             onClick={() => EditService(params.row._id)}
                         >
@@ -203,6 +225,10 @@ export default function CarrerInquiry() {
 
     return (
         <div className="productList">
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton></Modal.Header>
+                <Careerinquiry data={modaldata} />
+            </Modal>
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

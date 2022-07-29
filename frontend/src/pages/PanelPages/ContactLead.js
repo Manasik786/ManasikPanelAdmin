@@ -73,21 +73,15 @@ export default function Contactlead() {
             renderCell: params => {
                 return <div className="productListItem">{params.row.Message}</div>;
             },
-        }, {
-            field: 'Detail',
-            headerName: 'Detail',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Detail}</div>;
-            },
-        }, {
-            field: 'flag',
-            headerName: 'flag',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
-            },
         },
+        //  {
+        //     field: 'flag',
+        //     headerName: 'flag',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
+        //     },
+        // },
         {
             field: 'Action',
             headerName: 'Action',

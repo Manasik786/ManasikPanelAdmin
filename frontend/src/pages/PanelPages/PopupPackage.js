@@ -3,6 +3,7 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { Link, useHistory } from "react-router-dom";
+import "./abcd.css"
 
 
 
@@ -140,16 +141,29 @@ console.log(data.data.CardDescriptions)
 
   return (
     <>
-       <div className="popup1">
+      <div className="popup1 design"  >
          <div className="popupform1">
-            <h3 >Service </h3>
-            <p>{data.data.CardTitle}</p>
-            <h3 className="arabic-style">خدمة</h3>
-            <p className="arabic-style">{data.data.CardTitlear}</p>
-            <h3>Description</h3>
-            <p>{data.data.CardDescriptions}</p> 
-             <h3 className="arabic-style">وصف</h3>
-            <p className="arabic-style">{data.data.CardDescriptionsar}</p>
+         <div className="row">
+                <div className="col-sm-6">
+                    <h3 >Service ss</h3>
+                    <p>{data.data.Name}</p>
+                    <p>{data.data.Namear}</p>
+                    <h3 className="arabic-style">خدمة</h3>
+                    <p className="arabic-style" >{data.data.EmailAddress}</p>
+                    <p className="arabic-style" >{data.data.EmailAddressar}</p>
+                    <h3>Description</h3>
+                    <p>{data.data.PkgName}</p> 
+                    <h3 className="arabic-style">وصف</h3>
+                    <p className="arabic-style">{data.data.DaysOfstay}</p>
+                    <p className="arabic-style">{data.data.PkgDetailar}</p>
+                    <p className="arabic-style">{data.data.PkgNamear}</p>
+                    <p className="arabic-style">{data.data.ValidTill}</p>
+                 
+                </div>
+                <div className="col-sm-6 imge">
+                    <img src={data.data.images[0].url} width="50%"/>
+                </div>
+            </div>
          </div>
       </div>  
     </>

@@ -4,13 +4,21 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
+import Modal from "react-bootstrap/Modal";
+import PopupBooking from "./PopupBooking";
 export default function BookingFormAirAmbulance() {
     let history = useHistory();
     const Stylings = {
         color: "white",
         textDecoration: "none"
     }
-
+    const [show, setShow] = useState(false);
+    const [modaldata, setmodaldata] = useState()
+    const handleClose = () => setShow(false);
+    const handleShow = async (data) => {
+        setmodaldata(data)
+        await setShow(true)
+    };
     const [data, setData] = useState([]);
     const getdata = async () => {
         const { data } = await axios.get('/api/v1/BookingForm');
@@ -40,22 +48,22 @@ export default function BookingFormAirAmbulance() {
     };
 
     const columns = [
-        {
-            field: 'stayperiod',
-            headerName: 'stayperiod',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.stayperiod ? params.row.stayperiod : "not given"}</div>;
-            },
-        },
-        {
-            field: 'Servicetype',
-            headerName: 'Servicetype',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Servicetype ? params.row.Servicetype : "not given"}</div>;
-            },
-        },
+           // {
+        //     field: 'stayperiod',
+        //     headerName: 'stayperiod',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.stayperiod ? params.row.stayperiod : "not given"}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Servicetype',
+        //     headerName: 'Servicetype',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Servicetype ? params.row.Servicetype : "not given"}</div>;
+        //     },
+        // },
         {
             field: 'upload',
             headerName: 'image',
@@ -74,14 +82,14 @@ export default function BookingFormAirAmbulance() {
                 return <div className="productListItem">{params.row.Name ? params.row.Name : "not given"}</div>;
             },
         },
-        {
-            field: ' familyname',
-            headerName: ' familyname',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.familyname ? params.row.familyname : "not given"}</div>;
-            },
-        },
+          // {
+        //     field: ' familyname',
+        //     headerName: ' familyname',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.familyname ? params.row.familyname : "not given"}</div>;
+        //     },
+        // },
         {
             field: 'Email',
             headerName: 'Email',
@@ -106,54 +114,54 @@ export default function BookingFormAirAmbulance() {
                 return <div className="productListItem">{params.row.Phone ? params.row.Phone : "not given"}</div>;
             },
         },
-        {
-            field: 'passportno',
-            headerName: 'passportno',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.passportno ? params.row.passportno : "not given"}</div>;
-            },
-        },
-        {
-            field: 'nationalid',
-            headerName: 'nationalid',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.nationalid ? params.row.nationalid : "not given"}</div>;
-            },
-        },
-        {
-            field: 'Visitedbefore',
-            headerName: 'Visitedbefore',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Visitedbefore ? "yes" : "not given"}</div>;
-            },
-        },
-        {
-            field: 'relativecontact',
-            headerName: 'relativecontact',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.relativecontact ? params.row.relativecontact : "not given"}</div>;
-            },
-        },
-        {
-            field: 'Reasontovisitksa',
-            headerName: 'Reasontovisitksa',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Reasontovisitksa ? params.row.Reasontovisitksa : "not given"}</div>;
-            },
-        },
-        {
-            field: 'Religion',
-            headerName: 'Religion',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Religion ? params.row.Religion : "not given"}</div>;
-            },
-        },
+          //   {
+        //     field: 'passportno',
+        //     headerName: 'passportno',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.passportno ? params.row.passportno : "not given"}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'nationalid',
+        //     headerName: 'nationalid',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.nationalid ? params.row.nationalid : "not given"}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Visitedbefore',
+        //     headerName: 'Visitedbefore',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Visitedbefore ? "yes" : "not given"}</div>;
+        //     },
+        // },
+            // {
+        //     field: 'relativecontact',
+        //     headerName: 'relativecontact',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.relativecontact ? params.row.relativecontact : "not given"}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Reasontovisitksa',
+        //     headerName: 'Reasontovisitksa',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Reasontovisitksa ? params.row.Reasontovisitksa : "not given"}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'Religion',
+        //     headerName: 'Religion',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Religion ? params.row.Religion : "not given"}</div>;
+        //     },
+        // },
 
 
         {
@@ -165,6 +173,18 @@ export default function BookingFormAirAmbulance() {
                     <>
 
 
+                        <button
+                            variant="primary"
+                            className="productListEdit"
+                            onClick={() => handleShow(params.row)}
+                        >
+                            {/* <Button
+                       
+                      >
+                        View
+                      </Button> */}
+                            View
+                        </button>
                         <DeleteOutline
                             className="productListDelete"
                             onClick={() => handleDelete(params.row._id)}
@@ -193,6 +213,10 @@ export default function BookingFormAirAmbulance() {
 
     return (
         <div className="productList">
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton></Modal.Header>
+                <PopupBooking data={modaldata} />
+            </Modal>
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

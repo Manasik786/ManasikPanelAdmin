@@ -74,14 +74,14 @@ export default function Contact() {
                 return <div className="productListItem">{params.row.location}</div>;
             },
         },
-        {
-            field: 'flag',
-            headerName: 'flag',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
-            },
-        },
+         //  {
+        //     field: 'flag',
+        //     headerName: 'flag',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
+        //     },
+        // },
 
         {
             field: 'Action',

@@ -66,14 +66,14 @@ export default function SocailLink() {
                 return <div className="productListItem">{params.row.logo[0].url}</div>;
             },
         },
-        {
-            field: 'Flag',
-            headerName: 'Flag',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.flag ? "yes" : "NO"}</div>;
-            },
-        },
+         //  {
+        //     field: 'flag',
+        //     headerName: 'flag',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
+        //     },
+        // },
 
 
         {

@@ -34,7 +34,7 @@ export default function OtherServicess() {
     let abcd = [];
     for (let i = 0; i < data.data.length; i++) {
 
-      if ((data.data[i].CardType) !== 'service') {
+      if ((data.data[i].CardType) !==   'service') {
         abcd.unshift(data.data[i])
 
       }

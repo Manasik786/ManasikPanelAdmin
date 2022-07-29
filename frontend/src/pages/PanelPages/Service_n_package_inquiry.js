@@ -93,14 +93,14 @@ export default function Inquiry() {
             renderCell: params => {
                 return <div className="productListItem">{params.row.DateOfInquiry}</div>;
             },
-        }, {
-            field: 'flag',
-            headerName: 'flag',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.flag ? "yes" : "no"}</div>;
-            },
-        },
+        },  //  {
+        //     field: 'flag',
+        //     headerName: 'flag',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.flag ? "YES" : "NO"}</div>;
+        //     },
+        // },
 
 
 

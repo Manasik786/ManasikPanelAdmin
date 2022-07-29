@@ -1,0 +1,22 @@
+.design{
+    padding: 20px 20px;
+    text-align: left;
+    display: flex;
+}
+h3.arabic-style {
+    text-align: right;
+}
+p.arabic-style {
+    text-align: right;
+}
+.modal-dialog {
+    max-width: 75% !important;
+}
+.design .col-sm-6.imge{
+    display: flex;
+}
+.design h3{
+ font-weight: 700;
+ font-size: 28px;
+ padding-bottom: 5px;
+}
