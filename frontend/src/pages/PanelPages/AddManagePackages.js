@@ -106,7 +106,7 @@ export default function PackagesAddition() {
       };
       console.log(file);
       reader.readAsDataURL(file);
-      setdisplay("inline-block")
+     
     });
   };
   return (

@@ -120,7 +120,7 @@ export default function EditPackages() {
       };
       console.log(file);
       reader.readAsDataURL(file);
-      setdisplay("inline-block")
+
     });
   };
 
