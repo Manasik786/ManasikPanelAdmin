@@ -4,7 +4,7 @@
   background-color: #222D32 !important;
   position: sticky;
   top: 50px;
-  border-right: 1px solid lightgray;
+
   margin-right: 20px;
   overflow: scroll;
 }
@@ -20,8 +20,8 @@
 }
 
 .sidebarTitle {
-  font-size: 13px;
-  color: rgb(236, 233, 233);
+   font-size: 13px;
+  color: rgb(255, 255, 255); 
 }
 
 .sidebarList {
@@ -38,13 +38,18 @@
   color: #fff;
 }
 
-.sidebarListItem.active,
 .sidebarListItem:hover {
-  background-color: rgb(240, 240, 255);
-  color: #222D32;
+  
+  color: #222D32 !important;
 }
 
 .sidebarIcon {
   margin-right: 5px;
-  font-size: 20px !important;
+  font-size: 20px ;
+ 
+}
+.sidebarIcon:hover {
+  margin-right: 5px;
+  font-size: 20px ;
+  color: black !important;
 }

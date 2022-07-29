@@ -4,8 +4,21 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Popup from '../../components/Modal/Popup'
+
+
 export default function UserList() {
   let history = useHistory();
+  const [show, setShow] = useState(false);
+  const [modaldata, setmodaldata] = useState()
+  const handleClose = () => setShow(false);
+  const handleShow = async (data) => {
+    setmodaldata(data)
+    await setShow(true)
+  };
+
   const Stylings = {
     color: "white",
     textDecoration: "none"
@@ -21,6 +34,26 @@ export default function UserList() {
         await window.localStorage.setItem("D", JSON.stringify(data.data[i]))
 
         history.push("/editservice")
+
+      }
+
+
+
+    }
+  }
+
+
+  const ViewService = async id => {
+
+    const { data } = await axios.get('/api/v1/CardItems');
+    console.log(data.data[0]._id)
+    for (let i = 0; i < data.data.length; i++) {
+      console.log(data.data[i])
+      if (id == data.data[i]._id) {
+        console.log(data.data[i])
+        await window.localStorage.setItem("D", JSON.stringify(data.data[i]))
+
+
 
       }
 
@@ -127,6 +160,18 @@ export default function UserList() {
               edit
             </button >
 
+            <button
+              variant="primary"
+              className="productListEdit"
+              onClick={() => handleShow(params.row)}
+            >
+              {/* <Button
+               
+              >
+                View
+              </Button> */}
+              View
+            </button>
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}
@@ -141,7 +186,6 @@ export default function UserList() {
         disabled={false}
         className="productListEdit"
         onClick={() => {
-
           window.localStorage.setItem('id', '/riders');
         }
         }
@@ -155,6 +199,10 @@ export default function UserList() {
 
   return (
     <div className="productList">
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton></Modal.Header>
+        <Popup data={modaldata} />
+      </Modal>
       <DataGrid
         rows={data}
         disableSelectionOnClick

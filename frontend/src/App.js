@@ -58,6 +58,8 @@ import ServiceAdd from "./pages/PanelPages/ServicesAdd";
 import EditService from "./pages/PanelPages/EditService";
 import Editapplicantstatus from "./pages/PanelPages/EditStatus";
 import BookingFormAirAmbulance from "./pages/PanelPages/BookingFormAirAmbulance";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 function App() {
   useEffect(() => {
     document.title = "Manasik Admin Portal";
@@ -69,7 +71,7 @@ function App() {
         window.location.pathname !== "/" ? (
         <Topbar />
       ) : null}
-      <div className="container">
+      <div className="container1">
         {window.localStorage.getItem("isAuthenticated") &&
           window.location.pathname !== "/" ? (
           <Sidebar />

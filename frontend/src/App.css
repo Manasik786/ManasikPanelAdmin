@@ -1,6 +1,5 @@
-
-.container {
-  display: flex;
+.container1 {
+  display: flex !important;
   height: 100vh;
   /* background-image: url('./assets/img/about.jpg'); */
   /* background-color: #ECF0F5;
@@ -10,14 +9,29 @@
 
   /* margin-top: 10px; */
 }
+button.productListEdit{
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  color: #fff !important;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-radius: 12px;
+  justify-content: center;
+
+
+}
 input[type="text"] {
   width: 99%;
   height: 40px;
   border: 1px solid bisque;
 }
+
 textarea {
   border: 1px solid bisque;
 }
+
 h5 {
   display: block;
   font-size: 0.83em;
@@ -27,6 +41,7 @@ h5 {
   margin-inline-end: 0px;
   font-weight: 600;
 }
+
 .css-binzgt {
   margin-top: 64px;
   display: -webkit-box;
@@ -42,10 +57,12 @@ h5 {
   align-items: center;
   background: #fff !important;
 }
+
 .link {
   text-decoration: none;
   color: inherit;
 }
+
 .sidebar {
   flex: 1;
   height: calc(100vh - 50px);
@@ -88,22 +105,30 @@ h5 {
 .sidebarListItem.active,
 .sidebarListItem:hover {
   background-color: rgb(240, 240, 255);
+  color: black;
 }
 
 .sidebarIcon {
   margin-right: 5px;
   font-size: 20px !important;
-  color: #000;
-  background: aliceblue;
+  color: rgb(255, 255, 255);
+
+}
+
+.sidebarIcon:hover {
+  margin-right: 5px;
+  font-size: 20px !important;
+  color: inherit;
 }
 
 
-.sbutton{
+.sbutton {
   cursor: pointer;
   padding-left: 10px;
 }
+
 .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   margin-top: -16px;
   font-size: 1rem;
@@ -126,7 +151,7 @@ h5 {
   border-radius: 4px;
 }
 
-.sliderbutton{
+.sliderbutton {
   width: 80%;
   display: flex;
   justify-content: space-between;
@@ -141,26 +166,29 @@ img.mainlogo {
   /* margin: unset; */
 }
 
-.textboxflex{
+.textboxflex {
   display: flex;
   justify-content: space-between;
 }
+
 span.spanclass {
   height: 100px;
   flex: 1;
   margin-left: 10px;
 }
+
 span.spanclass1 {
   height: 220px !important;
   flex: 1;
   margin-left: 10px;
 }
-.largetext{
+
+.largetext {
   height: 100px !important;
   margin-bottom: 50px;
 }
 
-.abc{
+.abc {
   background-color: #fff;
   display: none;
 }

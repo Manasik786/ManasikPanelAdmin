@@ -1,6 +1,8 @@
 import "./sidebar.css";
-import { LineStyle } from "@material-ui/icons";
+import { LineStyle, InventoryIcon } from "@material-ui/icons";
+import Inventory2Icon from "@mui/icons-material/Inventory2";
 import delievery from "../../assets/delivery-package-svgrepo-com.svg";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 // import airplane from "../../assets/airplane-svgrepo-com.svg"
 import category from "../../assets/category.svg";
 import services from "../../assets/service-svgrepo-com.svg";
@@ -15,10 +17,31 @@ import contact from "../../assets/contact-svgrepo-com.svg";
 import booking from "../../assets/form-svgrepo-com.svg";
 import history from "../../assets/history-svgrepo-com.svg";
 import aircraftsvg from "../../assets/airplane.svg";
-
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import ManageSearchIcon from "@mui/icons-material/ManageSearch";
+import FilePresentIcon from "@mui/icons-material/FilePresent";
+import ViewHeadlineIcon from "@mui/icons-material/ViewHeadline";
+import InfoIcon from "@mui/icons-material/Info";
+import CollectionsIcon from "@mui/icons-material/Collections";
+import PublicIcon from "@mui/icons-material/Public";
+import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
+import CallIcon from "@mui/icons-material/Call";
+import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 export default function Sidebar() {
+  const styling = {
+    marginRight: "5px",
+    fontSize: "20px",
+    color: "#f9f5f5",
+  };
+  const hovering = {
+    marginRight: "5px",
+    fontSize: "20px",
+    color: "#050505",
+  };
+  const [linkstyling, setlinkstyling] = useState(styling);
   return (
     <div style={{ maxWidth: "220px", minWidth: "220px" }} className="sidebar">
       <div className="sidebarWrapper">
@@ -27,7 +50,7 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/home" className="link">
               <li className="sidebarListItem">
-                <LineStyle className="sidebarIcon" />
+                <LineStyle  />
                 Dashboard
               </li>
             </Link>
@@ -39,7 +62,7 @@ export default function Sidebar() {
             <Link to="/pages" className="link">
               <li className="sidebarListItem">
                 <img
-                  className="sidebarIcon"
+                 
                   src={pages}
                   width="20"
                   height="20"
@@ -56,25 +79,13 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/services" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={services}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <MiscellaneousServicesIcon  />
                 Manage Services
               </li>
             </Link>{" "}
             <Link to="/BookingFormService" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={booking}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <QuestionAnswerIcon  />
                 Service Inquiry
               </li>
             </Link>
@@ -86,26 +97,14 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/managepackage" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={delievery}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <Inventory2Icon  />
                 Manage Packages
               </li>
             </Link>
             {/* BookingFormPackage */}
             <Link to="/BookingFormPackage" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={booking}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <QuestionAnswerIcon  />
                 Package Inquiry
               </li>
             </Link>
@@ -116,26 +115,13 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/airambulanceservices" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={airambulance}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <LocalHospitalIcon  src={airambulance} />
                 Air Ambulance
               </li>
             </Link>{" "}
             <Link to="/BookingFormAirAmbulance" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={applicants}
-                  width="20"
-                  height="20"
-                  color="white"
-                  alt=""
-                />
+                <QuestionAnswerIcon  />
                 Air Service Inquiry
               </li>
             </Link>
@@ -146,26 +132,13 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/CarrerInquiry" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={inquiry}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <ManageSearchIcon  />
                 Manage Jobs
               </li>
             </Link>
             <Link to="/manageapplicant" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={applicants}
-                  width="20"
-                  height="20"
-                  color="white"
-                  alt=""
-                />
+                <FilePresentIcon  />
                 Manage Applicants
               </li>
             </Link>
@@ -178,58 +151,34 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/Slider" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={services}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <ViewHeadlineIcon  />
                 Slider
               </li>
             </Link>
+
             <Link to="/OtherServices" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={services}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <InfoIcon  />
                 About Page
               </li>
             </Link>
-           
 
             <Link to="/galleryservices" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={gallery}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <CollectionsIcon  />
                 Gallery
               </li>
             </Link>
             <Link to="/SocailLink" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={social}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <PublicIcon  src={social} />
                 Socail Link
               </li>
             </Link>
             <Link to="/sociallinks" className="link">
               <li className="sidebarListItem">
                 <img
-                  className="sidebarIcon"
+                  
                   src={social}
                   width="20"
                   height="20"
@@ -240,20 +189,14 @@ export default function Sidebar() {
             </Link>
             <Link to="/AirCraftService" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={aircraftsvg}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <ConnectingAirportsIcon  />
                 Air Craft
               </li>
             </Link>
-            <Link to="/careerview" className="link">
+            {/* <Link to="/careerview" className="link">
               <li className="sidebarListItem">
                 <img
-                  className="sidebarIcon"
+                  
                   src={career}
                   width="18"
                   height="18"
@@ -261,12 +204,12 @@ export default function Sidebar() {
                 />
                 CareerView
               </li>
-            </Link>
+            </Link> */}
 
-            <Link to="/serivcenpackage" className="link">
+            {/* <Link to="/serivcenpackage" className="link">
               <li className="sidebarListItem">
                 <img
-                  className="sidebarIcon"
+                  
                   src={inquiry}
                   width="18"
                   height="18"
@@ -274,7 +217,7 @@ export default function Sidebar() {
                 />
                 inquiry{" "}
               </li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -282,25 +225,14 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/contact" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={contact}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <CallIcon  />
                 contact
               </li>
             </Link>
+
             <Link to="/contactlead" className="link">
               <li className="sidebarListItem">
-                <img
-                  className="sidebarIcon"
-                  src={history}
-                  width="18"
-                  height="18"
-                  alt=""
-                />
+                <LeaderboardIcon  />
                 contactlead
               </li>
             </Link>
@@ -314,7 +246,7 @@ export default function Sidebar() {
               <Link to="/company" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="20"
                     height="20"
@@ -326,7 +258,7 @@ export default function Sidebar() {
               <Link to="vision" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="18"
                     height="18"
@@ -338,7 +270,7 @@ export default function Sidebar() {
               <Link to="mission" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="18"
                     height="18"
@@ -350,7 +282,7 @@ export default function Sidebar() {
               <Link to="ceomessage" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="18"
                     height="18"
@@ -362,7 +294,7 @@ export default function Sidebar() {
               <Link to="whymanasik" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="18"
                     height="18"
@@ -374,7 +306,7 @@ export default function Sidebar() {
               <Link to="privacy" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="18"
                     height="18"
@@ -393,7 +325,7 @@ export default function Sidebar() {
               <Link to="/populardestination" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="20"
                     height="20"
@@ -405,7 +337,7 @@ export default function Sidebar() {
               <Link to="onboard" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="18"
                     height="18"
@@ -417,7 +349,7 @@ export default function Sidebar() {
               <Link to="terms" className="link">
                 <li className="sidebarListItem">
                   <img
-                    className="sidebarIcon"
+                   
                     src={historyIcon}
                     width="18"
                     height="18"
@@ -435,7 +367,7 @@ export default function Sidebar() {
             <Link to="/hotel" className="link">
               <li className="sidebarListItem">
                 <img
-                  className="sidebarIcon"
+                 
                   src={historyIcon}
                   width="20"
                   height="20"
@@ -453,7 +385,7 @@ export default function Sidebar() {
             <Link to="/destination" className="link">
               <li className="sidebarListItem">
                 <img
-                  className="sidebarIcon"
+                 
                   src={historyIcon}
                   width="20"
                   height="20"
