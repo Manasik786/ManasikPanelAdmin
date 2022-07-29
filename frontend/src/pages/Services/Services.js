@@ -180,21 +180,7 @@ export default function UserList() {
         );
       },
     },
-    {
-      field: "ADD Panel",
-      headerName: <button
-        disabled={false}
-        className="productListEdit"
-        onClick={() => {
-          window.localStorage.setItem('id', '/riders');
-        }
-        }
-      >
-        < Link to="/servicesAdddition" style={Stylings}>Add</Link>
-      </button  >,
-      width: 200,
-      //  < Link to="/servicesAdddition" >Add</Link>
-    }
+
   ];
 
   return (
@@ -212,6 +198,9 @@ export default function UserList() {
         pageSize={15}
         checkboxSelection
       />
+      < Link to="/servicesAdddition" style={Stylings} className="float">
+        <i class="fa fa-plus my-float"></i>
+      </Link>
     </div>
   );
 }

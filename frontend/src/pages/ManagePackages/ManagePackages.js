@@ -7,6 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Popup from '../../components/Modal/Popup'
 import PopupPackage from "../PanelPages/PopupPackage";
+import AddIcon from '@mui/icons-material/Add';
 
 export default function PackagesManagement() {
   let history = useHistory();
@@ -161,7 +162,7 @@ export default function PackagesManagement() {
       field: "Action",
       headerName: "Action",
       width: 190,
-        renderCell: params => {
+      renderCell: params => {
         return (
           <>
             <button
@@ -192,24 +193,7 @@ export default function PackagesManagement() {
         );
       },
     },
-    {
-      field: "ADD Panel",
-      headerName: (
-        <button
-          disabled={false}
-          className="productListEdit"
-          onClick={() => {
-            window.localStorage.setItem("id", "/riders");
-          }}
-        >
-          <Link to="/addPackages" style={Stylings}>
-            Add
-          </Link>
-        </button>
-      ),
-      width: 200,
-      //  < Link to="/servicesAdddition" >Add</Link>
-    },
+
   ];
 
   return (
@@ -227,6 +211,9 @@ export default function PackagesManagement() {
         pageSize={15}
         checkboxSelection
       />
+      <Link to="/addPackages" style={Stylings} className="float">
+        <i class="fa fa-plus my-float"></i>
+      </Link>
     </div>
   );
 }

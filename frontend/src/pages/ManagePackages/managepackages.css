@@ -1,38 +1,55 @@
 .productList {
-    flex: 4;
-    margin-top: 15px;
-    margin-right: 15px;
-  }
-  
-  .productListItem {
-    display: flex;
-    align-items: center;
-  }
-  
-  .productListImg {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-  }
-  
-  .productListEdit {
-    border: none;
-    border-radius: 10px;
-    padding: 5px 10px;
-    width: 60px;
-    background-color: #3bb077;
-    color: white;
-    cursor: pointer;
-    margin-right: 20px;
-  }
-  
-  .productListDelete {
-    color: red;
-    cursor: pointer;
-  }
-  .admin-img {
-    width: 100px;
-  }
-  
+  flex: 4;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.productListItem {
+  display: flex;
+  align-items: center;
+}
+
+.productListImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.productListEdit {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 60px;
+  background-color: #3bb077;
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #0C9;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+  margin-top: 22px;
+}
+
+.productListDelete {
+  color: red;
+  cursor: pointer;
+}
+
+.admin-img {
+  width: 100px;
+}
