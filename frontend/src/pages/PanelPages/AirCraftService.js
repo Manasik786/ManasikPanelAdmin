@@ -4,12 +4,17 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
+import Modal from "react-bootstrap/Modal";
+import AirCraftPopup from "./AirCraftPopup";
 export default function AirCraft() {
     let history = useHistory();
     const Stylings = {
         color: "white",
         textDecoration: "none"
     }
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const EditService = async id => {
 
         const { data } = await axios.get('/api/v1/AirCraftServicee');
@@ -59,74 +64,75 @@ export default function AirCraft() {
             },
         },
 
-        {
-            field: 'familyName',
-            headerName: 'Family Name',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.familyName ? params.row.familyName : "no given the family name"}</div>;
-            },
-        },
+        // {
+        //     field: 'familyName',
+        //     headerName: 'Family Name',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.familyName ? params.row.familyName : "no given the family name"}</div>;
+        //     },
+        // },
 
 
+        // {
+        //     field: 'DestinationTo',
+        //     headerName: 'DestinationTo',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.DestinationTo}</div>;
+        //     },
+        // },
+        // {
+        //     field: 'DestinationFrom',
+        //     headerName: 'DestinationFrom',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.DestinationFrom}</div>;
+        //     },
+        // }, {
+        //     field: 'NumberOfPasseneger',
+        //     headerName: 'Number Of Passeneger',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.NumberOfPasseneger}</div>;
+        //     },
+        // }, {
+        //     field: 'HotelService',
+        //     headerName: 'HotelService',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.HotelService ? "yes" : "no"}</div>;
+        //     },
+        // }, {
+        //     field: 'VisaService',
+        //     headerName: 'VisaService',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.VisaService ? "yes" : "no"}</div>;
+        //     },
+        // }, {
+        //     field: 'TransportationService',
+        //     headerName: 'TransportationService',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.TransportationService ? "yes" : "no"}</div>;
+        //     },
+        // }, {
+        //     field: 'CateringService',
+        //     headerName: 'CateringService',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.CateringService ? "yes" : "no"}</div>;
+        //     },
+        // }, {
+        //     field: 'Notes',
+        //     headerName: 'Notes',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Notes}</div>;
+        //     },
+        // },
         {
-            field: 'DestinationTo',
-            headerName: 'DestinationTo',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.DestinationTo}</div>;
-            },
-        },
-        {
-            field: 'DestinationFrom',
-            headerName: 'DestinationFrom',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.DestinationFrom}</div>;
-            },
-        }, {
-            field: 'NumberOfPasseneger',
-            headerName: 'Number Of Passeneger',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.NumberOfPasseneger}</div>;
-            },
-        }, {
-            field: 'HotelService',
-            headerName: 'HotelService',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.HotelService ? "yes" : "no"}</div>;
-            },
-        }, {
-            field: 'VisaService',
-            headerName: 'VisaService',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.VisaService ? "yes" : "no"}</div>;
-            },
-        }, {
-            field: 'TransportationService',
-            headerName: 'TransportationService',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.TransportationService ? "yes" : "no"}</div>;
-            },
-        }, {
-            field: 'CateringService',
-            headerName: 'CateringService',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.CateringService ? "yes" : "no"}</div>;
-            },
-        }, {
-            field: 'Notes',
-            headerName: 'Notes',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Notes}</div>;
-            },
-        }, {
             field: 'Date',
             headerName: 'Date',
             width: 200,
@@ -143,6 +149,19 @@ export default function AirCraft() {
             renderCell: params => {
                 return (
                     <>
+
+                        <button
+                            variant="primary"
+                            className="productListEdit"
+                            onClick={() => handleShow(params.row)}
+                        >
+                            {/* <Button
+               
+              >
+                View
+              </Button> */}
+                            View
+                        </button> 
                         <button
                             className="productListEdit"
                             onClick={() => EditService(params.row._id)}
@@ -159,26 +178,30 @@ export default function AirCraft() {
                 );
             },
         },
-        {
-            field: "ADD Panel",
-            headerName: <button
-                disabled={false}
-                className="productListEdit"
-                onClick={() => {
+        // {
+        //     field: "ADD Panel",
+        //     headerName: <button
+        //         disabled={false}
+        //         className="productListEdit"
+        //         onClick={() => {
 
-                    window.localStorage.setItem('id', '/riders');
-                }
-                }
-            >
-                < Link to="/addairambulanceservices" style={Stylings}>Add</Link>
-            </button  >,
-            width: 200,
-            //  < Link to="/servicesAdddition" >Add</Link>
-        }
+        //             window.localStorage.setItem('id', '/riders');
+        //         }
+        //         }
+        //     >
+        //         < Link to="/addairambulanceservices" style={Stylings}>Add</Link>
+        //     </button  >,
+        //     width: 200,
+        //     //  < Link to="/servicesAdddition" >Add</Link>
+        // }
     ];
 
     return (
         <div className="productList">
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton></Modal.Header>
+                <AirCraftPopup />
+            </Modal>
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

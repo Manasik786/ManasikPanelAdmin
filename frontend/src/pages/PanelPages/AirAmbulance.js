@@ -8,7 +8,7 @@ import Modal from "react-bootstrap/Modal";
 import PopupAirAmbulance from "./PopupAirAmbulance";
 export default function Ambulance() {
   let history = useHistory();
-  
+
   const [show, setShow] = useState(false);
   const [modaldata, setmodaldata] = useState()
   const handleClose = () => setShow(false);
@@ -27,7 +27,7 @@ export default function Ambulance() {
       console.log(data.data[i]);
       if (id == data.data[i]._id) {
         console.log(data.data[i]);
-        await window.localStorage.setItem("Ambulance",JSON.stringify(data.data[i]));
+        await window.localStorage.setItem("Ambulance", JSON.stringify(data.data[i]));
         history.push("/editairambulanceservices");
 
       }
@@ -115,7 +115,7 @@ export default function Ambulance() {
       field: "Action",
       headerName: "Action",
       width: 190,
-        renderCell: params => {
+      renderCell: params => {
         return (
           <>
             <button
@@ -146,24 +146,7 @@ export default function Ambulance() {
         );
       },
     },
-    {
-      field: "ADD Panel",
-      headerName: (
-        <button
-          disabled={false}
-          className="productListEdit"
-          onClick={() => {
-            window.localStorage.setItem("id", "/riders");
-          }}
-        >
-          <Link to="/addairambulanceservices" style={Stylings}>
-            Add
-          </Link>
-        </button>
-      ),
-      width: 200,
-      //  < Link to="/servicesAdddition" >Add</Link>
-    },
+
   ];
 
   return (
@@ -183,6 +166,9 @@ export default function Ambulance() {
         pageSize={15}
         checkboxSelection
       />
+      <Link to="/addairambulanceservices" style={Stylings} className="float">
+        <i class="fa fa-plus my-float"></i>
+      </Link>
     </div>
   );
 }
