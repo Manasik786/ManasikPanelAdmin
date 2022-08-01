@@ -12,9 +12,13 @@ export default function AirCraft() {
         color: "white",
         textDecoration: "none"
     }
+    const [modaldata, setmodaldata] = useState()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = async (data) => {
+        setmodaldata(data)
+        await setShow(true)
+    };
     const EditService = async id => {
 
         const { data } = await axios.get('/api/v1/AirCraftServicee');
@@ -47,6 +51,7 @@ export default function AirCraft() {
     const handleDelete = async _id => {
 
 
+
         const { data } = await axios.delete(`/api/v1/AirCraftService/${_id}`, {
             params: { id: _id },
         });
@@ -64,14 +69,14 @@ export default function AirCraft() {
             },
         },
 
-        // {
-        //     field: 'familyName',
-        //     headerName: 'Family Name',
-        //     width: 200,
-        //     renderCell: params => {
-        //         return <div className="productListItem">{params.row.familyName ? params.row.familyName : "no given the family name"}</div>;
-        //     },
-        // },
+        {
+            field: 'familyName',
+            headerName: 'Family Name',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.familyName ? params.row.familyName : "no given the family name"}</div>;
+            },
+        },
 
 
         // {
@@ -161,7 +166,7 @@ export default function AirCraft() {
                 View
               </Button> */}
                             View
-                        </button> 
+                        </button>
                         <button
                             className="productListEdit"
                             onClick={() => EditService(params.row._id)}
@@ -200,7 +205,7 @@ export default function AirCraft() {
         <div className="productList">
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton></Modal.Header>
-                <AirCraftPopup />
+                <AirCraftPopup data={modaldata} />
             </Modal>
             <DataGrid
                 rows={data}

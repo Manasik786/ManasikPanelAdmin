@@ -137,7 +137,7 @@ const AirCraftPopup = (data) => {
     //     reader.readAsDataURL(file);
     //   });
     // };
-    console.log(data.data.Description)
+    // console.log(data.data.Description)
 
     return (
         <>
@@ -146,13 +146,15 @@ const AirCraftPopup = (data) => {
                     <div className="row">
                         <div className="col-sm-6">
                             <h3 style={{ textAlign: "center" }}>familyName</h3>
-                            <p style={{ textAlign: "center" }}>{data.data.familyName}</p>
-                            <h3 style={{ textAlign: "center" }}>DestinationTo</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.DestinationTo}</p>
+                            <p style={{ textAlign: "center" }}>{data.data.Name ? data.data.Name : "no"}</p>
+                            <h3 style={{ textAlign: "center" }}>familyName</h3>
+                            <p style={{ textAlign: "center" }}>{data.data.familyname ? data.data.familyname : "no"}</p>
+                            <h3 style={{ textAlign: "center" }}>nationalid</h3>
+                            <p style={{ textAlign: "center" }} >{data.data.nationalid ? data.data.nationalid : "no"}</p>
                             <h3 style={{ textAlign: "center" }}>DestinationFrom</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.DestinationFrom}</p>
+                            <p style={{ textAlign: "center" }} >{data.data.DestinationFrom ? data.data.DestinationFrom : "no"}</p>
                             <h3 style={{ textAlign: "center" }}>NumberOfPasseneger</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.NumberOfPasseneger}</p>
+                            <p style={{ textAlign: "center" }} >{data.data.NumberOfPasseneger ? data.data.NumberOfPasseneger : "no"}</p>
                             <h3 style={{ textAlign: "center" }}>Hotel Service</h3>
                             <p style={{ textAlign: "center" }} >{data.data.HotelService ? "yes" : "no"}</p>
                             <h3 style={{ textAlign: "center" }}>Visa Service</h3>
@@ -166,12 +168,16 @@ const AirCraftPopup = (data) => {
 
 
                             <h3 style={{ textAlign: "center" }}>Valid </h3>
-                            <p style={{ textAlign: "center" }} >{data.data.CateringService}</p>
+                            <p style={{ textAlign: "center" }} >{data.data.Email ? data.data.Email : "no"}</p>
+                            <h3 style={{ textAlign: "center" }}>Phone </h3>
+                            <p style={{ textAlign: "center" }} >{data.data.Phone ? "yes" : "no"}</p>
+                            <h3 style={{ textAlign: "center" }}>Valid </h3>
+                            <p style={{ textAlign: "center" }} >{data.data.CateringService ? "yes" : "no"}</p>
                             <h3 style={{ textAlign: "center" }}>Location</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Notes}</p>
+                            <p style={{ textAlign: "center" }} >{data.data.Notes ? "yes" : "no"}</p>
                             <h3 style={{ textAlign: "center" }}>Location Arabic</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Date}</p>
- 
+                            <p style={{ textAlign: "center" }} >{data.data.Date ? "yes" : "no"}</p>
+
 
                         </div>
                         {/* <div className="col-sm-6 imge">
