@@ -67,7 +67,7 @@ export default function PackagesManagement() {
     },
     {
       field: "EmailAddress",
-      headerName: "EmailAddress",
+      headerName: "Email Address",
       width: 200,
       renderCell: (params) => {
         return <div className="productListItem">{params.row.EmailAddress}</div>;
@@ -75,7 +75,7 @@ export default function PackagesManagement() {
     },
     {
       field: "PkgName",
-      headerName: "PkgName",
+      headerName: "Package Name",
       width: 200,
       renderCell: (params) => {
         return <div className="productListItem">{params.row.PkgName}</div>;
@@ -199,7 +199,7 @@ export default function PackagesManagement() {
   return (
     <div className="productList">
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton></Modal.Header>
+        <Modal.Header closeButton>Manage Packages</Modal.Header>
         <PopupPackage data={modaldata} />
       </Modal>
       <DataGrid

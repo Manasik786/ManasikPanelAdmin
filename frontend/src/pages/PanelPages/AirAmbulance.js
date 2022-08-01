@@ -169,7 +169,9 @@ export default function Ambulance() {
   return (
     <div className="productList">
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton></Modal.Header>
+        <Modal.Header closeButton>
+          <h3>Air Ambulance</h3>
+        </Modal.Header>
         <PopupAirAmbulance data={modaldata} />
       </Modal>
       <DataGrid

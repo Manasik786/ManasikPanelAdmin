@@ -100,7 +100,7 @@ export default function BookingFormPackage() {
         },
         {
             field: 'country',
-            headerName: 'country',
+            headerName: 'Country',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.country ? params.row.country : "not given"}</div>;

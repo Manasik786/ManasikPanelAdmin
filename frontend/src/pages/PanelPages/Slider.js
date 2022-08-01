@@ -55,7 +55,7 @@ export default function Slider() {
 
         {
             field: 'title ',
-            headerName: 'title',
+            headerName: 'Title',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.title}</div>;
@@ -63,7 +63,7 @@ export default function Slider() {
         },
         {
             field: 'titlear',
-            headerName: 'title arabic',
+            headerName: 'Title Arabic',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.titlear}</div>;
@@ -88,7 +88,7 @@ export default function Slider() {
         },
         {
             field: 'images',
-            headerName: 'image',
+            headerName: 'Image',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem ">

@@ -61,7 +61,7 @@ export default function AirCraft() {
 
         {
             field: 'familyName',
-            headerName: 'familyName',
+            headerName: 'Family Name',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.familyName ? params.row.familyName : "no given the family name"}</div>;
@@ -86,7 +86,7 @@ export default function AirCraft() {
             },
         }, {
             field: 'NumberOfPasseneger',
-            headerName: 'NumberOfPasseneger',
+            headerName: 'Number Of Passeneger',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.NumberOfPasseneger}</div>;

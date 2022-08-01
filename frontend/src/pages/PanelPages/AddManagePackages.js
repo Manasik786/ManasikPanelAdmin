@@ -243,7 +243,8 @@ export default function PackagesAddition() {
               onChange={handleChange}
             />
           </span>
-          <h5>Package image</h5>
+         </div>
+         <h5>Package image</h5>
           {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
           <input
             type="file"
@@ -252,8 +253,7 @@ export default function PackagesAddition() {
             onChange={createServiceImagesChange}
             multiple
           />
-        </div>
-
+        
       </div>
 
       <div className="sliderbutton">

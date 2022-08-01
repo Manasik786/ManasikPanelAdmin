@@ -16,7 +16,7 @@ import { validateLogin } from "../../data/Data";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
-import img from '../../assets/img/logo.jpg'
+import img from '../../assets/img/Headerlogo.png'
 
 function Copyright(props) {
   return (

@@ -9,6 +9,9 @@
 
   /* margin-top: 10px; */
 }
+.popupform2 {
+  width: 100%;
+}
 button.productListEdit{
   height: 30px;
   display: flex;

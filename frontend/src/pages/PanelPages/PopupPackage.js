@@ -145,7 +145,7 @@ console.log(data.data.CardDescriptions)
          <div className="popupform1">
          <div className="row">
                 <div className="col-sm-6">
-                    <h3 >Service ss</h3>
+                    <h3 >Package Service</h3>
                     <p>{data.data.Name}</p>
                     <p>{data.data.Namear}</p>
                     <h3 className="arabic-style">خدمة</h3>

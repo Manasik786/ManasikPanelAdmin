@@ -62,7 +62,7 @@ export default function OtherServicess() {
 
     {
       field: 'title ar',
-      headerName: 'title',
+      headerName: 'Title',
       width: 200,
       renderCell: params => {
         return <div className="productListItem">{params.row.CardTitle}</div>;
@@ -70,7 +70,7 @@ export default function OtherServicess() {
     },
     {
       field: 'title',
-      headerName: 'title arabic',
+      headerName: 'Title Arabic',
       width: 200,
       renderCell: params => {
         return <div className="productListItem">{params.row.CardTitlear}</div>;
@@ -96,7 +96,7 @@ export default function OtherServicess() {
     },
     {
       field: 'Description ar',
-      headerName: 'Description arabic',
+      headerName: 'Description Arabic',
       width: 200,
       renderCell: params => {
         return <div className="productListItem">{params.row.CardDescriptionsar}</div>;
@@ -104,7 +104,7 @@ export default function OtherServicess() {
     },
     {
       field: 'images',
-      headerName: 'image',
+      headerName: 'Image',
       width: 200,
       renderCell: params => {
         return <div className="productListItem ">
