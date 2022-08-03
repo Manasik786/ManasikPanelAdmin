@@ -2,6 +2,9 @@
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Poppup from "./PopupContact";
+
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
 export default function Contactlead() {
@@ -10,6 +13,13 @@ export default function Contactlead() {
         color: "white",
         textDecoration: "none"
     }
+    const [show, setShow] = useState(false);
+  const [modaldata, setmodaldata] = useState()
+  const handleClose = () => setShow(false);
+  const handleShow = async (data) => {
+    setmodaldata(data)
+    await setShow(true)
+  };
     const EditService = async id => {
 
         const { data } = await axios.get('/api/v1/ContactLead');
@@ -90,7 +100,18 @@ export default function Contactlead() {
                 return (
                     <>
                        
-
+                       <button
+                            variant="primary"
+                            className="productListEdit"
+                            onClick={() => handleShow(params.row)}
+                        >
+                            {/* <Button
+               
+              >
+                View
+              </Button> */}
+                            View
+                        </button>
                         <DeleteOutline
                             className="productListDelete"
                             onClick={() => handleDelete(params.row._id)}
@@ -119,6 +140,12 @@ export default function Contactlead() {
 
     return (
         <div className="productList">
+             <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+           <h2> Contact Leads</h2>
+        </Modal.Header>
+        <Poppup data={modaldata} />
+      </Modal>
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

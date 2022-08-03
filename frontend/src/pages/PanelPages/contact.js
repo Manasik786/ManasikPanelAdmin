@@ -10,6 +10,7 @@ export default function Contact() {
         color: "white",
         textDecoration: "none"
     }
+    
     const EditService = async id => {
 
         const { data } = await axios.get('/api/v1/Contact');
@@ -90,6 +91,7 @@ export default function Contact() {
             renderCell: params => {
                 return (
                     <>
+                    
                         <button
                             className="productListEdit"
                             onClick={() => EditService(params.row._id)}
@@ -126,13 +128,14 @@ export default function Contact() {
 
     return (
         <div className="productList">
+           
             <DataGrid
                 rows={data}
                 disableSelectionOnClick
                 rowsPerPageOptions={[15]}
                 columns={columns}
                 getRowId={row => row._id}
-                pageSize={15}
+                pageSize={12}
                 checkboxSelection
             />
         </div>
