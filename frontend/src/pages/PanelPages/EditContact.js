@@ -13,27 +13,23 @@ export default function EdiSlider() {
     let isAnonymous = true;
     let history = useHistory();
     const ref = useRef(null);
-    const [images, setImages] = useState([]);
-    const [imagesPreview, setImagesPreview] = useState([]);
-    const [oldImages, setOldImages] = useState([]);
-    const [Description, setDescription] = useState("");
-    const [Descriptionar, setDescriptionar] = useState("");
-    const [titlear, settitlear] = useState("");
-    const [title, settitle] = useState("");
+    
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [location, setLocation] = useState("");
     const [data, setData] = useState({
-        title: title,
-        titlear: titlear,
-        Description: Description,
-        Descriptionar: Descriptionar,
-        images: images,
+        phone: phone,
+        email: email,
+        location: location,
+       
     });
     const [preditdata, setpreditData] = useState({
-        title: title,
-        titlear: titlear,
-        Description: Description,
-        Descriptionar: Descriptionar,
-        images: images,
+        location: location,
+        email: email,
+        phone: phone,
+       
     });
+    console.log("dat is ",preditdata)
     const handleChange = (event) => {
         setData({
             ...data,
@@ -46,20 +42,17 @@ export default function EdiSlider() {
     const createProductSubmitHandler = async (e) => {
         e.preventDefault();
 
-        setDescription(Description);
-        setDescriptionar(Descriptionar);
-        settitle(title);
-        settitlear(title);
+        setPhone(phone);
+        setEmail(email);
+        setLocation(location);
+        
         const myForm = new FormData();
-        myForm.append("Description", data.Description);
-        myForm.append("Descriptionar", data.Descriptionar);
-        myForm.append("title", uppercaseWords(data.title));
-        myForm.append("titlear", uppercaseWords(data.titlear));
+        myForm.append("phone", data.phone);
+        myForm.append("email", data.email);
+        myForm.append("location", uppercaseWords(data.location));
         // myForm.append("images", data.images);
 
-        images.forEach((image) => {
-            myForm.append("images", image);
-        });
+       
 
         console.log(data, "dsad");
         try {
@@ -67,11 +60,11 @@ export default function EdiSlider() {
             //     headers: { "Content-Type": "application/json" },
             // };
             const response = await axios.put(
-                `/api/v1/slider/${preditdata._id}`,
+                `/api/v1/Contact/${preditdata._id}`,
                 myForm
             );
             console.log(response);
-            history.replace("/services");
+            history.replace("/contact");
         } catch (err) {
             console.log(err.data);
         }
@@ -79,7 +72,7 @@ export default function EdiSlider() {
     //{"flag":true,"_id":"62d52e7e23b2fa38448f747c","CardType":"service","CardTitle":"Good Service","CardDescriptions":"lorem ipsum",
     //"images":[{"_id":"62d52e7e23b2fa38448f747d","public_id":"AviationsFolder/pw42cvnnasyk7nm85tul","url":"https://res.cloudinary.com/dag7tgw83/image/upload/v1658138238/AviationsFolder/pw42cvnnasyk7nm85tul.png"}],"__v":0}
     const placeholderdata = async () => {
-        await setpreditData(JSON.parse(localStorage.getItem("D")));
+        await setpreditData(JSON.parse(localStorage.getItem("contact")));
         console.log(preditdata, "Abc");
     };
 
@@ -94,7 +87,7 @@ export default function EdiSlider() {
             };
 
             const response = await axios.put(
-                `/api/v1/slider/${id}`,
+                `/api/v1/Contact/${id}`,
                 productData,
                 config
             );
@@ -104,29 +97,10 @@ export default function EdiSlider() {
             console.log(error);
         }
     };
-    const createServiceImagesChange = (e) => {
-        const files = Array.from(e.target.files);
-
-        setImages([]);
-        setImagesPreview([]);
-        setOldImages([]);
-
-        files.forEach((file) => {
-            const reader = new FileReader();
-
-            reader.onload = () => {
-                if (reader.readyState === 2) {
-                    setImagesPreview((old) => [...old, reader.result]);
-                    setImages((old) => [...old, reader.result]);
-                }
-            };
-            console.log(file);
-            reader.readAsDataURL(file);
-        });
-    };
+    
 
     function BackFunction(){
-        history.replace("/Slider");
+        history.replace("/contact");
       }
 
     return (
@@ -136,56 +110,34 @@ export default function EdiSlider() {
                 className="productListTitle"
                 style={{ color: "#ffba02" }}
             >
-                Service Panel
+               Contact 
             </Typography>
 
             <div className="contentbox">
-                <h5>Slider Title Arabic</h5>
+                <h5>Email</h5>
                 <input
                     type="text"
-                    name="titlear"
-                    value={data.titlear}
-                    placeholder={preditdata.titlear}
+                    name="email"
+                    value={data.email}
+                    placeholder={preditdata.email}
                     onChange={handleChange}
                 />
 
-                <h5>Service Title</h5>
+                <h5>Loaction</h5>
                 <input
                     type="text"
-                    name="title"
-                    value={data.title}
-                    placeholder={preditdata.title}
+                    name="location"
+                    value={data.location}
+                    placeholder={preditdata.location}
                     onChange={handleChange}
                 />
-                <h5>Service images</h5>
+                <h5>Phone</h5>
                 {/* <input type='text' placeholder="image" name="images" value={images} onChange={(e) => setImages(e.target.value)} /> */}
                 <input
-                    type="file"
-                    name="images"
-                    accept="image/*"
-                    onChange={createServiceImagesChange}
-                    multiple
-                />
-
-                <h5>Service Description Arabic</h5>
-                <textarea
-                    rows="10"
-                    cols="218"
-                    name="Descriptionar"
-                    value={data.Descriptionar}
-                    placeholder={preditdata.Descriptionar}
-                    style={{ resize: "none" }}
-                    onChange={handleChange}
-                />
-                <h5>Service Description</h5>
-
-                <textarea
-                    rows="10"
-                    cols="218"
-                    name="Description"
-                    value={data.Description}
-                    placeholder={preditdata.Description}
-                    style={{ resize: "none" }}
+                    type="text"
+                    name="phone"
+                    value={data.phone}
+                    placeholder={preditdata.phone}
                     onChange={handleChange}
                 />
             </div>

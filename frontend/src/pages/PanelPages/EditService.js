@@ -131,8 +131,13 @@ export default function EditService() {
     });
   };
 
+  function BackFunction(){
+    history.replace("/services");
+  }
+
   return (
     <div className="productList">
+     
       <Typography
         variant="h5"
         className="productListTitle"
@@ -193,6 +198,22 @@ export default function EditService() {
       </div>
 
       <div className="sliderbutton">
+      <Grid item xs={6} sm={6}>
+          <Button
+            ref={ref}
+            style={{
+              backgroundColor: "#ffba02",
+              color: "black",
+              height: "55px",
+              borderRadius: "5px",
+            }}
+            onClick={BackFunction}
+           
+            variant="contained"
+          >
+           BACK
+          </Button>
+        </Grid>
         <Grid item xs={6} sm={6}>
           <Button
             ref={ref}

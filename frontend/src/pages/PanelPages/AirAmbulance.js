@@ -153,7 +153,7 @@ export default function Ambulance() {
     <div className="productList">
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <h3>Air Ambulance</h3>
+          <h2>Air Ambulance</h2>
         </Modal.Header>
         <PopupAirAmbulance data={modaldata} />
       </Modal>

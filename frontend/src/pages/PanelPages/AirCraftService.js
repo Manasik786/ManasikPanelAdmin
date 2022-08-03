@@ -70,11 +70,11 @@ export default function AirCraft() {
         },
 
         {
-            field: 'familyName',
+            field: 'familyname',
             headerName: 'Family Name',
             width: 200,
             renderCell: params => {
-                return <div className="productListItem">{params.row.familyName ? params.row.familyName : "no given the family name"}</div>;
+                return <div className="productListItem">{params.row.familyname ? params.row.familyname : "no given the family name"}</div>;
             },
         },
 
@@ -167,13 +167,7 @@ export default function AirCraft() {
               </Button> */}
                             View
                         </button>
-                        <button
-                            className="productListEdit"
-                            onClick={() => EditService(params.row._id)}
-                        >
-
-                            edit
-                        </button >
+                        
 
                         <DeleteOutline
                             className="productListDelete"
@@ -204,7 +198,9 @@ export default function AirCraft() {
     return (
         <div className="productList">
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton></Modal.Header>
+                <Modal.Header closeButton>
+                    <h2>Charter Flight</h2>
+                </Modal.Header>
                 <AirCraftPopup data={modaldata} />
             </Modal>
             <DataGrid

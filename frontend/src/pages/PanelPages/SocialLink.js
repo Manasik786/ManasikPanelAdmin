@@ -20,7 +20,7 @@ export default function SocailLink() {
                 console.log(data.data[i])
                 await window.localStorage.setItem("Ambulance", JSON.stringify(data.data[i]))
 
-                history.push("/editairambulanceservices")
+                history.push("/editsociallink")
 
             }
 
@@ -110,7 +110,7 @@ export default function SocailLink() {
                 }
                 }
             >
-                < Link to="/addairambulanceservices" style={Stylings}>Add</Link>
+                < Link to="/addsociallink" style={Stylings}>Add</Link>
             </button  >,
             width: 200,
             //  < Link to="/servicesAdddition" >Add</Link>

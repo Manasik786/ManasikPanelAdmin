@@ -130,7 +130,9 @@ export default function EditOtherService() {
             reader.readAsDataURL(file);
         });
     };
-
+    function BackFunction(){
+        history.replace("/OtherServices");
+      }
     return (
         <div className="productList">
             <Typography
@@ -201,22 +203,38 @@ export default function EditOtherService() {
             </div>
 
             <div className="sliderbutton">
-                <Grid item xs={6} sm={6}>
-                    <Button
-                        ref={ref}
-                        style={{
-                            backgroundColor: "#ffba02",
-                            color: "black",
-                            height: "55px",
-                            borderRadius: "5px",
-                        }}
-                        onClick={createProductSubmitHandler}
-                        variant="contained"
-                    >
-                        Submit
-                    </Button>
-                </Grid>
-            </div>
+      <Grid item xs={6} sm={6}>
+          <Button
+            ref={ref}
+            style={{
+              backgroundColor: "#ffba02",
+              color: "black",
+              height: "55px",
+              borderRadius: "5px",
+            }}
+            onClick={BackFunction}
+           
+            variant="contained"
+          >
+           BACK
+          </Button>
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <Button
+            ref={ref}
+            style={{
+              backgroundColor: "#ffba02",
+              color: "black",
+              height: "55px",
+              borderRadius: "5px",
+            }}
+            onClick={createProductSubmitHandler}
+            variant="contained"
+          >
+            Submit
+          </Button>
+        </Grid>
+      </div>
         </div>
     );
 }

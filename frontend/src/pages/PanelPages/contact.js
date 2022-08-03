@@ -18,9 +18,9 @@ export default function Contact() {
             console.log(data.data[i])
             if (id == data.data[i]._id) {
                 console.log(data.data[i])
-                await window.localStorage.setItem("Ambulance", JSON.stringify(data.data[i]))
+                await window.localStorage.setItem("contact", JSON.stringify(data.data[i]))
 
-                history.push("/editairambulanceservices")
+                history.push("/editcontact")
 
             }
 
@@ -52,7 +52,7 @@ export default function Contact() {
     const columns = [
         {
             field: 'email',
-            headerName: 'email',
+            headerName: 'Email',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.email}</div>;
@@ -60,7 +60,7 @@ export default function Contact() {
         },
         {
             field: 'phone',
-            headerName: 'phone',
+            headerName: 'Phone',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.phone}</div>;
@@ -68,7 +68,7 @@ export default function Contact() {
         },
         {
             field: 'location',
-            headerName: 'location',
+            headerName: 'Location',
             width: 200,
             renderCell: params => {
                 return <div className="productListItem">{params.row.location}</div>;

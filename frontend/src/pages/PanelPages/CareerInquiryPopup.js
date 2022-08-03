@@ -145,34 +145,36 @@ const Careerinquiry = (data) => {
                 <div className="popupform1">
                     <div className="row">
                         <div className="col-sm-6">
-                            <h3 style={{ textAlign: "center" }}>Designation</h3>
-                            <p style={{ textAlign: "center" }}>{data.data.Designation}</p>
-                            <h3 style={{ textAlign: "center" }}>Designation Arabic</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Designationar}</p>
-                            <h3 style={{ textAlign: "center" }}>Description</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Description}</p>
-                            <h3 style={{ textAlign: "center" }}>Description Arabic</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Descriptionar}</p>
-                            <h3 style={{ textAlign: "center" }}>Department</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Dept}</p>
-
-
+                            <h3 style={{ textAlign: "" }}>Designation</h3>
+                            <p style={{ textAlign: "" }}>{data.data.Designation}</p>
+                            
+                            <h3 style={{ textAlign: "" }}>Description</h3>
+                            <p style={{ textAlign: "" }} >{data.data.Description}</p>
+                            
+                            <h3 style={{ textAlign: "" }}>Department</h3>
+                            <p style={{ textAlign: "" }} >{data.data.Dept}</p>
+                            <h3 style={{ textAlign: "" }}>Valid </h3>
+                            <p style={{ textAlign: "" }} >{data.data.Valid}</p>
+                            <h3 style={{ textAlign: "" }}>Location</h3>
+                            <p style={{ textAlign: "" }} >{data.data.Location}</p>
+                            <h3 style={{ textAlign: "" }}>Career Type</h3>
+                            <p style={{ textAlign: "" }} >{data.data.Type}</p>
                         </div>
                         <div className="col-sm-6 ">
-
-                            <h3 style={{ textAlign: "center" }}>Department Arabic</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Deptar}</p>
-
-                            <h3 style={{ textAlign: "center" }}>Valid </h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Valid}</p>
-                            <h3 style={{ textAlign: "center" }}>Location</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Location}</p>
-                            <h3 style={{ textAlign: "center" }}>Location Arabic</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Locationar}</p>
-                            <h3 style={{ textAlign: "center" }}>Career Type</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Type}</p>
-                            <h3 style={{ textAlign: "center" }}>Career Type Arabic</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Typear}</p>
+                        <h3 style={{ textAlign: "end" }}>تعيين</h3>
+                            <p style={{ textAlign: "end" }} >{data.data.Designationar}</p>
+                            <h3 style={{ textAlign: "end" }}>وصف</h3>
+                            <p style={{ textAlign: "end" }} >{data.data.Descriptionar}</p>
+                            <h3 style={{ textAlign: "end" }}>قسم</h3>
+                            <p style={{ textAlign: "end" }} >{data.data.Deptar}</p>
+                            <h3 style={{ textAlign: "end" }}>صالح </h3>
+                            <p style={{ textAlign: "end" }} >{data.data.Valid}</p>
+                           
+                            <h3 style={{ textAlign: "end" }}>موقع</h3>
+                            <p style={{ textAlign: "end" }} >{data.data.Locationar}</p>
+                           
+                            <h3 style={{ textAlign: "end" }}>نوع الوظائف</h3>
+                            <p style={{ textAlign: "end" }} >{data.data.Typear}</p>
 
                         </div>
                         {/* <div className="col-sm-6 imge">

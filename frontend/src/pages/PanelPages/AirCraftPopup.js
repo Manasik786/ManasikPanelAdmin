@@ -142,42 +142,43 @@ const AirCraftPopup = (data) => {
     return (
         <>
             <div className="popup1 design"  >
-                <div className="popupform1">
+                <div className="popupform2">
                     <div className="row">
                         <div className="col-sm-6">
-                            <h3 style={{ textAlign: "center" }}>familyName</h3>
-                            <p style={{ textAlign: "center" }}>{data.data.Name ? data.data.Name : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>familyName</h3>
-                            <p style={{ textAlign: "center" }}>{data.data.familyname ? data.data.familyname : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>nationalid</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.nationalid ? data.data.nationalid : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>DestinationFrom</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.DestinationFrom ? data.data.DestinationFrom : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>NumberOfPasseneger</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.NumberOfPasseneger ? data.data.NumberOfPasseneger : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>Hotel Service</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.HotelService ? "yes" : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>Visa Service</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.VisaService ? "yes" : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>Department</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.TransportationService ? "yes" : "no"}</p>
-
+                            <h4 >Name</h4>
+                            <p >{data.data.Name ? data.data.Name : "no"}</p>
+                            <h4 >Family Name</h4>
+                            <p >{data.data.familyname ? data.data.familyname : "no"}</p>
+                            <h4 >DestinationFrom</h4>
+                            <p  >{data.data.DestinationFrom ? data.data.DestinationFrom : "no"}</p>
+                            <h4 >DestinationTo</h4>
+                            <p  >{data.data.DestinationFrom ? data.data.DestinationTo : "no"}</p>
+                            
+                            <h4 >Number Of Passeneger</h4>
+                            <p  >{data.data.NumberOfPasseneger ? data.data.NumberOfPasseneger : "no"}</p>
+                            
+                            <h4 >Phone </h4>
+                            <p  >{data.data.Phone ? "yes" : "no"}</p>
+                            
 
                         </div>
                         <div className="col-sm-6 ">
 
 
-                            <h3 style={{ textAlign: "center" }}>Valid </h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Email ? data.data.Email : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>Phone </h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Phone ? "yes" : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>Valid </h3>
-                            <p style={{ textAlign: "center" }} >{data.data.CateringService ? "yes" : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>Location</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Notes ? "yes" : "no"}</p>
-                            <h3 style={{ textAlign: "center" }}>Location Arabic</h3>
-                            <p style={{ textAlign: "center" }} >{data.data.Date ? "yes" : "no"}</p>
-
+                            <h4 >Email </h4>
+                            <p  >{data.data.Email ? data.data.Email : "no"}</p>
+                            <h4 >Hotel Service</h4>
+                            <p  >{data.data.HotelService ? "yes"  : "no"}</p>
+                            <h4 >Transport Service</h4>
+                            <p  >{data.data.TransportationService ? "yes"  : "no"}</p>
+                            
+                            <h4 >Visa Service</h4>
+                            <p  >{data.data.VisaService ? data.data.VisaService : "no"}</p>
+                            <h4 >National Id</h4>
+                            <p  >{data.data.nationalid ? data.data.nationalid : "no"}</p>
+                            <h4 >Notes</h4>
+                            <p  >{data.data.Notes ? data.data.Notes : "no"}</p>
+                            
 
                         </div>
                         {/* <div className="col-sm-6 imge">

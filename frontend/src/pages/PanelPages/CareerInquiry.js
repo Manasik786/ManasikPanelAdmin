@@ -226,7 +226,9 @@ export default function CarrerInquiry() {
     return (
         <div className="productList">
               <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton></Modal.Header>
+                <Modal.Header closeButton>
+                    <h2>Careers Inquery</h2>
+                </Modal.Header>
                 <Careerinquiry data={modaldata} />
             </Modal>
             <DataGrid

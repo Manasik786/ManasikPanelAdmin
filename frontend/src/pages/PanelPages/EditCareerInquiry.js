@@ -105,7 +105,9 @@ export default function CareerInquiryEdit() {
   useEffect(() => {
     placeholderdata();
   }, []);
-
+  function BackFunction(){
+    history.replace("/CarrerInquiry");
+  }
   return (
     <div className="productList">
       <Typography
@@ -208,6 +210,22 @@ export default function CareerInquiryEdit() {
       </div>
       {/* 2001-02-28T19:00:00.000Z */}
       <div className="sliderbutton">
+      <Grid item xs={6} sm={6}>
+          <Button
+            ref={ref}
+            style={{
+              backgroundColor: "#ffba02",
+              color: "black",
+              height: "55px",
+              borderRadius: "5px",
+            }}
+            onClick={BackFunction}
+           
+            variant="contained"
+          >
+           BACK
+          </Button>
+        </Grid>
         <Grid item xs={6} sm={6}>
           <Button
             ref={ref}

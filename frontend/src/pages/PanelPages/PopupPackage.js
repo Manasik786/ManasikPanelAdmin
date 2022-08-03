@@ -161,7 +161,7 @@ console.log(data.data.CardDescriptions)
                  
                 </div>
                 <div className="col-sm-6 imge">
-                    <img src={data.data.images[0].url} width="50%"/>
+                    <img src={data.data.images[0].url} width="100%"/>
                 </div>
             </div>
          </div>

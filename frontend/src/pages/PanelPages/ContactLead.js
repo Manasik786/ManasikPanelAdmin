@@ -89,13 +89,7 @@ export default function Contactlead() {
             renderCell: params => {
                 return (
                     <>
-                        <button
-                            className="productListEdit"
-                            onClick={() => EditService(params.row._id)}
-                        >
-
-                            edit
-                        </button >
+                       
 
                         <DeleteOutline
                             className="productListDelete"

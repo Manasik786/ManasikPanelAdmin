@@ -75,14 +75,14 @@ export default function BookingForm() {
         //         return <div className="productListItem">{params.row.stayperiod ? params.row.stayperiod : "not given"}</div>;
         //     },
         // },
-        // {
-        //     field: 'Servicetype',
-        //     headerName: 'Servicetype',
-        //     width: 200,
-        //     renderCell: params => {
-        //         return <div className="productListItem">{params.row.Servicetype ? params.row.Servicetype : "not given"}</div>;
-        //     },
-        // },
+        {
+            field: 'Servicetype',
+            headerName: 'Servicetype',
+            width: 200,
+            renderCell: params => {
+                return <div className="productListItem">{params.row.Servicetype ? params.row.Servicetype : "not given"}</div>;
+            },
+        },
         {
             field: 'upload',
             headerName: 'image',
@@ -125,14 +125,14 @@ export default function BookingForm() {
                 return <div className="productListItem">{params.row.country ? params.row.country : "not given"}</div>;
             },
         },
-        {
-            field: 'Phone',
-            headerName: 'Phone',
-            width: 200,
-            renderCell: params => {
-                return <div className="productListItem">{params.row.Phone ? params.row.Phone : "not given"}</div>;
-            },
-        },
+        // {
+        //     field: 'Phone',
+        //     headerName: 'Phone',
+        //     width: 200,
+        //     renderCell: params => {
+        //         return <div className="productListItem">{params.row.Phone ? params.row.Phone : "not given"}</div>;
+        //     },
+        // },
           //   {
         //     field: 'passportno',
         //     headerName: 'passportno',

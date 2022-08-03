@@ -152,6 +152,7 @@ const PopupCareerView = (data) => {
             <h3 className="arabic-style">وصف</h3>
             <p className="arabic-style">{data.data.CardDescriptionsar}</p>
                 </div>
+                
                 {/* <div className="col-sm-6 imge">
                     <img src={data.data.images[0].url} width="100%"/>
                 </div> */}

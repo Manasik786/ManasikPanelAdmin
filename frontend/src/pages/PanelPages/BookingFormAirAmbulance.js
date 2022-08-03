@@ -215,7 +215,7 @@ export default function BookingFormAirAmbulance() {
         <div className="productList">
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <h3>Air Ambulance Inquery</h3>
+                    <h2>Air Ambulance Inquery</h2>
                 </Modal.Header>
                 <PopupBooking data={modaldata} />
             </Modal>

@@ -213,7 +213,9 @@ export default function BookingFormPackage() {
     return (
         <div className="productList">
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton></Modal.Header>
+                <Modal.Header closeButton>
+                    <h2>Package Inquery</h2>
+                </Modal.Header>
                 <PopupBooking data={modaldata} />
             </Modal>
             <DataGrid

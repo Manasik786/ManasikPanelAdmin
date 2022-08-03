@@ -155,7 +155,7 @@ h5 {
 }
 
 .sliderbutton {
-  width: 80%;
+  width: 95%;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -195,3 +195,44 @@ span.spanclass1 {
   background-color: #fff;
   display: none;
 }
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90% !important;
+  background: rgb(211, 211, 211) !important;
+  color: var(--bs-modal-color);
+  pointer-events: auto;
+  /* background-color: var(--bs-modal-bg); */
+  background-clip: padding-box;
+  border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+  border-radius: var(--bs-modal-border-radius);
+  outline: 0;
+  margin: auto !important;
+}
+
+.modal-header {
+  background: #222D32 !important;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bs-modal-header-padding);
+  border-bottom: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
+  border-top-left-radius: var(--bs-modal-inner-border-radius);
+  border-top-right-radius: var(--bs-modal-inner-border-radius);
+}
+
+.h2, h2 {
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+select {
+  word-wrap: normal;
+  height: 35px;
+  width: 120px;
+  text-align: center;
+}
+

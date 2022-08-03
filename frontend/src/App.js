@@ -60,6 +60,8 @@ import Editapplicantstatus from "./pages/PanelPages/EditStatus";
 import BookingFormAirAmbulance from "./pages/PanelPages/BookingFormAirAmbulance";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import ContactEdit from "./pages/PanelPages/EditContact"
+
 function App() {
   useEffect(() => {
     document.title = "Manasik Admin Portal";
@@ -122,6 +124,16 @@ function App() {
             render={() =>
               window.localStorage.getItem("isAuthenticated") ? (
                 <EditPackages />
+              ) : (
+                (window.location.href = "/")
+              )
+            }
+          />
+          <Route
+            path="/editcontact"
+            render={() =>
+              window.localStorage.getItem("isAuthenticated") ? (
+                <ContactEdit />
               ) : (
                 (window.location.href = "/")
               )

@@ -186,7 +186,9 @@ export default function UserList() {
   return (
     <div className="productList">
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton></Modal.Header>
+        <Modal.Header closeButton>
+          <h2>Service View</h2>
+        </Modal.Header>
         <Popup data={modaldata} />
       </Modal>
       <DataGrid

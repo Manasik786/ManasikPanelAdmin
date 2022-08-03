@@ -127,7 +127,9 @@ export default function EditPackages() {
   useEffect(() => {
     placeholderdata();
   }, []);
-
+  function BackFunction(){
+    history.replace("/managepackage");
+  }
   return (
     <div className="productList">
       <Typography
@@ -241,6 +243,22 @@ export default function EditPackages() {
       </div>
 
       <div className="sliderbutton">
+      <Grid item xs={6} sm={6}>
+          <Button
+            ref={ref}
+            style={{
+              backgroundColor: "#ffba02",
+              color: "black",
+              height: "55px",
+              borderRadius: "5px",
+            }}
+            onClick={BackFunction}
+           
+            variant="contained"
+          >
+           BACK
+          </Button>
+        </Grid>
         <Grid item xs={6} sm={6}>
           <Button
             ref={ref}
@@ -257,6 +275,7 @@ export default function EditPackages() {
           </Button>
         </Grid>
       </div>
+    
     </div>
   );
 }

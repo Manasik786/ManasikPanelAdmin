@@ -175,12 +175,12 @@ export default function Sidebar() {
                 Gallery
               </li>
             </Link>
-            <Link to="/SocailLink" className="link">
+            {/* <Link to="/SocailLink" className="link">
               <li className="sidebarListItem">
                 <PublicIcon src={social} />
                 Socail Link
               </li>
-            </Link>
+            </Link> */}
 
             {/* <Link to="/careerview" className="link">
               <li className="sidebarListItem">
