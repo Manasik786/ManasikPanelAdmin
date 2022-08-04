@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 export default function AmbulanceAddition() {
   const ref = useRef(null);
@@ -64,8 +65,10 @@ export default function AmbulanceAddition() {
         myForm
       );
       console.log(response);
+      Swal.fire("Saved", '', 'success');
       history.replace("/airambulanceservices");
     } catch (err) {
+      Swal.fire("Error", '', 'error');
       console.log(err.data);
     }
   };

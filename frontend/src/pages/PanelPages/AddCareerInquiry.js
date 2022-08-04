@@ -3,6 +3,8 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import "react-quill/dist/quill.snow.css";
+import Swal from "sweetalert2";
+
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 export default function CareerInquiryAddition() {
@@ -78,9 +80,11 @@ export default function CareerInquiryAddition() {
     try {
       const response = await axios.post(`/api/v1/createCareerInquiry`, myForm);
       console.log(response);
+      Swal.fire("Saved", '', 'success');
       history.replace("/CarrerInquiry");
     } catch (err) {
       console.log(err.data);
+       Swal.fire("Error!", '', 'error');
     }
   };
 

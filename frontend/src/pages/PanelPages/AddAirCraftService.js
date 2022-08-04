@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
+import Swal from "sweetalert2";
 import { Link, useHistory } from 'react-router-dom';
 export default function AddAirCraft() {
     const Stylings = {
@@ -71,10 +72,13 @@ export default function AddAirCraft() {
                 `/api/v1/CardItems/${preditdata._id}`, myForm
             );
             console.log(response)
+            
+Swal.fire("Saved", '', 'success');
             history.replace("/services")
 
         } catch (err) {
             console.log(err.data)
+            Swal.fire("Error", '', 'error');
         }
 
 

@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@material-ui/core";
 import { Grid } from "@mui/material";
 import "react-quill/dist/quill.snow.css";
+import Swal from "sweetalert2";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 export default function PackagesAddition() {
@@ -83,8 +84,14 @@ export default function PackagesAddition() {
       const response = await axios.post(`/api/v1/createPackageView`, myForm);
       console.log(response);
       history.replace("/managepackage");
+      Swal.fire("Saved", '', 'success');
+
+
     } catch (err) {
       console.log(err.data);
+      
+          Swal.fire("Error", '', 'error');
+      
     }
     console.log(myForm);
   };
