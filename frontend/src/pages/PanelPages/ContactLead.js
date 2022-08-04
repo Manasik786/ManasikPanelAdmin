@@ -4,6 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Poppup from "./PopupContact";
+import Swal from "sweetalert2";
 
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
@@ -55,6 +56,7 @@ export default function Contactlead() {
         const { data } = await axios.delete(`/api/v1/ContactLead/${_id}`, {
             params: { id: _id },
         });
+        Swal.fire("Deleted!", '', 'error');
         getdata();
         console.log(data);
     };

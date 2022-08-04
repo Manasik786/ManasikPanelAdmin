@@ -6,6 +6,8 @@ import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import PopupBooking from "./PopupBooking";
+import Swal from 'sweetalert2';
+
 export default function BookingFormPackage() {
     let history = useHistory();
     const Stylings = {
@@ -43,6 +45,7 @@ export default function BookingFormPackage() {
         const { data } = await axios.delete(`/api/v1/BookingForm/${_id}`, {
             params: { id: _id },
         });
+        Swal.fire("Deleted!", '', 'error');
         getdata();
         console.log(data);
     };

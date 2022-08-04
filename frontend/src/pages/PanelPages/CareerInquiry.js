@@ -6,7 +6,7 @@ import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import Careerinquiry from "./CareerInquiryPopup";
-
+import Swal from "sweetalert2";
 export default function CarrerInquiry() {
     let history = useHistory();
     const Stylings = {
@@ -55,6 +55,7 @@ export default function CarrerInquiry() {
         const { data } = await axios.delete(`/api/v1/CareerInquiry/${_id}`, {
             params: { id: _id },
         });
+        Swal.fire("Deleted!", '', 'error');
         getdata();
         console.log(data);
     };

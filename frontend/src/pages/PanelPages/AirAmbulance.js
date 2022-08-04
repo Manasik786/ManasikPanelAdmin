@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
+import Swal from 'sweetalert2';
+
 import PopupAirAmbulance from "./PopupAirAmbulance";
 export default function Ambulance() {
   let history = useHistory();
@@ -46,6 +48,7 @@ export default function Ambulance() {
     const { data } = await axios.delete(`/api/v1/AirAmbulance/${_id}`, {
       params: { id: _id },
     });
+    Swal.fire("Deleted!", '', 'error');
     getdata();
     console.log(data);
   };

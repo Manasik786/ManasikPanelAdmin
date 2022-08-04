@@ -3,6 +3,8 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+
 import { Link, useHistory } from 'react-router-dom';
 export default function Slider() {
     let history = useHistory();
@@ -46,6 +48,7 @@ export default function Slider() {
         const { data } = await axios.delete(`/api/v1/slider/${_id}`, {
             params: { id: _id },
         });
+        Swal.fire("Deleted!", '', 'error');
         getdata();
         console.log(data);
     };

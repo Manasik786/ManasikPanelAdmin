@@ -6,6 +6,8 @@ import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import AirCraftPopup from "./AirCraftPopup";
+import Swal from 'sweetalert2';
+
 export default function AirCraft() {
     let history = useHistory();
     const Stylings = {
@@ -55,6 +57,7 @@ export default function AirCraft() {
         const { data } = await axios.delete(`/api/v1/AirCraftService/${_id}`, {
             params: { id: _id },
         });
+        Swal.fire("Deleted!", '', 'error');
         getdata();
         console.log(data);
     };

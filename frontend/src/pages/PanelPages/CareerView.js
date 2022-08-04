@@ -6,6 +6,8 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import PopupCareerView from "./PopupCareerView";
+import Swal from "sweetalert2";
+
 export default function CareerView() {
   let history = useHistory();
   const [show, setShow] = useState(false);
@@ -48,6 +50,7 @@ export default function CareerView() {
     const { data } = await axios.delete(`/api/v1/careerView/${_id}`, {
       params: { id: _id },
     });
+    Swal.fire("Deleted!", '', 'error');
     getdata();
     console.log(data);
   };

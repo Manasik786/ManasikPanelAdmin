@@ -236,3 +236,12 @@ select {
   text-align: center;
 }
 
+
+
+.imagepreview{
+  width:300px;
+  height:300px;
+}
+.statuspage{
+  margin:5px;
+}

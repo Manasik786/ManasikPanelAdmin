@@ -150,24 +150,24 @@ export default function Editapplicantstatus() {
             >
                 Applicants Panel Edit
             </Typography>
-            <label >Name:    {preditdata.Name}</label>
+            <label className='statuspage' >Name:    {preditdata.Name}</label>
             <br />
-            <label>Nationality:    {preditdata.Nationality}</label>
+            <label className='statuspage'>Nationality:    {preditdata.Nationality}</label>
             <br />
-            <label>Position:    {preditdata.Position}</label>
+            <label className='statuspage'>Position:    {preditdata.Position}</label>
             <br />
-            <label>Gender:    {preditdata.Gender}</label>
+            <label className='statuspage'>Gender:    {preditdata.Gender}</label>
             <br />
-            <label>Phone:    {preditdata.Phone}</label>
+            <label className='statuspage'>Phone:    {preditdata.Phone}</label>
             <br />
-            <label>Email:    {preditdata.Email}</label>
+            <label className='statuspage'>Email:    {preditdata.Email}</label>
             <br />
             {/* <img src={preditdata.images[0].url} /> */}
             <br />
 
-            <label for="Status">Update Status:</label>
+            <label className="statuspage" for="Status">Update Status:</label>
 
-            <select name="Status" id="Status" onChange={handleChange} >
+            <select name="Status" id="Status"  className="statuspage" onChange={handleChange} >
                 <option value="Pending">Pending</option>
                 <option value="Accepted">Accepted</option>
                 <option value="Rejected">Rejected</option>

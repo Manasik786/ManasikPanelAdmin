@@ -6,6 +6,8 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./images.css"
+import Swal from 'sweetalert2';
+
 export default function ServicesAddition() {
   const [display, setdisplay] = useState("none")
   const style = {
@@ -70,9 +72,13 @@ export default function ServicesAddition() {
       // };
       const response = await axios.post(`/api/v1/CreateCardList`, myForm);
       console.log(response);
+      Swal.fire('Saved!', '', 'success');
       history.replace("/services");
+
     } catch (err) {
+      const Error = err.data
       console.log(err.data);
+      Swal.fire("Error!", '', 'error');
     }
   };
   const createServiceImagesChange = (e) => {
@@ -84,7 +90,6 @@ export default function ServicesAddition() {
 
     files.forEach((file) => {
       const reader = new FileReader();
-
       reader.onload = () => {
         if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
@@ -96,6 +101,9 @@ export default function ServicesAddition() {
       setdisplay("inline-block")
     });
   };
+  function handleImage(){
+    Swal.fire('Enter Required Field!', '', 'error');
+  }
   return (
     <div className="productList">
       <Typography
@@ -114,6 +122,7 @@ export default function ServicesAddition() {
             <input
               type="text"
               name="CardTitle"
+              required
               value={data.CardTitle}
               onChange={handleChange}
             />
@@ -125,6 +134,7 @@ export default function ServicesAddition() {
               name="CardTitlear"
               value={data.CardTitlear}
               onChange={handleChange}
+              required
             />
           </span>
         </div>
@@ -136,6 +146,7 @@ export default function ServicesAddition() {
               cols="68"
               name="CardDescriptions"
               className="largetext"
+              required
               value={data.CardDescriptions}
               placeholder="write service description here"
 
@@ -147,6 +158,7 @@ export default function ServicesAddition() {
             <textarea
               rows="10"
               cols="68"
+              required
               className="largetext"
               name="CardDescriptionsar"
               value={data.CardDescriptionsar}
@@ -169,6 +181,7 @@ export default function ServicesAddition() {
           accept="image/*"
           onChange={createServiceImagesChange}
           multiple
+          required
         />
       </div>
 
@@ -178,7 +191,24 @@ export default function ServicesAddition() {
 
       <div className="sliderbutton">
         <Grid item xs={6} sm={6}>
-          <Button
+          {
+            images == '' || images == undefined ? <>
+             <Button
+            ref={ref}
+            style={{
+              backgroundColor: "#ffba02",
+              color: "black",
+              height: "55px",
+              borderRadius: "5px",
+            }}
+
+            onClick={handleImage}
+            variant="contained"
+          >
+            Submit
+          </Button>
+            </> : <>
+            <Button
             ref={ref}
             style={{
               backgroundColor: "#ffba02",
@@ -192,6 +222,9 @@ export default function ServicesAddition() {
           >
             Submit
           </Button>
+            </>
+          }
+         
         </Grid>
       </div>
     </div>
