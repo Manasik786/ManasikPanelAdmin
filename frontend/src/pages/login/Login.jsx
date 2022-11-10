@@ -35,7 +35,7 @@ function Copyright(props) {
 }
 
 const Validation = async (username, password) => {
-  if (username == "admin" && password == "admin") {
+  if (username == "manasik" && password == "pehlepaisa") {
     console.log(username, password);
   }
   console.log(username, password);
